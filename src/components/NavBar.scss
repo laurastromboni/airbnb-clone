@@ -1,0 +1,63 @@
+.NavBar{
+  width: 100%;
+  height: 80px;
+  border: 1px solid rgb(224, 224, 224);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 10px;
+  .NavBar-leftside{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    .App-logo{
+      margin: 0 10px;
+    }
+  }
+  .NavBar-rightside-1{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    ul{
+      padding-inline-start: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 0;
+      li{
+        list-style-type: none;
+        padding: 0 10px;
+        text-align: center;
+      }
+      li:hover{
+        font-weight: bold;
+      }
+    }
+    .App-user{
+      height: 40px;
+      margin: 0 10px;
+    }
+  }
+  .NavBar-rightside-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    .App-menu{
+      height: 40px;
+      margin: 0 10px 0 0;
+    }
+  }
+  @media (min-width: 992px){
+    .NavBar-rightside-2{
+      display: none;
+    }
+  }
+  @media (max-width: 992px){
+    .NavBar-rightside-1{
+      display: none;
+    }
+    .NavBar-rightside-2{
+      padding: 0;
+    }
+  }
+}

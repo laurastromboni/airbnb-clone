@@ -1,0 +1,29 @@
+.SearchBar{
+  input{
+    background-color: #ffffff !important;
+    -webkit-transition: box-shadow 200ms ease-in !important;
+    -moz-transition: box-shadow 200ms ease-in !important;
+    transition: box-shadow 200ms ease-in !important;
+    border: 1px solid #EBEBEB !important;
+    border-radius: 4px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+    height: 48px !important;
+    width: 400px;
+    margin: 0 10px;
+  }
+  @media (max-width: 576px){
+    input{
+      width: 300px;
+    }
+  }
+  @media (max-width: 500px){
+    input{
+      width: 230px;
+    }
+  }
+  @media (max-width: 450px){
+    input{
+      width: 210px;
+    }
+  }
+}

@@ -1,0 +1,98 @@
+// COLORS
+// ----------------------------------------------------------------
+
+$darkgrey : #484848;
+$lightgrey : #aaa;
+$purple : rgb(132, 2, 41);
+$pink : #FF5A5F;
+$turquoise : #008489;
+
+// FONTS
+// ----------------------------------------------------------------
+
+@font-face {
+  font-family: 'Cereal-Bold';
+  src: url('/font/Cereal-Bold.ttf') format('truetype');
+  }
+
+$cerBold: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+$cerBook: 'Cereal-Book', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+$cerMed: 'Cereal-Medium', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+
+// Big title (inside place details pages)
+h1{
+  font-size: 46px;
+  font-family: $cerMed;
+  font-weight: normal;
+  color: $darkgrey;
+}
+
+// Medium titles (inside gallery of places)
+h2{
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: normal;
+  font-family: $cerBold; 
+  color: $darkgrey;
+}
+
+// Little titles (inside place details pages)
+h3{
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 28px;
+  letter-spacing: -0.2px;
+  font-family: $cerBold; 
+  color: $darkgrey;
+}
+
+// Subtitles
+h4{
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: normal;
+  font-family: $cerBook;
+  color: $darkgrey;
+}
+
+// Paragraphs previews (inside gallery of places) or Menu <li>
+h5{
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  line-height: 18px;
+  font-family: $cerBook;
+  color: $darkgrey;
+}
+
+// Reviews of places
+h6{
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: normal;
+  font-family: $cerMed;
+  color: $darkgrey;
+}
+
+// Paragraphs (inside place details pages) or Subtitles (inside gallery of places)
+p{
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: normal;
+  font-family: $cerBook;
+  color: $darkgrey;
+}
+
+// Mono
+span{
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: normal;
+  font-family: $cerMed;
+  color: $purple;
+}
