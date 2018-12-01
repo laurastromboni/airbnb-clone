@@ -1,0 +1,29 @@
+.Footer{
+  height: auto;
+  padding: 0 15%;
+  padding-bottom: 50px;
+  .list{
+    display: flex;
+    flex-direction: row;
+    padding-top: 50px;
+    ul{
+      padding-inline-start: 0;
+      h5{
+        text-align: left;
+      }
+      li{
+        list-style-type: none;
+        text-align: left;
+      }
+      .social-medias{
+        .icon{
+          height: 20px;
+          padding: 0 3%;
+        }
+      }
+    }
+  }
+  .logo{
+    height: 40px;
+  }
+}
