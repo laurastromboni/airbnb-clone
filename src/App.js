@@ -6,6 +6,7 @@ import PlacesList from "./components/PlacesList.js";
 import HomePage from "./components/HomePage.js";
 import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
+import SingleMap from "./components/SingleMap.js";
 
 import './App.scss';
 import './components/FontColors.scss';
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/houselisting" component={PlacesList} />
           <Route path="/houses/:houseId" component={PlaceDetails}/>
+          <Route path="/maps" component={SingleMap}/>
           
           <Route component = {NotFound} />
         </Switch> 
