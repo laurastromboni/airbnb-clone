@@ -21,7 +21,7 @@ class PlacesList extends Component{
 
 componentDidMount(){
   const {allResults} = this.state;
-  axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-ratings&rows=10&sort=number_of_reviews`)
+  axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-ratings&rows=50&sort=number_of_reviews`)
       .then(response =>{
           console.log(response.data.records)
           response.data.records.map(oneHouse=>{
