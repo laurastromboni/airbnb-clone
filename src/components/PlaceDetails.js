@@ -37,22 +37,27 @@ class PlaceDetails extends Component{
             <div className="content-left col-lg-8">
               <div className="span">{oneHouse.fields.property_type}</div>
               <h3>{oneHouse.fields.name}</h3>
-              <h4>{oneHouse.fields.price}$ per night</h4>
-              <div className="reviews">
-                <StarRatingComponent 
-                  name="rate1" 
-                  editing={false}
-                  starCount={5}
-                  value={Math.round(oneHouse.fields.review_scores_rating/20)}
-                />
-                <h6>{oneHouse.fields.number_of_reviews}</h6>
-              </div>
               </div>
               <div className="content-right col-lg-4">
+                <div className="price">
+                  <h2>{oneHouse.fields.price}$</h2>
+                  <h5>per night</h5>
+                </div>
+                <div className="reviews">
+                  <StarRatingComponent 
+                    name="rate1" 
+                    editing={false}
+                    starCount={5}
+                    value={Math.round(oneHouse.fields.review_scores_rating/20)}
+                  />
+                  <h6>{oneHouse.fields.number_of_reviews}</h6>
+                </div>
+                <hr />
+                <button className="booking-button">Ask for booking</button>
               </div>
           </div>
           <div className="col-lg-12">
-            <Link to="/houselisting">Back to all projects</Link>
+            <Link to="/houselisting">Back to all places</Link>
           </div>
         </section>
     )
