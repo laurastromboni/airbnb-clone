@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { Switch, Route, NavLink } from 'react-router-dom'
 import SearchBar from "./SearchBar.js";
 
 import './NavBar.scss';
@@ -14,7 +14,7 @@ class NavBar extends Component{
     return(
       <section className="NavBar">
         <div className="NavBar-leftside col-lg-4 col-md-4 col-sm-4 col-xs-2">
-          <img src={logo} className="App-logo" alt="logo" />
+          <NavLink exact to="/"><img src={logo} className="App-logo" alt="logo" /></NavLink>
           <SearchBar />
         </div>
         <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8 col-xs-10">
