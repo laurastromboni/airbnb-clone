@@ -31,7 +31,7 @@ class PlaceDetails extends Component{
     return(
         <section className = "PlaceDetails">
           <div className="img-div">
-            <img src = {oneHouse.fields.medium_url} alt='housepic' />
+            <img src = {oneHouse.fields.xl_picture_url} alt='housepic' />
           </div>
           <div className= "content">
             <div className="content-left col-lg-8">
