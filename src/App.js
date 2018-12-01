@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom'
 import NavBar from "./components/NavBar.js";
 import PlaceDetails from "./components/PlaceDetails.js";
 import PlacesList from "./components/PlacesList.js";
-import Filters from "./components/Filters.js";
 import HomePage from "./components/HomePage.js";
 import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
@@ -16,8 +15,6 @@ class App extends Component {
     return (
       <div className="App">
         <NavBar />
-        <Filters />
-
 
         <Switch>
           <Route exact path="/" component={HomePage} />
