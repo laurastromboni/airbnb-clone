@@ -15,7 +15,7 @@ class Filters extends Component{
         <div className="col-lg-4 col-md-4 col-sm-12 filter-div">
           <h4>When</h4>
           <div>
-            <input type="text" name="when-1" placeholder="Check in" /> > <input name="when-1" placeholder="Check in" />
+            <input type="text" name="when-1" placeholder="Check in" /> → <input name="when-1" placeholder="Check in" />
           </div>
         </div>
         <div className="col-lg-5 col-md-5 col-sm-12 search-div">

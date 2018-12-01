@@ -23,13 +23,17 @@
         background-color:#FF5A5F;
         padding: 10px 50px;
         border-radius: 10px;
-        border: none;
+        border:none;
+        outline: none;
       }
     }
     @media (max-width:980px){
       .search-btn{
         flex-direction: column;
         justify-content: center;
+        .search-button{
+          margin-top: 10px;
+        }
       }
     }
   }
