@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
 import axios from 'axios'
+import StarRatingComponent from 'react-star-rating-component';
 
 import Header from "./Header.js"
 import SingleMap from "./SingleMap.js"
 
 import './PlacesList.scss';
 import './FontColors.scss';
-import StarRatingComponent from 'react-star-rating-component';
 
 function houseUrl(oneHouse){
   return `/houses/${oneHouse.recordid}`;

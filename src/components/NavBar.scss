@@ -6,6 +6,9 @@
   flex-direction: row;
   align-items: center;
   padding: 0 10px;
+  position: fixed;
+  z-index: 1000;
+  background-color: white;
   .NavBar-leftside{
     display: flex;
     flex-direction: row;

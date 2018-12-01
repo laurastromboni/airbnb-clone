@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import mapicon from '../images/map-icon.png';
+import mapicon from '../images/map-icon.svg';
 import {Link} from "react-router-dom"
 
 import './SingleMap.scss';
@@ -9,7 +9,7 @@ import './FontColors.scss';
 function houseUrl(oneHouse){
     return `/houses/${oneHouse.recordid}`;
   }
-const AnyReactComponent = ({ oneloc }) => <div>{<Link to={houseUrl(oneloc)}><img className = "map-icon" src={mapicon} /></Link>}</div>;
+const AnyReactComponent = ({ oneloc }) => <div>{<Link to={houseUrl(oneloc)}><img className = "map-icon" src={mapicon} alt="map" /></Link>}</div>;
  
 class SimpleMap extends Component {
   static defaultProps = {
