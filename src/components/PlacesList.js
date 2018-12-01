@@ -21,7 +21,7 @@ componentDidMount(){
           console.log(response.data.records)
           response.data.records.map(oneHouse=>{
               return(
-              allResults.push(oneHouse.fields.name)
+              allResults.push(oneHouse)
               )})
           this.setState({allResults})
       })
@@ -37,8 +37,10 @@ componentDidMount(){
           <ul>
               {this.state.allResults.map(oneHouse =>{
                   return(
-                      <li >
-                          <p>{oneHouse}</p>
+                      <li key = {oneHouse.recordid}>
+                          <h3>{oneHouse.fields.name}</h3>
+                          <h4>Price per night :  {oneHouse.fields.price}$</h4>
+                          <p>number of reviews : {oneHouse.fields.number_of_reviews}</p>
                       </li>
                   )
               })}
