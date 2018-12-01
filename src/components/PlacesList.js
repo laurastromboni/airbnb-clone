@@ -39,6 +39,7 @@ componentDidMount(){
                   return(
                       <li key = {oneHouse.recordid}>
                           <h3>{oneHouse.fields.name}</h3>
+                          <img src = {oneHouse.fields.medium_url} alt='housepic' />
                           <h4>Price per night :  {oneHouse.fields.price}$</h4>
                           <p>number of reviews : {oneHouse.fields.number_of_reviews}</p>
                       </li>
