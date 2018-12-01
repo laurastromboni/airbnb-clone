@@ -109,3 +109,16 @@ span{
   font-family: $cerMed;
   color: $purple;
 }
+
+
+// LINKS
+// ----------------------------------------------------------------
+
+a{
+  color: $darkgrey;
+}
+
+a:hover{
+  text-decoration: none;
+  color: $darkgrey;
+}
