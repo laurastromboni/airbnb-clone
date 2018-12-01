@@ -4,6 +4,7 @@ import axios from 'axios'
 import data from '../data.json'
 import './PlaceDetails.scss';
 import './FontColors.scss';
+import StarRatingComponent from 'react-star-rating-component';
 
 function findHouse(idFromUrl){
   return data.records.find(oneHouse => {
@@ -35,7 +36,12 @@ class PlaceDetails extends Component{
         <h3>{oneHouse.fields.name}</h3>
         <h4>Price per night :  {oneHouse.fields.price}$</h4>
         <p>number of reviews : {oneHouse.fields.number_of_reviews}</p>
-        
+        <StarRatingComponent 
+          name="rate1" 
+          editing={false}
+          starCount={5}
+          value={Math.round(oneHouse.fields.review_scores_rating/20)}
+        />
         <Link to="/houselisting">Back to all projects</Link>
         </section>
     )

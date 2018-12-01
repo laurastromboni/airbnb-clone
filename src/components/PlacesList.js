@@ -4,6 +4,7 @@ import './PlacesList.scss';
 import './FontColors.scss';
 import {Link} from "react-router-dom"
 import star from '../images/star.svg';
+import StarRatingComponent from 'react-star-rating-component';
 
 function houseUrl(oneHouse){
   return `/houses/${oneHouse.recordid}`;
@@ -21,7 +22,7 @@ class PlacesList extends Component{
 
 componentDidMount(){
   const {allResults} = this.state;
-  axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-ratings&rows=50&sort=number_of_reviews`)
+  axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-ratings&rows=100&sort=number_of_reviews`)
       .then(response =>{
           console.log(response.data.records)
           response.data.records.map(oneHouse=>{
@@ -47,11 +48,12 @@ componentDidMount(){
                           <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
                           <h5>{oneHouse.fields.price}$ per night</h5>
                           <div className="reviews">
-                              <img src={star} className="star" alt="review" />
-                              <img src={star} className="star" alt="review" />
-                              <img src={star} className="star" alt="review" />
-                              <img src={star} className="star" alt="review" />
-                              <img src={star} className="star" alt="review" /> 
+                          <StarRatingComponent 
+                            name="rate1" 
+                            editing={false}
+                            starCount={5}
+                            value={Math.round(oneHouse.fields.review_scores_rating/20)}
+                          />
                               <h6>{oneHouse.fields.number_of_reviews}</h6>
                           </div>
                       </li>
