@@ -6,7 +6,6 @@ import Header from "./Header.js"
 
 import './PlacesList.scss';
 import './FontColors.scss';
-import star from '../images/star.svg';
 import StarRatingComponent from 'react-star-rating-component';
 
 function houseUrl(oneHouse){
@@ -48,7 +47,7 @@ componentDidMount(){
               {this.state.allResults.map(oneHouse =>{
                   return(
                       <li key = {oneHouse.recordid} className="col-lg-3 col-md-4 col-sm-6">
-                          <div class="place-img"><img src = {oneHouse.fields.medium_url} alt='housepic' /></div>
+                          <div className="place-img"><img src = {oneHouse.fields.medium_url} alt='housepic' /></div>
                           <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
                           <h5>{oneHouse.fields.price}$ per night</h5>
                           <div className="reviews">
