@@ -35,7 +35,7 @@ $cerMed: 'Cereal-Medium', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica 
 // Big title (inside place details pages)
 h1{
   font-size: 46px;
-  font-family: $cerMed;
+  font-family: $cerBook;
   font-weight: normal;
   color: $darkgrey;
 }
@@ -108,6 +108,22 @@ span{
   letter-spacing: normal;
   font-family: $cerMed;
   color: $purple;
+}
+
+@media (max-width: 980px){
+  h1{
+    font-size: 38px;
+  }
+}
+@media (max-width: 700px){
+  h1{
+    font-size: 30px;
+  }
+}
+@media (max-width: 560px){
+  h1{
+    font-size: 25px;
+  }
 }
 
 

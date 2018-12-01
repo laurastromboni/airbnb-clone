@@ -1,5 +1,9 @@
 .PlacesList{
   width: 100%;
+  h3{
+    text-align: left;
+    padding: 15px 15px;
+  }
   ul {
     padding-inline-start: 0;
     display: flex;

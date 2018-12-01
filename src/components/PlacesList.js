@@ -1,8 +1,11 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom"
 import axios from 'axios'
+
+import Header from "./Header.js"
+
 import './PlacesList.scss';
 import './FontColors.scss';
-import {Link} from "react-router-dom"
 import star from '../images/star.svg';
 
 function houseUrl(oneHouse){
@@ -38,7 +41,8 @@ componentDidMount(){
   render(){
     return(
       <section className="PlacesList col-lg-12">
-        <h2>Places List</h2>
+          <Header />
+          <h3>Our recommandations</h3>
           <ul className="col-lg-12">
               {this.state.allResults.map(oneHouse =>{
                   return(
