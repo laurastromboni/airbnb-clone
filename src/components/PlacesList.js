@@ -7,7 +7,6 @@ import SingleMap from "./SingleMap.js"
 
 import './PlacesList.scss';
 import './FontColors.scss';
-import star from '../images/star.svg';
 import StarRatingComponent from 'react-star-rating-component';
 
 function houseUrl(oneHouse){
@@ -49,20 +48,20 @@ componentDidMount(){
           <ul className="col-lg-8">
               {this.state.allResults.map(oneHouse =>{
                   return(
-                        <li key = {oneHouse.recordid} className="col-lg-3 col-md-4 col-sm-6">
-                            <div class="place-img"><img src = {oneHouse.fields.medium_url} alt='housepic' /></div>
-                            <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
-                            <h5>{oneHouse.fields.price}$ per night</h5>
-                            <div className="reviews">
-                            <StarRatingComponent 
-                              name="rate1" 
-                              editing={false}
-                              starCount={5}
-                              value={Math.round(oneHouse.fields.review_scores_rating/20)}
-                            />
-                                <h6>{oneHouse.fields.number_of_reviews}</h6>
-                            </div>
-                        </li>
+                      <li key = {oneHouse.recordid} className="col-lg-3 col-md-4 col-sm-6">
+                          <div className="place-img"><img src = {oneHouse.fields.xl_picture_url} alt='housepic' /></div>
+                          <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
+                          <h5>{oneHouse.fields.price}$ per night</h5>
+                          <div className="reviews">
+                          <StarRatingComponent 
+                            name="rate1" 
+                            editing={false}
+                            starCount={5}
+                            value={Math.round(oneHouse.fields.review_scores_rating/20)}
+                          />
+                              <h6>{oneHouse.fields.number_of_reviews}</h6>
+                          </div>
+                      </li>
                   )
                 })}
           </ul>
