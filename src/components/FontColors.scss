@@ -12,8 +12,21 @@ $turquoise : #008489;
 
 @font-face {
   font-family: 'Cereal-Bold';
-  src: url('/font/Cereal-Bold.ttf') format('truetype');
-  }
+  src: url('../font/Cereal-Bold.eot') format('embedded-opentype'),
+       url('../font/Cereal-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal-Book';
+  src: url('../font/Cereal-Book.eot') format('embedded-opentype'),
+       url('../font/Cereal-Book.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Cereal-Medium';
+  src: url('../font/Cereal-Medium.eot') format('embedded-opentype'),
+       url('../font/Cereal-Medium.ttf') format('truetype');
+}
 
 $cerBold: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
 $cerBook: 'Cereal-Book', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
