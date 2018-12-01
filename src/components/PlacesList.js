@@ -3,7 +3,7 @@ import axios from 'axios'
 import './PlacesList.scss';
 import './FontColors.scss';
 import {Link} from "react-router-dom"
-
+import star from '../images/star.svg';
 
 function houseUrl(oneHouse){
   return `/houses/${oneHouse.recordid}`;
@@ -37,16 +37,23 @@ componentDidMount(){
 }
   render(){
     return(
-      <section className="PlacesList">
+      <section className="PlacesList col-lg-12">
         <h2>Places List</h2>
-          <ul>
+          <ul className="col-lg-12">
               {this.state.allResults.map(oneHouse =>{
                   return(
-                      <li key = {oneHouse.recordid}>
-                          <h3><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h3>
-                          <img src = {oneHouse.fields.medium_url} alt='housepic' />
-                          <h4>Price per night :  {oneHouse.fields.price}$</h4>
-                          <p>number of reviews : {oneHouse.fields.number_of_reviews}</p>
+                      <li key = {oneHouse.recordid} className="col-lg-3 col-md-4 col-sm-6">
+                          <div class="place-img"><img src = {oneHouse.fields.medium_url} alt='housepic' /></div>
+                          <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
+                          <h5>{oneHouse.fields.price}$ per night</h5>
+                          <div className="reviews">
+                              <img src={star} className="star" alt="review" />
+                              <img src={star} className="star" alt="review" />
+                              <img src={star} className="star" alt="review" />
+                              <img src={star} className="star" alt="review" />
+                              <img src={star} className="star" alt="review" /> 
+                              <h6>{oneHouse.fields.number_of_reviews}</h6>
+                          </div>
                       </li>
                   )
               })}

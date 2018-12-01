@@ -19,11 +19,11 @@ class NavBar extends Component{
         </div>
         <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8 col-xs-10">
           <ul>
-            <li>Devenez Hôte</li>
-            <li>Listes</li>
-            <li>Voyages</li>
+            <li>Become a Host</li>
+            <li>Saved</li>
+            <li>Trips</li>
             <li>Messages</li>
-            <li>Aide</li>
+            <li>Help</li>
           </ul>
           <img src={user} className="App-user" alt="logo" />
         </div>

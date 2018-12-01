@@ -5,6 +5,7 @@ import PlaceDetails from "./components/PlaceDetails.js";
 import PlacesList from "./components/PlacesList.js";
 import Filters from "./components/Filters.js";
 import HomePage from "./components/HomePage.js";
+import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
 
 import './App.scss';
@@ -25,6 +26,8 @@ class App extends Component {
           
           <Route component = {NotFound} />
         </Switch> 
+
+        <Footer />
 
       </div>
     );
