@@ -17,13 +17,13 @@ class SimpleMap extends Component {
       lat: 37.787994,
       lng: -122.407437
     },
-    zoom: 1
+    zoom: 12
   };
  
   render() {
     return (
       // Important! Always set the container height explicitly
-      <div style={{ height: '70vh', width: '100%' }}>
+      <div style={{ height: '80vh', width: '100%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.GOOGLE_MAPS_API }}
           defaultCenter={this.props.center}
