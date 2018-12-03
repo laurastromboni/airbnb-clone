@@ -26,10 +26,10 @@ class PlacesList extends Component{
 
 componentDidMount(){
   const {allResults} = this.state;
-  axios.get(`https://public.opendatasoft.com/api/records/1.0/search/?dataset=airbnb-ratings&rows=100&sort=number_of_reviews`)
+  axios.get("http://localhost:5555/api/houses")
       .then(response =>{
-          console.log(response.data.records)
-          response.data.records.map(oneHouse=>{
+          console.log(response.data)
+          response.data.map(oneHouse=>{
               return(
               allResults.push(oneHouse)
               )})

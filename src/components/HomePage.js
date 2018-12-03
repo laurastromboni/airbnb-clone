@@ -9,7 +9,7 @@ class HomePage extends Component {
         return(
             <section className = "HomePage">
                 <h2>Welcome to Airbnb !</h2>
-                <NavLink exact to="/houselisting"><button className="list-button">See all our cool houses!</button></NavLink>
+                <NavLink exact to="/houses"><button className="list-button">See all our cool houses!</button></NavLink>
             </section>
         )
     }

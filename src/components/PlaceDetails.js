@@ -10,18 +10,18 @@ class PlaceDetails extends Component {
     constructor(props){
         super(props);
         this.state = {
-            fields : [],
+            fields : "",
         }
     }
     componentDidMount(){
         const {params} = this.props.match
-        axios.get(`https://public.opendatasoft.com/api/datasets/1.0/airbnb-ratings/records/${params.houseId}`)
+        axios.get(`http://localhost:5555/api/houses/${params.houseId}`)
             .then(response => {
-                console.log("Phone List", response.data)
+                console.log("House Detail", response.data)
                 this.setState(response.data)
             })
             .catch(err => {
-                console.log("Phone Details Error", err);
+                console.log("House Details Error", err);
                 alert('sorry, something went wrong')
             })
     }
@@ -59,7 +59,7 @@ class PlaceDetails extends Component {
               </div>
           </div>
           <div className="col-lg-12">
-            <Link to="/houselisting">Back to all places</Link>
+            <Link to="/houses">Back to all places</Link>
           </div>
         </section>
         )
