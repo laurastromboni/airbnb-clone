@@ -19,8 +19,8 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/houselisting" component={PlacesList} />
           <Route path="/houses/:houseId" component={PlaceDetails}/>
+          <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
           
           <Route component = {NotFound} />
