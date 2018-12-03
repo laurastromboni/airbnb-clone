@@ -2,8 +2,8 @@ import React, { Component } from "react";
 
 import Filters from "./Filters.js";
 
-import './Header.scss';
-import './FontColors.scss';
+import './style/Header.scss';
+import './style/FontColors.scss';
 
 class Header extends Component{
 

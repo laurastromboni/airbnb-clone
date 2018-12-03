@@ -8,8 +8,8 @@ import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
 import SingleMap from "./components/SingleMap.js";
 
-import './App.scss';
-import './components/FontColors.scss';
+import './components/style/App.scss';
+import './components/style/FontColors.scss';
 
 class App extends Component {
   render() {

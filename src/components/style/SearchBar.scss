@@ -1,5 +1,8 @@
 .SearchBar{
   input{
+    background-image: url(../../images/glass.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
     background-color: #ffffff !important;
     -webkit-transition: box-shadow 200ms ease-in !important;
     -moz-transition: box-shadow 200ms ease-in !important;
@@ -11,6 +14,9 @@
     width: 400px;
     margin: 0 10px;
     outline: none;
+    padding: 13px;
+    text-indent: 30px;
+    background-origin: content-box;
   }
   @media (max-width: 576px){
     input{

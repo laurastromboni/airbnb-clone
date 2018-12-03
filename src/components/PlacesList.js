@@ -6,8 +6,9 @@ import StarRatingComponent from 'react-star-rating-component';
 import Header from "./Header.js"
 import SingleMap from "./SingleMap.js"
 
-import './PlacesList.scss';
-import './FontColors.scss';
+
+import './style/PlacesList.scss';
+import './style/FontColors.scss';
 
 function houseUrl(oneHouse){
   return `/houses/${oneHouse.recordid}`;
@@ -39,7 +40,9 @@ componentDidMount(){
           alert("Sorry something went wrong")
       })
 }
+
   render(){
+
     return(
       <section className="PlacesList col-lg-12">
           <Header />
@@ -65,8 +68,8 @@ componentDidMount(){
                   )
                 })}
           </ul>
-          <div className="GoogleMap col-lg-4">
-                <SingleMap geoloc = {this.state.allResults.map(oneHouse =>{return (oneHouse)})}/>
+          <div className="GoogleMap col-lg-4" id="GoogleMap">
+                <div className="map"><SingleMap geoloc = {this.state.allResults.map(oneHouse =>{return (oneHouse)})}/></div>
           </div>
           </div>
       </section>

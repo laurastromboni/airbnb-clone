@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import './Filters.scss';
-import './FontColors.scss';
+import './style/Filters.scss';
+import './style/FontColors.scss';
 
 class Filters extends Component{
 
