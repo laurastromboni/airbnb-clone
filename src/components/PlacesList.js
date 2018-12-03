@@ -48,7 +48,7 @@ componentDidMount(){
           <ul className="col-lg-8">
               {this.state.allResults.map(oneHouse =>{
                   return(
-                      <li key = {oneHouse.recordid} className="col-lg-3 col-md-4 col-sm-6">
+                      <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
                           <div className="place-img"><img src = {oneHouse.fields.xl_picture_url} alt='housepic' /></div>
                           <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
                           <h5>{oneHouse.fields.price}$ per night</h5>

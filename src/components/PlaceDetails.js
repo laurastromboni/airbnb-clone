@@ -1,46 +1,46 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
-import data from '../data.json'
+import axios from 'axios'
 import './PlaceDetails.scss';
 import './FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
 
-function findHouse(idFromUrl){
-  return data.records.find(oneHouse => {
-      return oneHouse.recordid === idFromUrl;
-  })
-}
+class PlaceDetails extends Component {
 
-class PlaceDetails extends Component{
-
-  constructor(props){
-    super(props)
-    this.state = {
-        allResults : [],
-        houseItem : [],
+    constructor(props){
+        super(props);
+        this.state = {
+            fields : [],
+        }
     }
-}
+    componentDidMount(){
+        const {params} = this.props.match
+        axios.get(`https://public.opendatasoft.com/api/datasets/1.0/airbnb-ratings/records/${params.houseId}`)
+            .then(response => {
+                console.log("Phone List", response.data)
+                this.setState(response.data)
+            })
+            .catch(err => {
+                console.log("Phone Details Error", err);
+                alert('sorry, something went wrong')
+            })
+    }
 
-  
-  render(){
-    const {params} = this.props.match
-    // const {houseItem} = this.state
-    const oneHouse = findHouse(params.houseId)
-    console.log("oneHouse", oneHouse)
-    // console.log("houseItem", houseItem)
-    return(
-        <section className = "PlaceDetails">
+    render(){
+      const {recordid, fields} = this.state
+        return(
+          <section className = "PlaceDetails">
           <div className="img-div">
-            <img src = {oneHouse.fields.xl_picture_url} alt='housepic' />
+            <img src = {fields.xl_picture_url} alt='housepic' />
           </div>
           <div className= "content">
             <div className="content-left col-lg-8">
-              <div className="span">{oneHouse.fields.property_type}</div>
-              <h3>{oneHouse.fields.name}</h3>
+              <div className="span">{fields.property_type}</div>
+              <h3>{fields.name}</h3>
               </div>
               <div className="content-right col-lg-4">
                 <div className="price">
-                  <h2>{oneHouse.fields.price}$</h2>
+                  <h2>{fields.price}$</h2>
                   <h5>per night</h5>
                 </div>
                 <div className="reviews">
@@ -48,9 +48,9 @@ class PlaceDetails extends Component{
                     name="rate1" 
                     editing={false}
                     starCount={5}
-                    value={Math.round(oneHouse.fields.review_scores_rating/20)}
+                    value={Math.round(fields.review_scores_rating/20)}
                   />
-                  <h6>{oneHouse.fields.number_of_reviews}</h6>
+                  <h6>{fields.number_of_reviews}</h6>
                 </div>
                 <hr />
                 <button className="booking-button">Ask for booking</button>
@@ -60,9 +60,8 @@ class PlaceDetails extends Component{
             <Link to="/houselisting">Back to all places</Link>
           </div>
         </section>
-    )
-  }
+        )
+    }
 }
 
-export default PlaceDetails;
-
+export default PlaceDetails
