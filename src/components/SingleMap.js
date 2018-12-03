@@ -3,8 +3,6 @@ import GoogleMapReact from 'google-map-react';
 import mapicon from '../images/map-icon.svg';
 import {Link} from "react-router-dom"
 
-import "../script.js"
-
 import './style/SingleMap.scss';
 import './style/FontColors.scss';
 
