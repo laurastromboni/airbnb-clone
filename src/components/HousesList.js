@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 import axios from 'axios'
 import StarRatingComponent from 'react-star-rating-component';
 import Filters from "./Filters.js";
-import './Header.scss';
+import './style/Header.scss';
 
 import Header from "./Header.js"
 import SingleMap from "./SingleMap.js"
@@ -112,7 +112,7 @@ componentDidMount(){
                 })}
           </ul>
           <div className="GoogleMap col-lg-4" id="GoogleMap">
-                <div className="map"><SingleMap geoloc = {this.state.allResults.map(oneHouse =>{return (oneHouse)})}/></div>
+                <div className="map"><SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})}/></div>
           </div>
           </div>
       </section>
