@@ -1,4 +1,4 @@
-   {
+   [{
       "datasetid": "airbnb-ratings",
       "recordid": "f93ab68e53588af3a4ac110155960f1e701c4107",
       "fields": {
@@ -97,4 +97,4 @@
         ]
       },
       "record_timestamp": "2017-07-12T09:19:15+00:00"
-    }
+    }]

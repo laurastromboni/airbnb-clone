@@ -19,15 +19,19 @@ class SimpleMap extends Component {
     },
     zoom: 12
   };
- 
+
+  
+  
   render() {
+    const {geoloc}=this.props
+    console.log("geoloc",geoloc)
 
     return (
       // Important! Always set the container height explicitly
       <div className="SingleMap" style={{ height: '80vh', width: '100%' }} id="SingleMap">
         <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API }}
-          defaultCenter={this.props.center}
+          center={this.props.gps}
           defaultZoom={this.props.zoom}
         >
         {this.props.geoloc.map(oneloc=>{

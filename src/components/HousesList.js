@@ -27,7 +27,11 @@ class PlacesList extends Component{
         when1 :'',
         when2 :'',
         guest :'',
-        isSubmitSuccessful : false
+        isSubmitSuccessful : false, 
+        gps : {
+            lat : 48.8534,
+            lng : 2.3488
+        }
     }
 }
 
@@ -37,15 +41,21 @@ genSync(event){
 }
 
 
+
 submitHandler(event){
     event.preventDefault();
-
+    let gps = {...this.state.gps};  
     axios.get(`http://localhost:5555/api/search/${this.state.where}`)
     .then(response => {
-        console.log("search", response.data)
+        console.log("search", response.data[0])
+        
+        gps.lng = response.data[0].geometry.coordinates[0]                       
+        gps.lat = response.data[0].geometry.coordinates[1]
+        
         this.setState({
+            gps,
             searchResults: response.data,
-            isSubmitSuccessful : true
+            isSubmitSuccessful : true, 
         })
     })
     .catch(err =>{
@@ -61,12 +71,7 @@ componentDidMount(){
   window.scrollTo(0,0)
   axios.get("http://localhost:5555/api/houses")
       .then(response =>{
-          console.log(response.data)
-          response.data.map(oneHouse=>{
-              return(
-              allResults.push(oneHouse)
-              )})
-          this.setState({allResults})
+          this.setState({allResults : response.data})
       })
       .catch(err=>{
           console.log("Listing Info Error", err);
@@ -75,7 +80,7 @@ componentDidMount(){
 }
 
   render(){
-      const {searchResults, allResults} = this.state
+      const {searchResults, allResults, gps} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
     return(
       <section className="PlacesList col-lg-12">
@@ -106,7 +111,7 @@ componentDidMount(){
                 })}
           </ul>
           <div className="GoogleMap col-lg-4" id="GoogleMap">
-                <div className="map"><SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})}/></div>
+                <div className="map"><SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})} gps = {this.state.gps} /></div>
           </div>
           </div>
       </section>
