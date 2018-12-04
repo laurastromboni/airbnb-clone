@@ -8,8 +8,9 @@ import './Header.scss';
 import Header from "./Header.js"
 import SingleMap from "./SingleMap.js"
 
-import './PlacesList.scss';
-import './FontColors.scss';
+
+import './style/PlacesList.scss';
+import './style/FontColors.scss';
 
 function houseUrl(oneHouse){
   return `/houses/${oneHouse.recordid}`;
@@ -78,6 +79,7 @@ componentDidMount(){
           alert("Sorry something went wrong")
       })
 }
+
   render(){
       const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
@@ -109,8 +111,13 @@ componentDidMount(){
                   )
                 })}
           </ul>
+<<<<<<< HEAD:src/components/HousesList.js
           <div className="GoogleMap col-lg-4">
                 <SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})}/>
+=======
+          <div className="GoogleMap col-lg-4" id="GoogleMap">
+                <div className="map"><SingleMap geoloc = {this.state.allResults.map(oneHouse =>{return (oneHouse)})}/></div>
+>>>>>>> 4eb5c288035ca067c54d59b8f944af90c6113a94:src/components/PlacesList.js
           </div>
           </div>
       </section>

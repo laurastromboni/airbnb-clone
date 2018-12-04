@@ -40,6 +40,14 @@
       }
     }
   }
+  .GoogleMap{
+    position: relative;
+    .map{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 120px;
+    }
+  }
 }
 }
 

@@ -17,28 +17,35 @@
     padding: 5% 15%;
     display: flex;
     flex-direction: row;
+    position: relative;
+    height: auto;
     .content-left{
       text-align: left;
+      height: 1000px; // à enlever quand on aura la page plus remplie
       h3{
         margin-top: 8px;
       }
     }
-    .content-right{
-      border: 1px solid rgb(224, 224, 224);
-      height: auto;
-      padding: 20px;
-      .price{
-        display: flex;
-        align-items: center;
-        h2{
-          text-align: left;
+      .content-right{
+        border: 1px solid rgb(224, 224, 224);
+        height: auto;
+        padding: 20px;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 120px;
+        .price{
           display: flex;
-          align-items: baseline;
-        }
-        h5{
-          margin-left: 5px;
-        }
-      }
+          align-items: center;
+          h2{
+            text-align: left;
+            display: flex;
+            align-items: baseline;
+          }
+          h5{
+            margin-left: 5px;
+          }
+    }
+    
       
       .reviews{
         display: flex;

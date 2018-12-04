@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 // put our scss file at the end
-import './index.scss';
+import './components/style/index.scss';
 
 import App from './App';
 import * as serviceWorker from './serviceWorker';

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import './Footer.scss';
-import './FontColors.scss';
+import './style/Footer.scss';
+import './style/FontColors.scss';
 
 import logoGrey from '../images/logo-grey.svg';
 import ig from '../images/ig.svg';

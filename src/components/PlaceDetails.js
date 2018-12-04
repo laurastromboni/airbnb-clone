@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
 import axios from 'axios'
-import './PlaceDetails.scss';
-import './FontColors.scss';
+import './style/PlaceDetails.scss';
+import './style/FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
 
 class PlaceDetails extends Component {
@@ -38,7 +38,8 @@ class PlaceDetails extends Component {
               <div className="span">{fields.property_type}</div>
               <h3>{fields.name}</h3>
               </div>
-              <div className="content-right col-lg-4">
+              <div className="big-content-right col-lg-4">
+              <div className="content-right">
                 <div className="price">
                   <h2>{fields.price}$</h2>
                   <h5>per night</h5>
@@ -54,6 +55,7 @@ class PlaceDetails extends Component {
                 </div>
                 <hr />
                 <button className="booking-button">Ask for booking</button>
+              </div>
               </div>
           </div>
           <div className="col-lg-12">

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 
-import './Homepage.scss';
-import './FontColors.scss';
+import './style/Homepage.scss';
+import './style/FontColors.scss';
 
 class HomePage extends Component {
     render(){
