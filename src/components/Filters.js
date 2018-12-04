@@ -7,8 +7,8 @@ class Filters extends Component{
 
   render(){
     return(
-      <section className="Filters">
-        <form onSubmit={event=>this.props.handleSubmit(event)}>
+      <section>
+        <form onSubmit={event=>this.props.handleSubmit(event)} className="Filters">
         <div className="col-lg-3 col-md-3 col-sm-12 filter-div">
           <h4>Where</h4>
           <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="where" value= {this.props.where} placeholder="Destination" />

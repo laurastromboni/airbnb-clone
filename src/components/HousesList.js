@@ -38,33 +38,27 @@ genSync(event){
 
 
 submitHandler(event){
-    this.setState({searchResults : []})
-    if(this.state.isSubmitSuccessful === true){
-        this.setState({searchResults : []})
-    }
     event.preventDefault();
-    const {searchResults} = this.state
 
     axios.get(`http://localhost:5555/api/search/${this.state.where}`)
     .then(response => {
         console.log("search", response.data)
-            response.data.map(oneHouse=>{
-                return(
-                    searchResults.push(oneHouse)
-              )})
-              this.setState({searchResults})
-              this.setState({isSubmitSuccessful : true})
+        this.setState({
+            searchResults: response.data,
+            isSubmitSuccessful : true
         })
-        .catch(err =>{
-            console.log("search", err);
-            alert("sorry something went wrong")
-        })
+    })
+    .catch(err =>{
+        console.log("search", err);
+        alert("sorry something went wrong")
+    })
     }
     
 
 
 componentDidMount(){
   const {allResults} = this.state;
+  window.scrollTo(0,0)
   axios.get("http://localhost:5555/api/houses")
       .then(response =>{
           console.log(response.data)
