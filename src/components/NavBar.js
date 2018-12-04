@@ -33,11 +33,13 @@ class NavBar extends Component{
         </div>
         <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8 col-xs-10">
           <ul>
-            <li>Become a Host</li>
-            <li>Saved</li>
-            <li>Trips</li>
-            <li>Messages</li>
-            <li>Help</li>
+            <Link to="/becomehost"><li>Become a Host</li></Link>
+            <Link to="/saved"><li>Saved</li></Link>
+            <Link to="/trips"><li>Trips</li></Link>
+            <Link to="/messages"><li>Messages</li></Link>
+            <Link to="/help"><li>Help</li></Link>
+            <Link to="/login"><li>Login</li></Link>
+            <Link to="/subscription"><li>Subscribe</li></Link>
           </ul>
           <img src={user} className="App-user" alt="logo" />
         </div>
