@@ -111,13 +111,8 @@ componentDidMount(){
                   )
                 })}
           </ul>
-<<<<<<< HEAD:src/components/HousesList.js
-          <div className="GoogleMap col-lg-4">
-                <SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})}/>
-=======
           <div className="GoogleMap col-lg-4" id="GoogleMap">
                 <div className="map"><SingleMap geoloc = {this.state.allResults.map(oneHouse =>{return (oneHouse)})}/></div>
->>>>>>> 4eb5c288035ca067c54d59b8f944af90c6113a94:src/components/PlacesList.js
           </div>
           </div>
       </section>
