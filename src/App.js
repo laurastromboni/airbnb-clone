@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 import NavBar from "./components/NavBar.js";
 import PlaceDetails from "./components/PlaceDetails.js";
-import PlacesList from "./components/PlacesList.js";
+import PlacesList from "./components/HousesList.js";
 import HomePage from "./components/HomePage.js";
 import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";

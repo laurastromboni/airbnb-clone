@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import {Link} from "react-router-dom"
 import axios from 'axios'
 import StarRatingComponent from 'react-star-rating-component';
+import Filters from "./Filters.js";
+import './Header.scss';
 
 import Header from "./Header.js"
 import SingleMap from "./SingleMap.js"
@@ -20,8 +22,45 @@ class PlacesList extends Component{
     this.state = {
         searchResults : [],
         allResults : [],
+        where :'',
+        when1 :'',
+        when2 :'',
+        guest :'',
+        isSubmitSuccessful : false
     }
 }
+
+genSync(event){
+    const {name, value} = event.target
+    this.setState({[name] : value})
+}
+
+
+submitHandler(event){
+    this.setState({searchResults : []})
+    if(this.state.isSubmitSuccessful === true){
+        this.setState({searchResults : []})
+    }
+    event.preventDefault();
+    const {searchResults} = this.state
+
+    axios.get(`http://localhost:5555/api/search/${this.state.where}`)
+    .then(response => {
+        console.log("search", response.data)
+            response.data.map(oneHouse=>{
+                return(
+                    searchResults.push(oneHouse)
+              )})
+              this.setState({searchResults})
+              this.setState({isSubmitSuccessful : true})
+        })
+        .catch(err =>{
+            console.log("search", err);
+            alert("sorry something went wrong")
+        })
+    }
+    
+
 
 componentDidMount(){
   const {allResults} = this.state;
@@ -40,17 +79,22 @@ componentDidMount(){
       })
 }
   render(){
+      const {searchResults, allResults} = this.state
+      let results = searchResults.length > 0 ? searchResults : allResults
     return(
       <section className="PlacesList col-lg-12">
-          <Header />
+          <section className="Header col-lg-12">
+              <h1><b>Live here.</b> Book unique homes and <br />experience a city like a local.</h1>
+              <Filters allFilters = {this.state} onGenericChange={event=>this.genSync(event)} handleSubmit={event=>this.submitHandler(event)} />
+          </section>
           <h3>Our recommandations</h3>
           <div className="ListSect col-lg-12">
           <ul className="col-lg-8">
-              {this.state.allResults.map(oneHouse =>{
+              {results.map(oneHouse =>{
                   return(
                       <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
                           <div className="place-img"><img src = {oneHouse.fields.xl_picture_url} alt='housepic' /></div>
-                          <h4><Link to={houseUrl(oneHouse)} test = {this.state.allResults}>{oneHouse.fields.name}</Link></h4>
+                          <h4><Link to={houseUrl(oneHouse)} test = {results}>{oneHouse.fields.name}</Link></h4>
                           <h5>{oneHouse.fields.price}$ per night</h5>
                           <div className="reviews">
                           <StarRatingComponent 
@@ -66,7 +110,7 @@ componentDidMount(){
                 })}
           </ul>
           <div className="GoogleMap col-lg-4">
-                <SingleMap geoloc = {this.state.allResults.map(oneHouse =>{return (oneHouse)})}/>
+                <SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})}/>
           </div>
           </div>
       </section>
