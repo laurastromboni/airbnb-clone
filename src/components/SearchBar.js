@@ -8,7 +8,7 @@ class SearchBar extends Component{
   render(){
     return(
       <section className="SearchBar">
-        <input type="text" placeholder="Search for..." name="search" />
+        <input type="text" placeholder="Search for..." name="search" className="h6"/>
       </section>
     )
     

@@ -41,7 +41,7 @@ genSync(event){
 submitHandler(event){
     event.preventDefault();
     let gps = {...this.state.gps};  
-    axios.get(`http://localhost:5555/api/search/${this.state.where}`, {withCredentials : true})
+    axios.get(`http://localhost:5555/api/search/${this.state.where}`, { withCredentials: true })
     .then(response => {
         console.log("search", response.data[0])
         
@@ -65,7 +65,7 @@ submitHandler(event){
 componentDidMount(){
   const {allResults} = this.state;
   window.scrollTo(0,0)
-  axios.get("http://localhost:5555/api/houses")
+  axios.get("http://localhost:5555/api/houses", { withCredentials: true })
       .then(response =>{
           this.setState({allResults : response.data})
       })

@@ -1,0 +1,87 @@
+.SignupPage{
+  padding-top: 120px;
+  .cover{
+    height: 300px;
+    width: 90%;
+    margin: 0 auto;
+    background-image: url("../../images/cover-1.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a{
+      button{
+        cursor: pointer;
+        width: 300px;
+        color:black;
+        background-color:white;
+        padding: 13px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+    }
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label{
+      margin: 10px;
+        input{
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-color: #ffffff !important;
+          -webkit-transition: box-shadow 200ms ease-in !important;
+          -moz-transition: box-shadow 200ms ease-in !important;
+          transition: box-shadow 200ms ease-in !important;
+          border: 1px solid #EBEBEB !important;
+          border-radius: 4px !important;
+          height: 48px !important;
+          width: 400px;
+          margin: 0 10px;
+          outline: none;
+          padding: 13px;
+          text-indent: 30px;
+          background-origin: content-box;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 12px;
+          @media (max-width: 500px){
+              width: 300px;
+          }
+      }
+      .email{
+        background-image: url(../../images/mail.svg);
+      }
+      .originalPassword{
+        background-image: url(../../images/password.svg);
+      }
+      .fullName{
+        background-image: url(../../images/fullname.svg);
+      }
+    }
+    button{
+      width: 200px;
+      color:white;
+      background-color:#FF5A5F;
+      padding: 10px 40px;
+      border-radius: 10px;
+      border:none;
+      outline: none;
+      margin-top: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      padding: 13px;
+    }
+  }
+}

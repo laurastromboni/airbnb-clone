@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 
+import "./style/Help.scss"
+
 class Help extends Component {
   render() {
     return(
-      <section>
-
+      <section className="Help">
+        <h2>Help</h2>
       </section>
     )
   }

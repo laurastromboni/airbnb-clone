@@ -21,9 +21,38 @@
     height: auto;
     .content-left{
       text-align: left;
-      height: 1000px; // à enlever quand on aura la page plus remplie
-      h3{
-        margin-top: 8px;
+      .top-content{
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        align-items: center;
+        margin-bottom: 30px;
+        .top-content-left{
+          h3{
+            margin-top: 8px;
+          }
+          img{
+            height: 60px;
+            border-radius: 30px;
+          }
+        }
+      }
+      .middle-content-left{
+        content:"\f000";
+        p{
+          margin-bottom: 0;
+          i{
+            padding-right: 10px;
+          }
+        }
+        .place-type{
+          display: flex;
+          flex-direction: row;
+          text-align: center;
+          p {
+            margin: 0 10px;
+          }
+        }
       }
     }
       .content-right{
@@ -44,9 +73,7 @@
           h5{
             margin-left: 5px;
           }
-    }
-    
-      
+      }
       .reviews{
         display: flex;
         flex-direction: row;
@@ -60,25 +87,70 @@
           padding-left: 10px;
         }
       }
+      h4{
+        text-align:left;
+      }
+      .book-div{
+        padding: 10px 20px;
+        border: 1px solid rgb(224, 224, 224);
+        text-align: left;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        margin-bottom: 20px;
+        input{
+          border:none;
+          outline: none;
+          width: 40%;
+          overflow: hidden;
+        }
+        .guests{
+          width: 100%;
+        }
+        .date-2{
+          margin-left: 5px;
+          @media (max-width:807px) {
+            margin-left: 0;
+          }
+        }
+      }
       .booking-button{
         color:white;
         background-color:#FF5A5F;
-        padding: 10px 10px;
+        padding: 13px;
         border-radius: 10px;
         border:none;
         outline: none;
         width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
       }
       @media (max-width: 600px){
         margin-top: 20px;
       }
+      @media (max-width: 1200px){
+        padding: 5% 5%;
+      }
     }
-    @media (max-width: 800px){
-      padding: 5% 5%;
+    @media (max-width: 767px){
+        flex-direction: column-reverse;
+        .content-right{
+          margin-bottom: 30px;
+        }
     }
-    @media (max-width: 600px){
-      flex-direction: column;
-      padding: 5% 10%;
+  }
+  .more{
+    .booking-button{
+      color:white;
+      background-color:#484848;
+      padding: 13px 50px;
+      border-radius: 10px;
+      border:none;
+      outline: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
     }
   }
 }
