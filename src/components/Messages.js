@@ -6,7 +6,7 @@ class Messages extends Component {
   render() {
     return(
       <section className="Messages">
-
+        <h2>Messages</h2>
       </section>
     )
   }

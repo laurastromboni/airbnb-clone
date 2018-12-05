@@ -59,7 +59,10 @@ class BecomeHost extends Component {
 
   render() {
     return(
-      <section className="become-host">
+      <section className="BecomeHost">
+
+        <h2>Become a Host</h2>
+
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
             Type: <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" />
@@ -118,7 +121,9 @@ class BecomeHost extends Component {
           </label>
 
           <button>Put your home on AirBnb !</button>
+          
         </form>
+
       </section>
     )
   }

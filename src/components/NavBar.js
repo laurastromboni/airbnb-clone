@@ -17,6 +17,7 @@ class NavBar extends Component{
     }
   }
 
+  // revenir à la page où on était quand on clique sur le menu responsive
   menuIsClicked(event){
     const {isOpen} = this.state
     this.setState( {isOpen : !isOpen});
@@ -36,12 +37,12 @@ class NavBar extends Component{
         <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8">
           <ul>
             <NavLink to="/becomehost"><li>Become a Host</li></NavLink>
-            <NavLink to="/saved"><li>Saved</li></NavLink>
-            <NavLink to="/trips"><li>Trips</li></NavLink>
-            <NavLink to="/messages"><li>Messages</li></NavLink>
             <NavLink to="/help"><li>Help</li></NavLink>
             {this.props.currentUser ? (
                 <span>
+                    <NavLink to="/saved"><li>Saved</li></NavLink>
+                    <NavLink to="/trips"><li>Trips</li></NavLink>
+                    <NavLink to="/messages"><li>Messages</li></NavLink>
                     <button onClick={() => this.props.logClick()}><li>Log Out</li></button>
                     <img src={user} className="App-user" alt="logo" />
                 </span>

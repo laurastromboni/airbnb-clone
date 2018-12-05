@@ -37,7 +37,7 @@ class App extends Component {
   componentDidMount(){
     // React doesn't know at the start if we are logged-in or not
     // (but we can ask the server if we are through an API request)
-    axios.get("http://localhost:5555/api/checkuser")
+    axios.get("http://localhost:5555/api/checkuser", { withCredentials: true })
         .then( response => {
             console.log("Check User SUCESS", response.data);
             const { userDoc } = response.data;
@@ -56,7 +56,7 @@ class App extends Component {
 
 
   logoutClick(){
-    axios.delete("http://localhost:5555/api/logout")
+    axios.delete("http://localhost:5555/api/logout", { withCredentials: true })
         .then( () => {
             // make "currentUser" empty again (like it was at the start)
             this.syncCurrentUser(null)

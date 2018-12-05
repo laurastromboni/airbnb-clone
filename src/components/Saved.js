@@ -6,7 +6,7 @@ class Saved extends Component {
   render() {
     return(
       <section className="Saved">
-
+        <h2>Saved</h2>
       </section>
     )
   }
