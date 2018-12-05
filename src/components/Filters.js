@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-
 import './style/Filters.scss';
 import './style/FontColors.scss';
 

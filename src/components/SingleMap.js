@@ -25,6 +25,7 @@ class SimpleMap extends Component {
   render() {
     const {geoloc}=this.props
     console.log("geoloc",geoloc)
+    console.log("this.props.gps",this.props.gps)
 
     return (
       // Important! Always set the container height explicitly
