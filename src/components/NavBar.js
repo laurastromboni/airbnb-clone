@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { withRouter, NavLink, Link,  } from 'react-router-dom'
+import { withRouter, NavLink, Link  } from 'react-router-dom'
 import SearchBar from "./SearchBar.js";
 
 import './style/NavBar.scss';
