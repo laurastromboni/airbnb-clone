@@ -93,6 +93,7 @@ componentDidMount(){
         {results.map(oneHouse=>{
             return(
                 <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
+                    <Link to={houseUrl(oneHouse)}>
                     <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
                     <h4>{oneHouse.name}</h4>
                     <h5>{oneHouse.price}$ per night</h5>
@@ -105,6 +106,7 @@ componentDidMount(){
                     />
                         <h6>{oneHouse.number_of_reviews}</h6>
                     </div>
+                    </Link>
                  </li>
             )
         })}

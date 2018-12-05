@@ -34,7 +34,7 @@ class PlaceDetails extends Component {
         return(
           <section className = "PlaceDetails">
           <div className="img-div">
-            <img src = {fields.xl_picture_url} alt='housepic' />
+            <img src = {this.state.xl_picture_url} alt='housepic' />
             <button className="save-button h6"><img src={emptyHeard} alt="fav" />Save</button>
             <button className="pictures-button h6">See pictures</button>
           </div>
@@ -42,25 +42,25 @@ class PlaceDetails extends Component {
             <div className="content-left col-lg-8 column-1">
               <div className="col-lg-12 top-content">
                 <div className="col-lg-10 col-md-10 col-sm-10 top-content-left">
-                  <div className="span">{fields.property_type}</div>
-                    <h3>{fields.name}</h3>
-                    <h5>{fields.neighbourhood}</h5>
+                  <div className="span">{this.state.property_type}</div>
+                    <h3>{this.state.name}</h3>
+                    <h5>{this.state.neighbourhood}</h5>
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
-                  <img src={fields.host_picture_url} alt="host picture" />
+                  <img src={this.state.host_picture_url} alt="host picture" />
                 </div>
               </div>
               <div className="col-lg-12 middle-content-left">
-                <p><i className="fa fa-home" ></i><b>{fields.room_type}</b></p>
+                <p><i className="fa fa-home" ></i><b>{this.state.room_type}</b></p>
                 <div className="place-type">
-                  <p>{fields.accommodates} guests</p>
-                  <p>{fields.bedrooms} bedrooms</p>
-                  <p>{fields.beds} beds</p>
-                  <p>{fields.bathrooms} bath</p>
+                  <p>{this.state.accommodates} guests</p>
+                  <p>{this.state.bedrooms} bedrooms</p>
+                  <p>{this.state.beds} beds</p>
+                  <p>{this.state.bathrooms} bath</p>
                 </div>
                 <hr />
                 <p><b>The space</b></p>
-                <p>{fields.description}</p>
+                <p>{this.state.description}</p>
                 {/* <hr /> */}
                 {/* <p><b>Amenities</b></p> */}
                
