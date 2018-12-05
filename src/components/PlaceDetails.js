@@ -16,7 +16,7 @@ class PlaceDetails extends Component {
     componentDidMount(){
         const {params} = this.props.match
         window.scrollTo(0,0)
-        axios.get(`http://localhost:5555/api/houses/${params.houseId}`)
+        axios.get(`http://localhost:5555/api/houses/${params.houseId}`, { withCredentials: true })
             .then(response => {
                 console.log("House Detail", response.data)
                 this.setState(response.data)

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 
+import "./style/Help.scss"
+
 class Help extends Component {
   render() {
     return(
-      <section>
+      <section className="Help">
 
       </section>
     )

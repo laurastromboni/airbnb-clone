@@ -27,6 +27,18 @@
       flex-direction: row;
       align-items: center;
       margin-bottom: 0;
+      span{
+        display: flex;
+        button{
+          border: none;
+          padding: 0 5px;
+          text-align: center;
+          color: #484848;
+        }
+        button:focus{
+          outline: none;
+        }
+      }
       li{
         list-style-type: none;
         padding: 0 10px;
@@ -50,12 +62,12 @@
       margin: 0 10px 0 0;
     }
   }
-  @media (min-width: 992px){
+  @media (min-width: 1090px){
     .NavBar-rightside-2{
       display: none;
     }
   }
-  @media (max-width: 992px){
+  @media (max-width: 1090px){
     .NavBar-rightside-1{
       display: none;
     }
