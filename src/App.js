@@ -14,6 +14,7 @@ import Help from "./components/Help";
 import Messages from "./components/Messages";
 import Trips from "./components/Trips";
 import Saved from "./components/Saved";
+import TestList from "./components/TestList";
 
 import './components/style/App.scss';
 import './components/style/FontColors.scss';
@@ -36,6 +37,7 @@ class App extends Component {
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
           <Route path="/saved" component={Saved}/>
+          <Route path="/test" component={TestList}/>
           
           <Route component = {NotFound} />
         </Switch> 

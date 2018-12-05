@@ -25,6 +25,7 @@ class SimpleMap extends Component {
   render() {
     const {geoloc}=this.props
     console.log("geoloc",geoloc)
+    console.log("this.props.gps",this.props.gps)
 
     return (
       // Important! Always set the container height explicitly
@@ -37,8 +38,8 @@ class SimpleMap extends Component {
         {this.props.geoloc.map(oneloc=>{
             return(
                     <AnyReactComponent
-                      lat={oneloc.fields.geopoint[0]}
-                      lng={oneloc.fields.geopoint[1]}
+                      lat={oneloc.geopoint[0]}
+                      lng={oneloc.geopoint[1]}
                       oneloc={oneloc}
                     />
 

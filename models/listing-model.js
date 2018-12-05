@@ -30,8 +30,8 @@ const listingSchema = new Schema({
   cleaning_fee : {type : Number},
   guests_included : {type : Number},
   room_type : {type : Number},
-  amenities : [{type : String}],
-  geopoint : [{type : String}],
+  amenities : {type : Array},
+  geopoint : {type : Array},
 }, {
   timestamps : true
 });

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route, NavLink, Link } from 'react-router-dom'
+import Search from "./Search.js";
 import SearchBar from "./SearchBar.js";
 import Menu from "./Menu.js";
 
