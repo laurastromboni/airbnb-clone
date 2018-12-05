@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom'
 import NavBar from "./components/NavBar.js";
 import PlaceDetails from "./components/PlaceDetails.js";
 import PlacesList from "./components/HousesList.js";
-import HomePage from "./components/HomePage.js";
 import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
 import SingleMap from "./components/SingleMap.js";
@@ -74,7 +73,7 @@ class App extends Component {
         <NavBar  currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
 
         <Switch>
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={PlacesList} />
           <Route path="/houses/:houseId" component={PlaceDetails}/>
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>

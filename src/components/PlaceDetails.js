@@ -35,11 +35,21 @@ class PlaceDetails extends Component {
             <img src = {fields.xl_picture_url} alt='housepic' />
           </div>
           <div className= "content">
-            <div className="content-left col-lg-8">
-              <div className="span">{fields.property_type}</div>
-              <h3>{fields.name}</h3>
+            <div className="content-left col-lg-8 col-md-push-12">
+              <div className="col-lg-12 top-content">
+                <div className="col-lg-10 col-md-10 col-sm-10 top-content-left">
+                  <div className="span">{fields.property_type}</div>
+                    <h3>{fields.name}</h3>
+                  </div>
+                  <div className="col-lg-2 col-md-2 col-sm-2 top-content-right">
+                    <img src={fields.host_picture_url} alt="host picture" />
+                  </div>
+                </div>
+              <div className="col-lg-12 col-md-pull-12 middle-content">
+                <p>{fields.description}</p>
               </div>
-              <div className="big-content-right col-lg-4">
+            </div>
+            <div className="big-content-right col-lg-4">
               <div className="content-right">
                 <div className="price">
                   <h2>{fields.price}$</h2>
@@ -57,7 +67,7 @@ class PlaceDetails extends Component {
                 <hr />
                 <button className="booking-button">Ask for booking</button>
               </div>
-              </div>
+            </div>
           </div>
           <div className="col-lg-12">
             <Link to="/houses">Back to all places</Link>

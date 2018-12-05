@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -14,6 +14,10 @@ class LoginPage extends Component{
       originalPassword: "",
       // currentUser: null, = delete to synchronize
     }
+  }
+
+  componentDidMount(){
+    window.scrollTo(0,0)
   }
 
   //back-end integration
@@ -49,25 +53,26 @@ class LoginPage extends Component{
 
     return(
       <section className="LoginPage">
-        <h2>Log In</h2>
+
+        <div className="cover"><Link to="/houses"><button className="h6">Discover our places</button></Link></div>
+
+        <h2>Welcome back to AirBnb !</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>
 
           <label>
-            Email :
             <input value={this.props.email} // .props instead of .state to synchronize
                    onChange={event => this.genericSync(event)}
-                   type="email" name="email" placeholder="rey@jedi.com" />
+                   type="email" name="email" placeholder="Email" className="email"/>
           </label>
 
           <label>
-            Password :
             <input value={this.props.originalPassword} // .props instead of .state to synchronize
                    onChange={event => this.genericSync(event)}
-                   type="password" name="originalPassword" placeholder="*******" />
+                   type="password" name="originalPassword" placeholder="Password" className="originalPassword"/>
           </label>
 
-          <button>Log In</button>
+          <button className="h6">Log In</button>
         </form>
       </section>
     )
