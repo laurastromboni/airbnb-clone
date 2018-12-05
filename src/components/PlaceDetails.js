@@ -5,6 +5,8 @@ import './style/PlaceDetails.scss';
 import './style/FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
 
+import emptyHeard from '../images/heart-empty.svg';
+
 class PlaceDetails extends Component {
 
     constructor(props){
@@ -33,6 +35,8 @@ class PlaceDetails extends Component {
           <section className = "PlaceDetails">
           <div className="img-div">
             <img src = {fields.xl_picture_url} alt='housepic' />
+            <button className="save-button h6"><img src={emptyHeard} alt="fav" />Save</button>
+            <button className="pictures-button h6">See pictures</button>
           </div>
           <div className= "content">
             <div className="content-left col-lg-8 column-1">
