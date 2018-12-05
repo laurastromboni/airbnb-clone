@@ -70,7 +70,7 @@ class PlaceDetails extends Component {
             <div className="big-content-right col-lg-4 column-2">
               <div className="content-right">
                 <div className="price">
-                  <h2>{fields.price}$</h2>
+                  <h2>{this.state.price}$</h2>
                   <h5>per night</h5>
                 </div>
                 <div className="reviews">
@@ -78,9 +78,9 @@ class PlaceDetails extends Component {
                     name="rate1" 
                     editing={false}
                     starCount={5}
-                    value={Math.round(fields.review_scores_rating/20)}
+                    value={Math.round(this.state.review_scores_rating/20)}
                   />
-                  <h6>{fields.number_of_reviews}</h6>
+                  <h6>{this.state.number_of_reviews}</h6>
                 </div>
                 <hr />
                 <h4>Dates</h4>
