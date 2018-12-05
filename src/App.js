@@ -14,6 +14,11 @@ import Trips from "./components/Trips";
 import Saved from "./components/Saved";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
+import "./components/style/Menu.scss";
+
+
+import Menu from "./components/Menu.js";
+
 
 import axios from 'axios';
 
@@ -66,7 +71,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
+        <NavBar  currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
 
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -77,6 +82,7 @@ class App extends Component {
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
+          <Route exact path ="/menu" component ={Menu} />
           <Route path="/saved" component={Saved}/>
           {/* way 1 to do it */}
           <Route path="/signup" render = {() => {

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import { Switch, Route, NavLink, Link } from 'react-router-dom'
+import { withRouter, NavLink, Link,  } from 'react-router-dom'
 import SearchBar from "./SearchBar.js";
-import Menu from "./Menu.js";
 
 import './style/NavBar.scss';
 import './style/FontColors.scss';
@@ -18,13 +17,16 @@ class NavBar extends Component{
     }
   }
 
-  menuIsClicked(){
+  menuIsClicked(event){
     const {isOpen} = this.state
-    this.setState( {isOpen : !isOpen} );
+    this.setState( {isOpen : !isOpen});
+    if (isOpen) {
+      this.props.history.goBack();
+    }
   }
 
   render(){
-    const {isOpen} = this.state;
+    console.log();
     return(
       <section className="NavBar">
         <div className="NavBar-leftside col-lg-4 col-md-4 col-sm-4 col-xs-2">
@@ -54,15 +56,12 @@ class NavBar extends Component{
         </div>
         <div className="NavBar-rightside-2 col-lg-8">
           <Link to="/menu" onClick={() => this.menuIsClicked()}><img src={menu} className="App-menu" alt="logo" /></Link>
+        
         </div>
-        <Switch>
-          { isOpen ? <Route exact path = "/menu" component = {Menu} /> : null }
-          
-        </Switch>
       </section>
     )
   }
 
 }
 
-export default NavBar;
+export default withRouter(NavBar);
