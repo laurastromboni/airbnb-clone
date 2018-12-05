@@ -94,17 +94,17 @@ componentDidMount(){
               {results.map(oneHouse =>{
                   return(
                       <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
-                          <Link to={houseUrl(oneHouse)} test = {results}><div className="place-img"><img src = {oneHouse.fields.xl_picture_url} alt='housepic' /></div>
-                          <h4>{oneHouse.fields.name}</h4>
-                          <h5>{oneHouse.fields.price}$ per night</h5>
+                          <Link to={houseUrl(oneHouse)}><div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
+                          <h4>{oneHouse.name}</h4>
+                          <h5>{oneHouse.price}$ per night</h5>
                           <div className="reviews">
                           <StarRatingComponent 
                             name="rate1" 
                             editing={false}
                             starCount={5}
-                            value={Math.round(oneHouse.fields.review_scores_rating/20)}
+                            value={Math.round(oneHouse.review_scores_rating/20)}
                           />
-                              <h6>{oneHouse.fields.number_of_reviews}</h6>
+                              <h6>{oneHouse.number_of_reviews}</h6>
                           </div>
                           </Link>
                       </li>

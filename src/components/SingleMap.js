@@ -37,8 +37,8 @@ class SimpleMap extends Component {
         {this.props.geoloc.map(oneloc=>{
             return(
                     <AnyReactComponent
-                      lat={oneloc.fields.geopoint[0]}
-                      lng={oneloc.fields.geopoint[1]}
+                      lat={oneloc.geopoint[0]}
+                      lng={oneloc.geopoint[1]}
                       oneloc={oneloc}
                     />
 
