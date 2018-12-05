@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { Redirect, Link } from "react-router-dom";
 
 import './style/SignupPage.scss';
 
@@ -13,6 +14,10 @@ class SignupPage extends Component{
       originalPassword: "",
       // currentUser: null, = delete to synchronize
     }
+  }
+
+  componentDidMount(){
+    window.scrollTo(0,0)
   }
 
   //back-end integration
@@ -43,42 +48,36 @@ class SignupPage extends Component{
 
     // check currentUser (recieve from App.js)
     if(this.props.currentUser){  // if(this.state.currentUser) becoming props to synchronize
-      return(
-        <section className="SignupPage">
-          <h2>You're signed up!</h2>
-          <p>Welcome, {this.props.currentUser.fullName}.</p>
-          <p>Your user ID is <b>{this.props.currentUser._id}</b></p>
-        </section>
-      )
+      return <Redirect to ="/houses" />
     }
 
     return(
       <section className="SignupPage">
-        <h2>Sign Up</h2>
+        
+        <div className="cover"><Link to="/houses"><button className="h6">Discover our places</button></Link></div>
+
+        <h2>Welcome to AirBnb !</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
-            Full Name :
             <input value={this.state.fullName}
                    onChange={event => this.genericSync(event)}
-                   type="text" name="fullName" placeholder="Rey" />
+                   type="text" name="fullName" placeholder="Nizar" className="fullName"/>
           </label>
 
           <label>
-            Email :
             <input value={this.state.email}
                    onChange={event => this.genericSync(event)}
-                   type="email" name="email" placeholder="rey@jedi.com" />
+                   type="email" name="email" placeholder="nizar@jedi.com" className="email"/>
           </label>
 
           <label>
-            Password :
             <input value={this.state.originalPassword}
                    onChange={event => this.genericSync(event)}
-                   type="password" name="originalPassword" placeholder="*******" />
+                   type="password" name="originalPassword" placeholder="*******" className="originalPassword"/>
           </label>
 
-          <button>Sign Up</button>
+          <button className="h6">Sign Up</button>
         </form>
       </section>
     )

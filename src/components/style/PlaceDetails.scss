@@ -21,9 +21,22 @@
     height: auto;
     .content-left{
       text-align: left;
-      height: 1000px; // à enlever quand on aura la page plus remplie
-      h3{
-        margin-top: 8px;
+      .top-content{
+        display: flex;
+        flex-direction: row;
+        padding-left: 0;
+        align-items: center;
+        .top-content-left{
+          h3{
+            margin-top: 8px;
+          }
+        }
+      }
+      .top-content-right{
+        img{
+          height: 60px;
+          border-radius: 30px;
+        }
       }
     }
       .content-right{
