@@ -10,7 +10,8 @@ class BecomeHost extends Component {
 
   render() {
     return(
-      <section className="become-host">
+      <section className="BecomeHost">
+        <h2>Become a Host</h2>
         <form>
           <label>
             

@@ -94,8 +94,8 @@ componentDidMount(){
               {results.map(oneHouse =>{
                   return(
                       <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
-                          <div className="place-img"><img src = {oneHouse.fields.xl_picture_url} alt='housepic' /></div>
-                          <h4><Link to={houseUrl(oneHouse)} test = {results}>{oneHouse.fields.name}</Link></h4>
+                          <Link to={houseUrl(oneHouse)} test = {results}><div className="place-img"><img src = {oneHouse.fields.xl_picture_url} alt='housepic' /></div>
+                          <h4>{oneHouse.fields.name}</h4>
                           <h5>{oneHouse.fields.price}$ per night</h5>
                           <div className="reviews">
                           <StarRatingComponent 
@@ -106,6 +106,7 @@ componentDidMount(){
                           />
                               <h6>{oneHouse.fields.number_of_reviews}</h6>
                           </div>
+                          </Link>
                       </li>
                   )
                 })}
