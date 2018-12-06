@@ -8,6 +8,7 @@ class BecomeHost extends Component {
     super(props);
 
     this.state = {
+      owner: "",
       property_type: "",
       room_type: "",
       accomodates: "",
@@ -31,13 +32,17 @@ class BecomeHost extends Component {
 
     this.setState({[name]: value});
   }
-
+  
   handleSubmit(event) {
     event.preventDefault();
+    const {_id} = this.props.currentUser;
+    this.setState({owner: _id}, ()=> {       
+    console.log("---------------------",this.state);
     axios.post("http://localhost:5555/api/houses", this.state)
     .then(response => {
       console.log("Add House", response.data);
       this.setState({
+        owner: "",
         property_type: "",
         room_type: "",
         accomodates: "",
@@ -58,9 +63,11 @@ class BecomeHost extends Component {
     .catch(err => {
       console.log("Something went wrong...", err)
     })
+  });
   }
 
   render() {
+    
     if (this.state.isSubmitSuccessful) {
       return <Redirect to="/houses" />
     }

@@ -102,6 +102,8 @@ class PlaceDetails extends Component {
           <div className="col-lg-12 more">
             <Link to="/houses"><button className="booking-button h6">Back to all places</button></Link>
           </div>
+
+         
         </section>
         )
     }

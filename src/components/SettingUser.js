@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "./style/SettingUser.scss"
+import "./style/SettingUser.scss";
+import { Link } from "react-router-dom";
 
 class SettingUser extends Component {
   constructor(props) {
@@ -68,6 +69,8 @@ class SettingUser extends Component {
           </label>
 
           <button>Change your profile parameters</button>
+
+          <Link to="/userhouses"><button>See all of the places that you created</button></Link>
         </form>
       </section>
     )

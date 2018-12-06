@@ -14,6 +14,8 @@ import Saved from "./components/Saved";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
 import SettingUser from "./components/SettingUser";
+import EditPlace from "./components/EditPlace";
+import UserHouses from "./components/UserHouses";
 import "./components/style/Menu.scss";
 
 
@@ -77,7 +79,9 @@ class App extends Component {
           <Route path="/houses/:houseId" component={PlaceDetails}/>
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
-          <Route path="/becomehost" component={BecomeHost}/>
+          <Route path="/becomehost" render = {() => {
+            return <BecomeHost currentUser={this.state.currentUser}/>
+          }}/>
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
@@ -92,6 +96,8 @@ class App extends Component {
               <LoginPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
           <Route path="/settinguser/:userId" component={SettingUser} />
+          <Route path="/edithouse" component={EditPlace} />
+          <Route path="/userhouses" component={UserHouses} />
           
           <Route component = {NotFound} />
         </Switch> 

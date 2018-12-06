@@ -31,7 +31,6 @@ class Filters extends Component{
       </section>
     )
   }
-
 }
 
 export default Filters;
