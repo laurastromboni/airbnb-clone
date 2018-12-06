@@ -22,11 +22,11 @@ class SettingUser extends Component {
   componentDidMount() {
     const { params } = this.props.match;
   
-    console.log(params.userId);
+    // console.log(params.userId);
 
     axios.get(`http://localhost:5555/api/settinguser/${params.userId}`, {withCredentials: true})
     .then(response => {
-      console.log("------------------",response.data);
+      // console.log("------------------",response.data);
       this.setState({
         fullName: response.data.fullName,
         email: response.data.email
@@ -43,7 +43,7 @@ class SettingUser extends Component {
 
     axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state)
     .then(response => {
-      console.log("guguguguggugug", response);
+      // console.log("guguguguggugug", response);
     })
     .catch(err => {
       console.log("Something went wrong", err)

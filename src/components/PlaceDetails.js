@@ -24,7 +24,7 @@ class PlaceDetails extends Component {
         window.scrollTo(0,0)
         axios.get(`http://localhost:5555/api/houses/${params.houseId}`, { withCredentials: true })
             .then(response => {
-                console.log("House Detail", response.data)
+                // console.log("House Detail", response.data)
                 this.setState(response.data)
             })
             .catch(err => {
@@ -37,7 +37,7 @@ class PlaceDetails extends Component {
       const {params} = this.props.match
       axios.put(`http://localhost:5555/api/favorites/${params.houseId}`, {}, { withCredentials: true })
         .then(response => {
-          console.log("User", response.data)
+          // console.log("User", response.data)
           this.setState({ isFavorite : true })
         })
         .catch(err => {
@@ -50,7 +50,7 @@ class PlaceDetails extends Component {
       const {params} = this.props.match
       axios.put(`http://localhost:5555/api/favorites/${params.houseId}/delete`, {}, { withCredentials: true })
         .then(response => {
-          console.log("User", response.data)
+          // console.log("User", response.data)
           this.setState({ isFavorite : false })
         })
         .catch(err => {

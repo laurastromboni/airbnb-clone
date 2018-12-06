@@ -36,7 +36,7 @@ class BecomeHost extends Component {
     event.preventDefault();
     axios.post("http://localhost:5555/api/houses", this.state)
     .then(response => {
-      console.log("Add House", response.data);
+      // console.log("Add House", response.data);
       this.setState({
         property_type: "",
         room_type: "",

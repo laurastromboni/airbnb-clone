@@ -8,10 +8,22 @@ import SingleMap from "./SingleMap.js";
 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
+import moment from "moment"
 
 
 function houseUrl(oneHouse){
   return `/houses/${oneHouse._id}`;
+}
+
+function getDates(startDate, stopDate) {
+    var dateArray = [];
+    var currentDate = moment(startDate);
+    var stopDate = moment(stopDate);
+    while (currentDate <= stopDate) {
+        dateArray.push( moment(currentDate).format('YYYY-MM-DD') )
+        currentDate = moment(currentDate).add(1, 'days');
+    }
+    return dateArray;
 }
 
 class PlacesList extends Component{
@@ -47,11 +59,11 @@ submitHandler(event){
     let gps = {...this.state.gps};  
     axios.get(`http://localhost:5555/api/search/${this.state.where}`, {withCredentials : true})
     .then(response => {
-        console.log("search", response.data[0])
+        // console.log("search", response.data[0])
         
         gps.lng = response.data[0].geopoint[1]                       
         gps.lat = response.data[0].geopoint[0]
-        console.log("gps", gps)
+        // console.log("gps", gps)
         
         this.setState({
             gps,
@@ -103,7 +115,7 @@ componentDidMount(){
   render(){
       const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
-      console.log("resultats",results)
+    //   console.log("resultats",results)
     return(
       <section className="PlacesList col-lg-12">
           <section className="Header col-lg-12">

@@ -25,7 +25,7 @@ class Saved extends Component {
     window.scrollTo(0,0)
     axios.get("http://localhost:5555/api/favorites-list", { withCredentials: true })
         .then(response =>{
-          console.log("Favorites list", response.data)
+          // console.log("Favorites list", response.data)
           this.setState({favorites : response.data.favorites})
 
         })
