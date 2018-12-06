@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom"
-import axios from 'axios'
+import { Link } from "react-router-dom";
+import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import Filters from "./Filters.js";
 import './style/Header.scss';
-import SingleMap from "./SingleMap.js"
-
+import SingleMap from "./SingleMap.js";
 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
 
 
 function houseUrl(oneHouse){
-  return `/houses/${oneHouse.recordid}`;
+  return `/houses/${oneHouse._id}`;
 }
 
 class PlacesList extends Component{
@@ -86,7 +85,7 @@ funcFocusChange = (focusedInput) => {
 
 
 componentDidMount(){
-  const {allResults} = this.state;
+//   const {allResults} = this.state;
   let gps = {...this.state.gps};
   window.scrollTo(0,0)
   axios.get("http://localhost:5555/api/houses")
@@ -102,7 +101,7 @@ componentDidMount(){
 }
 
   render(){
-      const {searchResults, allResults, gps} = this.state
+      const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
       console.log("resultats",results)
     return(
@@ -129,7 +128,7 @@ componentDidMount(){
         <ul className="col-lg-8">
         {results.map(oneHouse=>{
             return(
-                <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
+                <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
                     <Link to={houseUrl(oneHouse)}>
                     <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
                     <h4>{oneHouse.name}</h4>
