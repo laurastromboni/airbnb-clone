@@ -7,6 +7,7 @@ import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
 import SingleMap from "./components/SingleMap.js";
 import BecomeHost from "./components/BecomeHost";
+import BecomeHostForm from "./components/BecomeHostForm";
 import Help from "./components/Help";
 import Messages from "./components/Messages";
 import Trips from "./components/Trips";
@@ -81,6 +82,7 @@ class App extends Component {
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
           <Route path="/becomehost" component={BecomeHost}/>
+          <Route path="/becomehostform" component={BecomeHostForm}/>
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
