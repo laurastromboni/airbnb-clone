@@ -14,6 +14,7 @@ import Saved from "./components/Saved";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
 import GoogleSearch from "./components/GoogleSearch.js";
+import SettingUser from "./components/SettingUser";
 import "./components/style/Menu.scss";
 
 
@@ -55,7 +56,6 @@ class App extends Component {
     this.setState({ currentUser : userDoc })
   }
 
-
   logoutClick(){
     axios.delete("http://localhost:5555/api/logout", { withCredentials: true })
         .then( () => {
@@ -93,6 +93,7 @@ class App extends Component {
           <Route path="/login" render = {() =>
               <LoginPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
+          <Route path="/settinguser/:userId" component={SettingUser} />
           
           <Route component = {NotFound} />
         </Switch> 
