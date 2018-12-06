@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom"
-import axios from 'axios'
+import { Link } from "react-router-dom";
+import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import Filters from "./Filters.js";
 import './style/Header.scss';
-import SingleMap from "./SingleMap.js"
-
+import SingleMap from "./SingleMap.js";
 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
@@ -63,7 +62,7 @@ submitHandler(event){
 
 
 componentDidMount(){
-  const {allResults} = this.state;
+//   const {allResults} = this.state;
   let gps = {...this.state.gps};
   window.scrollTo(0,0)
   axios.get("http://localhost:5555/api/houses")
@@ -79,7 +78,7 @@ componentDidMount(){
 }
 
   render(){
-      const {searchResults, allResults, gps} = this.state
+      const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
       console.log("resultats",results)
     return(

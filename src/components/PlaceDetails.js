@@ -5,7 +5,8 @@ import './style/PlaceDetails.scss';
 import './style/FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
 
-import emptyHeard from '../images/heart-empty.svg';
+import emptyHeart from '../images/heart-empty.svg';
+import fullHeart from '../images/heart-full.svg';
 
 class PlaceDetails extends Component {
 
@@ -13,8 +14,11 @@ class PlaceDetails extends Component {
         super(props);
         this.state = {
             fields : "",
+            isFavorite : false,
+            currentUser : false,
         }
     }
+
     componentDidMount(){
         const {params} = this.props.match
         window.scrollTo(0,0)
@@ -29,13 +33,55 @@ class PlaceDetails extends Component {
             })
     }
 
+    addToFavorites(){
+      const {params} = this.props.match
+      axios.put(`http://localhost:5555/api/favorites/${params.houseId}`, {}, { withCredentials: true })
+        .then(response => {
+          console.log("User", response.data)
+          this.setState({ isFavorite : true })
+        })
+        .catch(err => {
+          console.log("User Error", err);
+          alert('sorry, something went wrong')
+      })
+    }
+
+    deleteToFavorites(){
+      const {params} = this.props.match
+      axios.put(`http://localhost:5555/api/favorites/${params.houseId}/delete`, {}, { withCredentials: true })
+        .then(response => {
+          console.log("User", response.data)
+          this.setState({ isFavorite : false })
+        })
+        .catch(err => {
+          console.log("User Error", err);
+          alert('sorry, something went wrong')
+      })
+    }
+
     render(){
-      const {recordid, fields} = this.state
+
+      const { isFavorite } = this.state
+
         return(
           <section className = "PlaceDetails">
           <div className="img-div">
             <img src = {this.state.xl_picture_url} alt='housepic' />
-            <button className="save-button h6"><img src={emptyHeard} alt="fav" />Save</button>
+            
+            {isFavorite ? 
+              <button  onClick={() => this.deleteToFavorites()}
+              className="save-button h6">
+                <img src={fullHeart} alt="fav" />
+                Delete
+              </button>
+            :
+            <button onClick={() => this.addToFavorites()}
+            className="save-button h6">
+              <img src={emptyHeart} alt="fav" />
+              Save
+            </button>
+            }
+            
             <button className="pictures-button h6">See pictures</button>
           </div>
           <div className= "content">
@@ -47,7 +93,7 @@ class PlaceDetails extends Component {
                     <h5>{this.state.neighbourhood}</h5>
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
-                  <img src={this.state.host_picture_url} alt="host picture" />
+                  <img src={this.state.host_picture_url} alt="host pic" />
                 </div>
               </div>
               <div className="col-lg-12 middle-content-left">
