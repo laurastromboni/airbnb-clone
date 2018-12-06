@@ -45,8 +45,8 @@ submitHandler(event){
     .then(response => {
         console.log("search", response.data[0])
         
-        gps.lng = response.data[0].geopoint[0]                       
-        gps.lat = response.data[0].geopoint[1]
+        gps.lng = response.data[0].geopoint[1]                       
+        gps.lat = response.data[0].geopoint[0]
         
         this.setState({
             gps,
@@ -64,10 +64,13 @@ submitHandler(event){
 
 componentDidMount(){
   const {allResults} = this.state;
+  let gps = {...this.state.gps};
   window.scrollTo(0,0)
   axios.get("http://localhost:5555/api/houses")
       .then(response =>{
-          this.setState({allResults : response.data})
+        gps.lng = response.data[0].geopoint[1]                       
+        gps.lat = response.data[0].geopoint[0]
+          this.setState({gps, allResults : response.data})
       })
       .catch(err=>{
           console.log("Listing Info Error", err);
