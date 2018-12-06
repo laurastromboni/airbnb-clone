@@ -1,17 +1,17 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom"
-import axios from 'axios'
+import { Link } from "react-router-dom";
+import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import Filters from "./Filters.js";
 import './style/Header.scss';
-import SingleMap from "./SingleMap.js"
-
+import SingleMap from "./SingleMap.js";
 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
 
+
 function houseUrl(oneHouse){
-  return `/houses/${oneHouse.recordid}`;
+  return `/houses/${oneHouse._id}`;
 }
 
 class PlacesList extends Component{
@@ -29,7 +29,11 @@ class PlacesList extends Component{
         gps : {
             lat : 48.8534,
             lng : 2.3488
-        }
+        }, 
+        address :'', 
+        startDate: null,
+        endDate: null,
+        focusedInput: null,
     }
 }
 
@@ -47,6 +51,7 @@ submitHandler(event){
         
         gps.lng = response.data[0].geopoint[1]                       
         gps.lat = response.data[0].geopoint[0]
+        console.log("gps", gps)
         
         this.setState({
             gps,
@@ -61,9 +66,26 @@ submitHandler(event){
     }
     
 
+handleChange = address => {
+    this.setState({
+        address,
+        where : address.split(',')[0]
+    });
+    };
+
+funcDatesChange = ({ startDate, endDate }) => { 
+    this.setState({ startDate, endDate })
+}
+
+funcFocusChange = (focusedInput) => { 
+    this.setState({focusedInput})
+}
+
+
+
 
 componentDidMount(){
-  const {allResults} = this.state;
+//   const {allResults} = this.state;
   let gps = {...this.state.gps};
   window.scrollTo(0,0)
   axios.get("http://localhost:5555/api/houses")
@@ -79,14 +101,25 @@ componentDidMount(){
 }
 
   render(){
-      const {searchResults, allResults, gps} = this.state
+      const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
       console.log("resultats",results)
     return(
       <section className="PlacesList col-lg-12">
           <section className="Header col-lg-12">
               <h1><b>Live here.</b> Book unique homes and <br />experience a city like a local.</h1>
-              <Filters allFilters = {this.state} onGenericChange={event=>this.genSync(event)} handleSubmit={event=>this.submitHandler(event)} />
+              <Filters  address = {this.state.address}
+                        startDate = {this.state.startDate} 
+                        endDate = {this.state.endDate} 
+                        functionDatesChange = {({ startDate, endDate }) => this.funcDatesChange({ startDate, endDate })}
+                        functionFocusChange = {focusedInput => this.funcFocusChange(focusedInput)}
+                        focusedInput = {this.state.focusedInput} 
+                        allFilters = {this.state} 
+                        onAdressChange = {address => this.handleChange(address)} 
+                        onGenericChange={event=>this.genSync(event)} 
+                        handleSubmit={event=>this.submitHandler(event)} 
+
+                />
           </section>
         
             <h3>Our recommandations</h3>
@@ -95,7 +128,7 @@ componentDidMount(){
         <ul className="col-lg-8">
         {results.map(oneHouse=>{
             return(
-                <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
+                <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
                     <Link to={houseUrl(oneHouse)}>
                     <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
                     <h4>{oneHouse.name}</h4>
