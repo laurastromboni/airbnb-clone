@@ -88,7 +88,7 @@ class PlaceDetails extends Component {
               <button  onClick={() => this.deleteToFavorites()}
               className="save-button h6">
                 <img src={fullHeart} alt="fav" />
-                Delete
+                Saved
               </button>
             :
             <button onClick={() => this.addToFavorites()}
