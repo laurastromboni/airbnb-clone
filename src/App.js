@@ -83,14 +83,10 @@ class App extends Component {
           }} />
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
-<<<<<<< HEAD
           <Route path="/becomehost" render = {() => {
             return <BecomeHost currentUser={this.state.currentUser}/>
           }}/>
-=======
-          <Route path="/becomehost" component={BecomeHost}/>
           <Route path="/becomehostform" component={BecomeHostForm}/>
->>>>>>> 1b80592003dbf10cbbbed4174543c7141252e70a
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
