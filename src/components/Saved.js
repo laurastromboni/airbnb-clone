@@ -6,7 +6,7 @@ import axios from "axios";
 import "./style/Saved.scss"
 
 function houseUrl(oneHouse){
-  return `/houses/${oneHouse.recordid}`;
+  return `/houses/${oneHouse._id}`;
 }
 
 class Saved extends Component {
@@ -43,19 +43,19 @@ class Saved extends Component {
         <ul className="col-lg-12">
         {this.state.favorites.map(oneHouse=>{
             return(
-                <li key = {oneHouse.recordid} className="col-lg-3 col-md-6 col-sm-12">
-                    <Link to={houseUrl(oneHouse)}>
-                    <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
-                    <h4>{oneHouse.recordid}</h4>
-                    <h5>{oneHouse.price}$ per night</h5>
+                <li key = {oneHouse.houses._id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <Link to={houseUrl(oneHouse.houses)}>
+                    <div className="place-img"><img src = {oneHouse.houses.xl_picture_url} alt='housepic' /></div>
+                    <h4>{oneHouse.houses.name}</h4>
+                    <h5>{oneHouse.houses.price}$ per night</h5>
                     <div className="reviews">
                     <StarRatingComponent 
                     name="rate1" 
                     editing={false}
                     starCount={5}
-                    value={Math.round(oneHouse.review_scores_rating/20)}
+                    value={Math.round(oneHouse.houses.review_scores_rating/20)}
                     />
-                        <h6>{oneHouse.number_of_reviews}</h6>
+                        <h6>{oneHouse.houses.number_of_reviews}</h6>
                     </div>
                     </Link>
                  </li>

@@ -10,7 +10,7 @@ import './style/PlacesList.scss';
 import './style/FontColors.scss';
 
 function houseUrl(oneHouse){
-  return `/houses/${oneHouse.recordid}`;
+  return `/houses/${oneHouse._id}`;
 }
 
 class PlacesList extends Component{
@@ -94,7 +94,7 @@ componentDidMount(){
         <ul className="col-lg-8">
         {results.map(oneHouse=>{
             return(
-                <li key = {oneHouse.recordid} className="col-lg-4 col-md-6 col-sm-12">
+                <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
                     <Link to={houseUrl(oneHouse)}>
                     <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
                     <h4>{oneHouse.name}</h4>
