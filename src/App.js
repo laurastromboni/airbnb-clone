@@ -7,6 +7,7 @@ import Footer from "./components/Footer.js";
 import NotFound from "./components/NotFound.js";
 import SingleMap from "./components/SingleMap.js";
 import BecomeHost from "./components/BecomeHost";
+import BecomeHostForm from "./components/BecomeHostForm";
 import Help from "./components/Help";
 import Messages from "./components/Messages";
 import Trips from "./components/Trips";
@@ -15,6 +16,8 @@ import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
 import GoogleSearch from "./components/GoogleSearch.js";
 import SettingUser from "./components/SettingUser";
+import EditPlace from "./components/EditPlace";
+import UserHouses from "./components/UserHouses";
 import "./components/style/Menu.scss";
 
 
@@ -41,7 +44,7 @@ class App extends Component {
     // (but we can ask the server if we are through an API request)
     axios.get("http://localhost:5555/api/checkuser", { withCredentials: true })
         .then( response => {
-            console.log("Check User SUCESS", response.data);
+            console.log("Check User SUCCESS", response.data);
             const { userDoc } = response.data;
             this.syncCurrentUser(userDoc)
         })
@@ -75,10 +78,15 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={PlacesList} />
-          <Route path="/houses/:houseId" component={PlaceDetails}/>
+          <Route path="/houses/:houseId" render={({match}) => {
+              return <PlaceDetails currentUser={this.state.currentUser} match={match}/>
+          }} />
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
           <Route path="/becomehost" component={BecomeHost}/>
+          <Route path="/becomehostform" render = {() => {
+            return <BecomeHostForm currentUser={this.state.currentUser}/>
+          }}/>
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
@@ -94,6 +102,8 @@ class App extends Component {
               <LoginPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
           <Route path="/settinguser/:userId" component={SettingUser} />
+          <Route path="/edithouse" component={EditPlace} />
+          <Route path="/userhouses" component={UserHouses} />
           
           <Route component = {NotFound} />
         </Switch> 
