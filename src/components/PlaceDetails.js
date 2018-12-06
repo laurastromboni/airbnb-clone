@@ -24,8 +24,19 @@ class PlaceDetails extends Component {
         window.scrollTo(0,0)
         axios.get(`http://localhost:5555/api/houses/${params.houseId}`, { withCredentials: true })
             .then(response => {
-                console.log("House Detail", response.data)
+              const { currentUser } = this.props  
+              console.log("House Detail", response.data)
                 this.setState(response.data)
+                return axios.get(`http://localhost:5555/api/settinguser/${currentUser._id}`)
+            })
+            .then(response => {
+              console.log("response.data.favorites", response.data.favorites)
+              console.log("params.houseId", params.houseId)
+              const { favorites } = response.data
+              const filterArray = favorites.some( el => {
+                return el.houses === params.houseId
+              })
+                this.setState({isFavorite: filterArray})
             })
             .catch(err => {
                 console.log("House Details Error", err);
@@ -35,15 +46,16 @@ class PlaceDetails extends Component {
 
     addToFavorites(){
       const {params} = this.props.match
-      axios.put(`http://localhost:5555/api/favorites/${params.houseId}`, {}, { withCredentials: true })
-        .then(response => {
-          console.log("User", response.data)
-          this.setState({ isFavorite : true })
+      console.log("ADD FAV TESTING params.houseId", params.houseId)
+        axios.put(`http://localhost:5555/api/favorites/${params.houseId}`, {}, { withCredentials: true })
+          .then(response => {
+            console.log("User", response.data)
+            this.setState({ isFavorite : true })
+          })
+          .catch(err => {
+            console.log("User Error", err);
+            alert('sorry, something went wrong')
         })
-        .catch(err => {
-          console.log("User Error", err);
-          alert('sorry, something went wrong')
-      })
     }
 
     deleteToFavorites(){

@@ -41,7 +41,7 @@ class App extends Component {
     // (but we can ask the server if we are through an API request)
     axios.get("http://localhost:5555/api/checkuser", { withCredentials: true })
         .then( response => {
-            console.log("Check User SUCESS", response.data);
+            console.log("Check User SUCCESS", response.data);
             const { userDoc } = response.data;
             this.syncCurrentUser(userDoc)
         })
@@ -75,7 +75,9 @@ class App extends Component {
 
         <Switch>
           <Route exact path="/" component={PlacesList} />
-          <Route path="/houses/:houseId" component={PlaceDetails}/>
+          <Route path="/houses/:houseId" render={({match}) => {
+              return <PlaceDetails currentUser={this.state.currentUser} match={match}/>
+          }} />
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
           <Route path="/becomehost" component={BecomeHost}/>

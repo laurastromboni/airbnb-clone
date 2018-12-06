@@ -40,6 +40,7 @@ class Saved extends Component {
     return(
       <section className="Saved">
         <h2>Saved</h2>
+        <p>Here you can find the places you've saved as favorite.</p>
         <ul className="col-lg-12">
         {this.state.favorites.map(oneHouse=>{
             return(
