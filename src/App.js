@@ -13,6 +13,7 @@ import Trips from "./components/Trips";
 import Saved from "./components/Saved";
 import SignupPage from "./components/SignupPage.js";
 import LoginPage from "./components/LoginPage.js";
+import GoogleSearch from "./components/GoogleSearch.js";
 import "./components/style/Menu.scss";
 
 
@@ -83,6 +84,7 @@ class App extends Component {
           <Route path="/trips" component={Trips}/>
           <Route exact path ="/menu" component ={Menu} />
           <Route path="/saved" component={Saved}/>
+          <Route path="/google" component={GoogleSearch}/>
           {/* way 1 to do it */}
           <Route path="/signup" render = {() => {
               return <SignupPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />

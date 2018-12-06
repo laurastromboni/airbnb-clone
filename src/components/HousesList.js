@@ -10,6 +10,7 @@ import SingleMap from "./SingleMap.js"
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
 
+
 function houseUrl(oneHouse){
   return `/houses/${oneHouse.recordid}`;
 }
@@ -29,7 +30,8 @@ class PlacesList extends Component{
         gps : {
             lat : 48.8534,
             lng : 2.3488
-        }
+        }, 
+        address :''
     }
 }
 
@@ -47,6 +49,7 @@ submitHandler(event){
         
         gps.lng = response.data[0].geopoint[1]                       
         gps.lat = response.data[0].geopoint[0]
+        console.log("gps", gps)
         
         this.setState({
             gps,
@@ -60,6 +63,15 @@ submitHandler(event){
     })
     }
     
+
+handleChange = address => {
+    
+
+    this.setState({
+        address,
+        where : address.split(',')[0]
+    });
+    };
 
 
 componentDidMount(){
@@ -86,7 +98,7 @@ componentDidMount(){
       <section className="PlacesList col-lg-12">
           <section className="Header col-lg-12">
               <h1><b>Live here.</b> Book unique homes and <br />experience a city like a local.</h1>
-              <Filters allFilters = {this.state} onGenericChange={event=>this.genSync(event)} handleSubmit={event=>this.submitHandler(event)} />
+              <Filters address = {this.state.address} allFilters = {this.state} onAdressChange = {address => this.handleChange(address)} onGenericChange={event=>this.genSync(event)} handleSubmit={event=>this.submitHandler(event)} />
           </section>
         
             <h3>Our recommandations</h3>

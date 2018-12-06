@@ -50,6 +50,23 @@
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
+    .places-autocomplete{
+      .Demo__search-bar-container{
+        .Demo__autocomplete-container{
+          position: absolute;
+          background-color: white;
+          z-index: 50;
+          margin:0px;
+          border-bottom: 2px solid #E0E0DA;
+          border-left: 2px solid #E0E0DA;
+          border-right: 2px solid #E0E0DA;
+          width : 101.5%;
+          margin-left: -6.5%;
+          padding-top: 10px;
+          padding-left : 6%;
+        }
+      }
+    }
     input{
       border:none;
       outline: none;
