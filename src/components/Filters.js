@@ -6,12 +6,13 @@ import PlacesAutocomplete from "./LocationSearchInput";
 import { classnames } from './helpers';
 import './style/GoogleSearch.scss';
 
+import 'react-dates/initialize';
+import 'react-dates/lib/css/_datepicker.css';
+
+import { DateRangePicker } from 'react-dates';
+
+
 class Filters extends Component{
-
-
-
-
-
 
   render(){
     const {address} = this.props;
@@ -70,12 +71,28 @@ class Filters extends Component{
       </div>
           {/* <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="where" value= {this.props.where} placeholder="Destination" /> */}
         </div>
+
+
         <div className="col-lg-4 col-md-4 col-sm-12 filter-div">
           <h4>When</h4>
           <div className="when">
-            <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-1" placeholder="Check in" className="when-1" /> → <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-2" placeholder="Check out" className="when-2" />
+      
+        <DateRangePicker
+          startDateId="startDate"
+          endDateId="endDate"
+          startDate={this.props.startDate}
+          endDate={this.props.endDate}
+          onDatesChange = {this.props.functionDatesChange}
+          focusedInput={this.props.focusedInput}
+          onFocusChange={this.props.functionFocusChange}
+          
+        />
+            {/* <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-1" placeholder="Check in" className="when-1" /> → <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-2" placeholder="Check out" className="when-2" /> */}
           </div>
         </div>
+
+
+
         <div className="col-lg-5 col-md-5 col-sm-12 search-div">
           <div className="guest">
             <h4>Guest</h4>
