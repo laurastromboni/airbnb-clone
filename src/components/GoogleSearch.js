@@ -1,31 +1,35 @@
-import React, { Component } from "react";
-import './style/Filters.scss';
-import './style/FontColors.scss';
-import GoogleSearch from "./GoogleSearch"
+import React from 'react';
 import PlacesAutocomplete from "./LocationSearchInput";
 import { classnames } from './helpers';
 import './style/GoogleSearch.scss';
 
-class Filters extends Component{
+class GoogleSearch extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      address: '',
+    };
+  }
 
+  handleChange = address => {
+    this.setState({
+      address,
+    });
+  };
 
+  handleSelect = selected => {
+    this.setState({ address: selected });
+  };
 
+  render() {
+    const {address} = this.state;
 
-
-
-  render(){
-    const {address} = this.props;
-    return(
-      <section>
-        <form onSubmit={event=>this.props.handleSubmit(event)} className="Filters">
-        <div className="col-lg-3 col-md-3 col-sm-12 filter-div">
-          <h4>Where</h4>
-          <div className="places-autocomplete">
-        
+    return (
+      <div>
         <PlacesAutocomplete
-          onChange={this.props.onAdressChange}
-          value={this.props.address}
-          shouldFetchSuggestions={this.props.address.length > 2}
+          onChange={this.handleChange}
+          value={address}
+          shouldFetchSuggestions={address.length > 2}
         >
           {({ getInputProps, suggestions, getSuggestionItemProps }) => {
             return (
@@ -68,28 +72,8 @@ class Filters extends Component{
         </PlacesAutocomplete>
 
       </div>
-          {/* <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="where" value= {this.props.where} placeholder="Destination" /> */}
-        </div>
-        <div className="col-lg-4 col-md-4 col-sm-12 filter-div">
-          <h4>When</h4>
-          <div className="when">
-            <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-1" placeholder="Check in" className="when-1" /> → <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-2" placeholder="Check out" className="when-2" />
-          </div>
-        </div>
-        <div className="col-lg-5 col-md-5 col-sm-12 search-div">
-          <div className="guest">
-            <h4>Guest</h4>
-            <input onChange = {event=> this.props.onGenericChange(event)} type="number" name="guest" value= {this.props.guest} placeholder="1" />
-          </div>
-          <div className="search-btn">
-            <button className="search-button">Search</button>
-          </div>
-        </div>
-        </form>
-      </section>
-    )
+    );
   }
-
 }
 
-export default Filters;
+export default GoogleSearch;

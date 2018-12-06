@@ -8,15 +8,18 @@ import logo from '../images/logo.svg';
 import user from '../images/user.svg';
 import menu from '../images/menu.svg';
 
-class NavBar extends Component{
 
+class NavBar extends Component{
+  
   constructor(props){
     super(props);
     this.state = {
       isOpen: false,
     }
   }
-
+  
+  
+  
   // revenir à la page où on était quand on clique sur le menu responsive
   menuIsClicked(event){
     const {isOpen} = this.state
@@ -26,8 +29,8 @@ class NavBar extends Component{
     }
   }
 
+
   render(){
-    console.log();
     return(
       <section className="NavBar">
         <div className="NavBar-leftside col-lg-4 col-md-4 col-sm-4 col-xs-2">
@@ -44,7 +47,7 @@ class NavBar extends Component{
                     <NavLink to="/trips"><li>Trips</li></NavLink>
                     <NavLink to="/messages"><li>Messages</li></NavLink>
                     <button onClick={() => this.props.logClick()}><li>Log Out</li></button>
-                    <img src={user} className="App-user" alt="logo" />
+                    <NavLink to={`/settinguser/${this.props.currentUser._id}`}><img src={user} className="App-user" alt="logo" /></NavLink>
                 </span>
             ) : (
                 <span>

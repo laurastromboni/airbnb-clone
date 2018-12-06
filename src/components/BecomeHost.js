@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import "./style/BecomeHost.scss";
 import axios from "axios";
 
@@ -20,7 +21,8 @@ class BecomeHost extends Component {
       country: "",
       city: "",
       price: "",
-      picture_url: ""
+      picture_url: "",
+      isSubmitSuccessful: false
     }
   }
 
@@ -49,7 +51,8 @@ class BecomeHost extends Component {
         country: "",
         city: "",
         price: "",
-        picture_url: ""
+        picture_url: "",
+        isSubmitSuccessful: true
       })
     })
     .catch(err => {
@@ -58,6 +61,9 @@ class BecomeHost extends Component {
   }
 
   render() {
+    if (this.state.isSubmitSuccessful) {
+      return <Redirect to="/houses" />
+    }
     return(
       <section className="BecomeHost">
 
@@ -121,7 +127,7 @@ class BecomeHost extends Component {
           </label>
 
           <button>Put your home on AirBnb !</button>
-          
+
         </form>
 
       </section>
