@@ -31,7 +31,10 @@ class PlacesList extends Component{
             lat : 48.8534,
             lng : 2.3488
         }, 
-        address :''
+        address :'', 
+        startDate: null,
+        endDate: null,
+        focusedInput: null,
     }
 }
 
@@ -65,13 +68,21 @@ submitHandler(event){
     
 
 handleChange = address => {
-    
-
     this.setState({
         address,
         where : address.split(',')[0]
     });
     };
+
+funcDatesChange = ({ startDate, endDate }) => { 
+    this.setState({ startDate, endDate })
+}
+
+funcFocusChange = (focusedInput) => { 
+    this.setState({focusedInput})
+}
+
+
 
 
 componentDidMount(){
@@ -98,7 +109,18 @@ componentDidMount(){
       <section className="PlacesList col-lg-12">
           <section className="Header col-lg-12">
               <h1><b>Live here.</b> Book unique homes and <br />experience a city like a local.</h1>
-              <Filters address = {this.state.address} allFilters = {this.state} onAdressChange = {address => this.handleChange(address)} onGenericChange={event=>this.genSync(event)} handleSubmit={event=>this.submitHandler(event)} />
+              <Filters  address = {this.state.address}
+                        startDate = {this.state.startDate} 
+                        endDate = {this.state.endDate} 
+                        functionDatesChange = {({ startDate, endDate }) => this.funcDatesChange({ startDate, endDate })}
+                        functionFocusChange = {focusedInput => this.funcFocusChange(focusedInput)}
+                        focusedInput = {this.state.focusedInput} 
+                        allFilters = {this.state} 
+                        onAdressChange = {address => this.handleChange(address)} 
+                        onGenericChange={event=>this.genSync(event)} 
+                        handleSubmit={event=>this.submitHandler(event)} 
+
+                />
           </section>
         
             <h3>Our recommandations</h3>
