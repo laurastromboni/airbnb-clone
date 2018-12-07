@@ -57,20 +57,24 @@ class SettingUser extends Component {
   render() {
     return(
       <section className="SettingUser">
+        <h2>Welcome, {this.state.fullName} !</h2>
+        <p>Here you can update your settings & access to the places you've add.</p>
+        <div className="cover"></div>
+
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
-            Change your name: <input value={this.state.fullName} onChange={event => this.genSync(event)} type="text" name="fullName" />
+            <input value={this.state.fullName} onChange={event => this.genSync(event)} type="text" name="fullName" />
           </label>
 
           <label>
-            Change your email: <input value={this.state.email} onChange={event => this.genSync(event)} type="email" name="email" />
+            <input value={this.state.email} onChange={event => this.genSync(event)} type="email" name="email" />
           </label>
 
           <label>
-            Password: <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" />
+            <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" />
           </label>
 
-          <button>Change your profile parameters</button>
+          <button>Save your changes</button>
 
           <Link to="/userhouses"><button>See all of the places that you created</button></Link>
         </form>
