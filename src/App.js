@@ -74,7 +74,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavBar  currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
+        <NavBar currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
 
         <Switch>
           <Route exact path="/" component={PlacesList} />
@@ -104,7 +104,7 @@ class App extends Component {
           } />
           
           <Route path="/settinguser/:userId" component={SettingUser} />
-          <Route path="/edithouse" component={EditPlace} />
+          <Route path="/edithouse/:id" component={EditPlace} />
           <Route path="/userhouses" component={UserHouses} />
           
           <Route component = {NotFound} />
