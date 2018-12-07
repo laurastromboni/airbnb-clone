@@ -122,7 +122,7 @@ class App extends Component {
           } />
           
           <Route path="/settinguser/:userId" render = {props => { 
-            return <SettingUser userHousesArray={this.state.userHousesArray} match={props.match} />
+            return <SettingUser userHousesArray={this.state.userHousesArray} match={props.match} currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
             }} />
           <Route path="/edithouse/:id" component={EditPlace} />
         <Route path="/userhouses" render= {() => {

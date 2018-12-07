@@ -48,7 +48,11 @@ class SettingUser extends Component {
 
     axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state, { withCredentials: true })
     .then(response => {
-      // console.log("guguguguggugug", response);
+      console.log(response.data)
+      // const { userDoc } = response.data;
+      // console.log(userDoc)
+      this.props.onUserChange(response.data)
+      
     })
     .catch(err => {
       console.log("Something went wrong", err)
