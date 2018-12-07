@@ -11,6 +11,8 @@
     padding-inline-start: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
     li {
       list-style-type: none;
       text-align: left;

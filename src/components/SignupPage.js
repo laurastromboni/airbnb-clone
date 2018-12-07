@@ -81,7 +81,7 @@ class SignupPage extends Component{
           <label>
             <input value={this.state.avatar}
                    onChange={event => this.genericSync(event)}
-                   type="url" name="avatar" placeholder="Put your profile pic url" />
+                   type="url" name="avatar" placeholder="Put your avatar url (optional)" className="avatar" />
           </label>
 
           <button className="h6">Sign Up</button>
