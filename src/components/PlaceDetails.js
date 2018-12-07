@@ -114,6 +114,7 @@ class PlaceDetails extends Component {
         return(
 
           <section className = "PlaceDetails">
+          {/* <div className="img-div-2"></div> */}
           <div className="img-div">
             <img src = {this.state.xl_picture_url} alt='housepic' />
             
