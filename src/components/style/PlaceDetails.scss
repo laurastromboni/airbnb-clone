@@ -128,6 +128,20 @@
       }
       h4{
         text-align:left;
+        margin-top: 10px;
+      }
+      .DateRangePicker{
+        width: 100%;
+        .DateRangePickerInput{
+          width: 100%;
+          .DateInput{    
+            width: 40%;
+            .DateInput_input{
+              font-size: 16px;
+              font-weight: 400;
+            }
+          }
+        }
       }
       .book-div{
         padding: 10px 20px;
@@ -140,7 +154,6 @@
         input{
           border:none;
           outline: none;
-          width: 40%;
           overflow: hidden;
         }
         .guests{

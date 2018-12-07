@@ -40,35 +40,34 @@ class UserHouses extends Component {
     const { userHousesArray } = this.props;
 
     return(
-      <section className="user-houses">
-        <h2>See all of your houses</h2>
+      <section className="UserHouses">
+        <h2>Your places</h2>
+        <p>Here you can find the places you've added.</p>
+        { userHousesArray.length !== 0 ?
+        <div className="col-lg-12 saved-list">
+          <ul>
+          {userHousesArray.map((oneHouse, index) => {
+            return(
+              <li key={oneHouse._id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                <div className="place-img"><img src={oneHouse.picture_url} alt="pic" /></div>
+                <h4>{oneHouse.name}</h4>
+                <h5>{oneHouse.price} $ per night</h5>
 
-        {userHousesArray.map((oneHouse, index) => {
-          return(
-            <li key={oneHouse._id}>
-              <h3>{oneHouse.name}</h3>
-              <p>{oneHouse.description}</p>
-
-              <p>Property type: {oneHouse.property_type}</p>
-              <p>Room type: {oneHouse.room_type}</p>
-              <p>Accomodates: {oneHouse.accomodates}</p>
-              <p>{oneHouse.beds} beds</p>
-              <p>{oneHouse.bedrooms} bedroom(s)</p>
-              <p>{oneHouse.bathrooms} bathroom(s)</p>
-              <p>Neighbourhood: {oneHouse.neighbourhoods}</p>
-              <p>Amenities: {oneHouse.amenities}</p>
-              <p>Country: {oneHouse.country}</p>
-              <p>{oneHouse.price} $</p>
-              <img src={oneHouse.picture_url} alt="pic" />
-
-              <Link to={this.getHouseIdUrl(oneHouse)}><button>Edit this house</button></Link>
-              <button onClick={() => this.deleteHouse(oneHouse, index)}>Delete this house</button>
-              <hr />
-            </li>
-          )
-        })}
-
-        <Link to="/edithouse"><button>Edit your house</button></Link>
+                <div className="buttons">
+                  <button onClick={() => this.deleteHouse(oneHouse, index)} className="delete col-lg-5">Delete</button>
+                  <button className="edit col-lg-5"><Link to={this.getHouseIdUrl(oneHouse)}>Edit</Link></button>
+                </div>
+              </li>
+            )
+          })}
+          </ul>
+        </div>
+        :
+        <div className="col-lg-12 more">
+          <h1><b>0</b></h1>
+        </div>
+        }
+        <Link to="/becomehostform"><button className="add">Add new place</button></Link>
       </section>
     )
   }

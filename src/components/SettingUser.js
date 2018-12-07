@@ -48,7 +48,11 @@ class SettingUser extends Component {
 
     axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state, { withCredentials: true })
     .then(response => {
-      // console.log("guguguguggugug", response);
+      console.log(response.data)
+      // const { userDoc } = response.data;
+      // console.log(userDoc)
+      this.props.onUserChange(response.data)
+      
     })
     .catch(err => {
       console.log("Something went wrong", err)
@@ -78,7 +82,7 @@ class SettingUser extends Component {
           </label>
 
           <label className="avatars">
-            <h4>Change your avatar</h4>
+            <h4>Change your avatar url</h4>
             <input value={this.state.avatar} onChange={event => this.genSync(event)} type="url" name="avatar" placeholder="avatar url" />
           </label>
 

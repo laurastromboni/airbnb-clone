@@ -142,7 +142,8 @@ class BecomeHostForm extends Component {
             <p>Image</p> <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" placeholder="Image URL" />
           </label>
 
-          <button className="add-button h6">Add your Home</button>
+          <button className="add-button h6">Add your place</button>
+
         </form>
 
       </section>
