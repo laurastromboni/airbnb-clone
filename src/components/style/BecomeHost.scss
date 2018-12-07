@@ -21,7 +21,7 @@
       justify-content: center;
       flex-direction: column;
       h1{
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         font-family: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
       }
       .become-button{
@@ -43,6 +43,95 @@
       .ready{
         padding: 30px;
       }
+    }
+  }
+  .why{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px 100px;
+    @media (max-width: 700px){
+      padding: 50px;
+    }
+    .why-content{
+      margin-top: 20px;
+      text-align: left;
+      padding: 0 50px;
+      @media (max-width: 991px){
+        text-align: center;
+        padding: 0;
+      }
+    }
+  }
+  .steps{
+    hr{
+      width: 50px;
+      border-top: 3px solid #484848;
+    }
+    h1{
+      font-family: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    }
+    .step-list{
+      padding: 0 150px;
+      display: flex;
+      flex-wrap: wrap;
+      .one-step{
+        text-align: left;
+        padding: 50px;
+        img{
+          height: 50px;
+          margin-bottom: 20px;
+        }
+        @media (max-width: 991px){
+          text-align: center;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 991px){
+        padding: 10px 50px;
+      }
+    }
+  }
+  .host{
+    display:flex;
+    flex-wrap: wrap;
+    padding: 0 150px;
+    align-items: center;
+    justify-content: center;
+    .host-left{
+      text-align: left;
+      .big-arrow{
+        color: rgb(253, 179, 43);
+        font-size: 60px;
+        font-family: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+        font-weight: bold;
+        line-height: 25px;
+      }
+      .become-button{
+        color:#484848;
+        background-color:white;
+        border: 2px solid #484848;
+        padding: 13px 50px;
+        border-radius: 10px;
+        outline: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      @media (max-width: 991px){
+        text-align: center;
+        padding: 50px;
+      }
+    }
+    .host-right{
+      img{
+        height: 100%;
+        margin: 0 auto;
+      }
+    }
+    @media (max-width: 991px){
+      padding: 50px;
+      flex-direction: column-reverse;
     }
   }
 }

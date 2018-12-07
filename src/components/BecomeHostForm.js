@@ -72,7 +72,7 @@ class BecomeHostForm extends Component {
       return <Redirect to="/houses" />
     }
     return(
-      <section className="BecomeHost">
+      <section className="BecomeHostForm">
 
         <h2>Become a Host</h2>
 
