@@ -1,6 +1,72 @@
 .BecomeHostForm {
   padding-top: 120px;
-  label {
-    display: block;
+  .cover{
+    height: 300px;
+    width: 90%;
+    margin: 0 auto;
+    background-image: url("../../images/becomeahost-1.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    a{
+      button{
+        cursor: pointer;
+        width: 300px;
+        color:black;
+        background-color:white;
+        padding: 13px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+    }
+  }
+  form{
+    label {
+      display: block;
+      input{
+        background-color: #ffffff !important;
+        -webkit-transition: box-shadow 200ms ease-in !important;
+        -moz-transition: box-shadow 200ms ease-in !important;
+        transition: box-shadow 200ms ease-in !important;
+        border: 1px solid #EBEBEB !important;
+        border-radius: 4px !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+        height: 48px !important;
+        width: 50%;
+        margin: 0 10px;
+        outline: none;
+        padding: 13px;
+        background-origin: content-box;
+        letter-spacing: 1px;
+        font-size: 12px;
+        text-transform: uppercase;
+        @media (max-width:720px){
+          width: 80%;
+        }
+      }
+    }
+  }
+  .add-button{
+    color: white;
+    background-color:#FF5A5F;
+    padding: 13px;
+    border-radius: 10px;
+    border:none;
+    outline: none;
+    width: 300px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    margin-top: 20px;
   }
 }

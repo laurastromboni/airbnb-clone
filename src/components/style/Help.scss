@@ -1,3 +1,17 @@
 .Help {
   padding-top: 120px;
+  .cover{
+    height: 300px;
+    width: 90%;
+    margin: 30px auto;
+    background-image: url("../../images/coverbar-3.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
