@@ -122,7 +122,7 @@ componentDidMount(){
             <h3>Our recommandations</h3>
         
         <div className="ListSect col-lg-12">
-        <ul className="col-lg-8">
+        <ul className="col-lg-8 col-md-8">
         {results.map(oneHouse=>{
             return(
                 <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
@@ -145,7 +145,7 @@ componentDidMount(){
         })}
         </ul>
             
-          <div className="GoogleMap col-lg-4" id="GoogleMap">
+          <div className="GoogleMap col-lg-4 col-md-4" id="GoogleMap">
                 <div className="map"><SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})} gps = {this.state.gps} /></div>
           </div>
           </div>
