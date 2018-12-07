@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 import "./style/EditPlace.scss";
 
 
@@ -24,6 +24,10 @@ class EditPlace extends Component {
       picture_url: ""
     }
   }
+  
+  componentDidMount(){
+    window.scrollTo(0,0)
+  }
 
   synchro(event) {
     const { name, value } = event.target;
@@ -34,7 +38,7 @@ class EditPlace extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    Axios.post("http://localhost:5555/api/houses/:id", this.state)
+    axios.post("http://localhost:5555/api/houses/:id", this.state, { withCredentials: true })
     .then(response => {
       console.log(response.data)
     })

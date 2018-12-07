@@ -19,10 +19,11 @@ class SettingUser extends Component {
 
     this.setState({[name]: value});
   }  
-
+  
   componentDidMount() {
     const { params } = this.props.match;
   
+    window.scrollTo(0,0)
     console.log(params.userId);
 
     axios.get(`http://localhost:5555/api/settinguser/${params.userId}`, {withCredentials: true})
@@ -42,7 +43,7 @@ class SettingUser extends Component {
     event.preventDefault();
     const { params } = this.props.match;
 
-    axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state)
+    axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state, { withCredentials: true })
     .then(response => {
       console.log("guguguguggugug", response);
     })

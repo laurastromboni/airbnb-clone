@@ -8,6 +8,10 @@ import step3 from "../images/becomeahost-icon-3.jpg";
 import host from "../images/becomeahost-3.jpg";
 
 class BecomeHost extends Component {
+  
+  componentDidMount(){
+    window.scrollTo(0,0)
+  }
 
   render(){
       return(

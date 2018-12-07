@@ -93,6 +93,7 @@ class App extends Component {
           <Route exact path ="/menu" component ={Menu} />
           <Route path="/saved" component={Saved}/>
           <Route path="/google" component={GoogleSearch}/>
+
           {/* way 1 to do it */}
           <Route path="/signup" render = {() => {
               return <SignupPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
@@ -101,6 +102,7 @@ class App extends Component {
           <Route path="/login" render = {() =>
               <LoginPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
+          
           <Route path="/settinguser/:userId" component={SettingUser} />
           <Route path="/edithouse" component={EditPlace} />
           <Route path="/userhouses" component={UserHouses} />
