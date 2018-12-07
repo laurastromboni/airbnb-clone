@@ -174,7 +174,7 @@ class PlaceDetails extends Component {
                 <h4>Dates</h4>
                 
                   <DateRangePicker
-                    startDateId="blqh"
+                    startDateId="blahStart"
                     endDateId="blahEnd"
                     startDate={this.state.startDate}
                     endDate={this.state.endDate}
@@ -182,6 +182,8 @@ class PlaceDetails extends Component {
                     focusedInput={this.state.focusedInput}
                     onFocusChange={focused=>this.functionFocusChange(focused)}
                     isDayBlocked = {isDayBlocked}
+                    startDatePlaceholderText = "Start"
+                    endDatePlaceholderText = "End"
                   />
                 
                 <h4>Guests</h4>
