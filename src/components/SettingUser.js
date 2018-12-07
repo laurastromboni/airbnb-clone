@@ -11,6 +11,7 @@ class SettingUser extends Component {
       fullName: "",
       email: "",
       originalPassword:"",
+      avatar: "",
     }
   }
 
@@ -32,7 +33,8 @@ class SettingUser extends Component {
       // console.log("------------------",response.data);
       this.setState({
         fullName: response.data.fullName,
-        email: response.data.email
+        email: response.data.email,
+        avatar: response.data.avatar,
       })
     })
     .catch(err => {
@@ -71,13 +73,15 @@ class SettingUser extends Component {
           </label>
 
           <label>
-            <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" />
+            <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
           </label>
 
-          <button>Save your changes</button>
-
-          <Link to="/userhouses"><button>See all of the places that you created</button></Link>
+          <div className="buttons">
+          {this.props.userHousesArray.length > 0 ? <Link to="/userhouses"><button className="see">My places</button></Link> : <Link to="/becomehostform"><button>You still haven't created any house, it's the right time !</button></Link>}
+            <button className="save">Save your changes</button>
+          </div>
         </form>
+
       </section>
     )
   }
