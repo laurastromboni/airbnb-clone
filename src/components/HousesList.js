@@ -47,22 +47,23 @@ genSync(event){
 submitHandler(event){
     event.preventDefault();
     let gps = {...this.state.gps}; 
-    const {dateArray} = this.state 
+    const {dateArray, where, searchResults} = this.state 
     const arrayOfDates =[]
 
-    axios.get(`http://localhost:5555/api/search/${this.state.where}`, {withCredentials : true})
+    var currentDate = this.state.startDate;
+    while (currentDate <= this.state.endDate) {
+        arrayOfDates.push( moment(currentDate).format('YYYY-MM-DD') )
+        currentDate = moment(currentDate).add(1, 'days');
+    }
+
+    axios.post(`http://localhost:5555/api/search`, {arrayOfDates, where})
     .then(response => {
-        // console.log("search", response.data[0])
+        console.log("search", response.data)
         
         gps.lng = response.data[0].geopoint[1]                       
         gps.lat = response.data[0].geopoint[0]
         // console.log("gps", gps)
         
-        var currentDate = this.state.startDate;
-        while (currentDate <= this.state.endDate) {
-            arrayOfDates.push( moment(currentDate).format('YYYY-MM-DD') )
-            currentDate = moment(currentDate).add(1, 'days');
-        }
 
         this.setState({
             dateArray : arrayOfDates,
