@@ -90,7 +90,9 @@ class App extends Component {
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
           <Route path="/trips" component={Trips}/>
-          <Route exact path ="/menu" component ={Menu} />
+          <Route exact path ="/menu" render ={() => {
+            return <Menu currentUser={this.state.currentUser} />
+          }} />
           <Route path="/saved" component={Saved}/>
           <Route path="/google" component={GoogleSearch}/>
 
