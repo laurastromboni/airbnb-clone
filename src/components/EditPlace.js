@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Axios from "axios";
 import "./style/EditPlace.scss";
+import { Redirect } from "react-router-dom";
 
 
 class EditPlace extends Component {
@@ -16,12 +17,13 @@ class EditPlace extends Component {
       bathrooms: "",
       neighbourhood: "",
       amenities: "",
-      title: "",
+      name: "",
       description: "",
       country: "",
       city: "",
       price: "",
-      picture_url: ""
+      picture_url: "",
+      isSubmitSuccessful: false
     }
   }
 
@@ -31,17 +33,50 @@ class EditPlace extends Component {
     this.setState({[name]: value});
   }
 
+  componentDidMount() {
+    const { params } = this.props.match;
+    console.log(params);
+    // Get the house fields in the database
+    Axios.get(`http://localhost:5555/api/houses/${params.id}`, {withCredentials: true})
+    .then(response => {
+      this.setState({
+        property_type: response.data.property_type,
+        room_type: response.data.room_type,
+        accomodates: response.data.accomodates,
+        beds: response.data.beds,
+        bedrooms: response.data.bedrooms,
+        bathrooms: response.data.bathrooms,
+        neighbourhood: response.data.neighbourhood,
+        amenities: response.data.amenities,
+        name: response.data.name,
+        description: response.data.description,
+        country: response.data.country,
+        city: response.data.city,
+        price: response.data.price,
+        picture_url: response.data.picture_url
+      })
+    })
+    .catch(err => {console.log("Something went wrong", err)});
+  }
+
   handleSubmit(event) {
     event.preventDefault();
+    const { params } = this.props.match;
 
-    Axios.post("http://localhost:5555/api/houses/:id", this.state)
+    Axios.put(`http://localhost:5555/api/houses/${params.id}`, this.state)
     .then(response => {
-      console.log(response.data)
+      console.log(response.data);
+      this.setState({ isSubmitSuccessful: true })
     })
     .catch(err => {console.log("Something went wrong", err)})
   }
 
   render() {
+    const { isSubmitSuccessful } = this.state;
+    if (isSubmitSuccessful) {
+      return <Redirect to="/userhouses" />
+    }
+
     return(
       <section className="edit-place">
         <form onSubmit={(event) => this.handleSubmit(event)}>
@@ -78,7 +113,7 @@ class EditPlace extends Component {
             </label>
 
             <label>
-              Title: <input value={this.state.title} onChange={event => this.synchro(event)} type="text" name="title" />
+              Title: <input value={this.state.name} onChange={event => this.synchro(event)} type="text" name="name" />
             </label>
 
             <label>
@@ -100,6 +135,8 @@ class EditPlace extends Component {
             <label>
               Image: <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" />
             </label>
+
+            <button>Edit your place</button>
           </form>
       </section>
     )

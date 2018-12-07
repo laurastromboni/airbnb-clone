@@ -25,6 +25,7 @@ class SettingUser extends Component {
   
     console.log(params.userId);
 
+    // Get the fields of the user in the database
     axios.get(`http://localhost:5555/api/settinguser/${params.userId}`, {withCredentials: true})
     .then(response => {
       console.log("------------------",response.data);

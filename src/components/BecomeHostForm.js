@@ -17,7 +17,7 @@ class BecomeHostForm extends Component {
       bathrooms: "",
       neighbourhood: "",
       amenities: "",
-      title: "",
+      name: "",
       description: "",
       country: "",
       city: "",
@@ -51,7 +51,7 @@ class BecomeHostForm extends Component {
         bathrooms: "",
         neighbourhood: "",
         amenities: "",
-        title: "",
+        name: "",
         description: "",
         country: "",
         city: "",
@@ -110,7 +110,7 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            Title: <input value={this.state.title} onChange={event => this.synchro(event)} type="text" name="title" />
+            Title: <input value={this.state.name} onChange={event => this.synchro(event)} type="text" name="name" />
           </label>
 
           <label>

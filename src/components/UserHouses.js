@@ -39,6 +39,10 @@ class UserHouses extends Component {
     })
   }
 
+  getHouseIdUrl(oneHouse) {
+    return `/edithouse/${oneHouse._id}`
+  }
+
   render() {
     const { userHousesArray } = this.state;
 
@@ -49,22 +53,24 @@ class UserHouses extends Component {
         {userHousesArray.map((oneHouse, index) => {
           return(
             <li key={oneHouse._id}>
-              <h2>{oneHouse.title}</h2>
+              <h3>{oneHouse.name}</h3>
               <p>{oneHouse.description}</p>
 
-              <p>{oneHouse.property_type}</p>
-              <p>{oneHouse.room_type}</p>
-              <p>{oneHouse.accomodates}</p>
+              <p>Property type: {oneHouse.property_type}</p>
+              <p>Room type: {oneHouse.room_type}</p>
+              <p>Accomodates: {oneHouse.accomodates}</p>
               <p>{oneHouse.beds} beds</p>
               <p>{oneHouse.bedrooms} bedroom(s)</p>
               <p>{oneHouse.bathrooms} bathroom(s)</p>
-              <p>{oneHouse.neighbourhoods}</p>
-              <p>{oneHouse.amenities}</p>
-              <p>{oneHouse.country}</p>
+              <p>Neighbourhood: {oneHouse.neighbourhoods}</p>
+              <p>Amenities: {oneHouse.amenities}</p>
+              <p>Country: {oneHouse.country}</p>
               <p>{oneHouse.price} $</p>
               <img src={oneHouse.picture_url} />
 
+              <Link to={this.getHouseIdUrl(oneHouse)}><button>Edit this house</button></Link>
               <button onClick={() => this.deleteHouse(oneHouse, index)}>Delete this house</button>
+              <hr />
             </li>
           )
         })}
