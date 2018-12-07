@@ -78,7 +78,7 @@ class SettingUser extends Component {
           </label>
 
           <label className="avatars">
-            <h4>Change your avatar</h4>
+            <h4>Change your avatar url</h4>
             <input value={this.state.avatar} onChange={event => this.genSync(event)} type="url" name="avatar" placeholder="avatar url" />
           </label>
 

@@ -1,16 +1,36 @@
-.user-houses {
+.UserHouses {
   padding-top: 120px;
-}
-
-.user-houses img {
-  width: 200px;
-}
-
-.user-houses li {
-  text-decoration: none;
-  list-style: none;
-}
-
-.user-houses {
-  
+  img {
+    width: 200px;
+  }
+  ul {
+    padding-inline-start: 0;
+    li {
+      text-decoration: none;
+      list-style-type: none;
+    }
+  }
+  .buttons{
+    margin: 30px 10px;
+    button{
+      width: 200px;
+      color:white;
+      padding: 10px 40px;
+      border-radius: 10px;
+      border:none;
+      outline: none;
+      margin: 5px 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      padding: 13px;
+      cursor: pointer;
+    }
+    .delete{
+      background-color:#484848;
+    }
+    .edit{
+      background-color:#FF5A5F;
+    }
+  }
 }

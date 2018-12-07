@@ -40,7 +40,7 @@ class UserHouses extends Component {
     const { userHousesArray } = this.props;
 
     return(
-      <section className="user-houses">
+      <section className="UserHouses">
         <h2>See all of your houses</h2>
 
         {userHousesArray.map((oneHouse, index) => {
@@ -61,14 +61,14 @@ class UserHouses extends Component {
               <p>{oneHouse.price} $</p>
               <img src={oneHouse.picture_url} alt="pic" />
 
-              <Link to={this.getHouseIdUrl(oneHouse)}><button>Edit this house</button></Link>
-              <button onClick={() => this.deleteHouse(oneHouse, index)}>Delete this house</button>
-              <hr />
+              <div className="buttons">
+                <button onClick={() => this.deleteHouse(oneHouse, index)} className="delete">Delete this house</button>
+                <Link to={this.getHouseIdUrl(oneHouse)}><button className="edit">Edit this house</button></Link>
+              </div>
             </li>
           )
         })}
 
-        <Link to="/edithouse"><button>Edit your house</button></Link>
       </section>
     )
   }
