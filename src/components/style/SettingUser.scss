@@ -1,7 +1,69 @@
 .SettingUser{
   padding-top: 120px;
-}
-
-.SettingUser label {
-  display: block;
+  .cover{
+    height: 300px;
+    width: 90%;
+    margin: 30px auto;
+    background-image: url("../../images/coverbar-1.jpg");
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  form{
+    label {
+      display: block;
+      input{
+        background-color: #ffffff !important;
+        -webkit-transition: box-shadow 200ms ease-in !important;
+        -moz-transition: box-shadow 200ms ease-in !important;
+        transition: box-shadow 200ms ease-in !important;
+        border: 1px solid #EBEBEB !important;
+        border-radius: 4px !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+        height: 48px !important;
+        width: 50%;
+        margin: 0 10px;
+        outline: none;
+        padding: 13px;
+        background-origin: content-box;
+        letter-spacing: 1px;
+        font-size: 12px;
+        text-transform: uppercase;
+        @media (max-width:720px){
+          width: 80%;
+        }
+      }
+    }
+    .avatars{
+      margin-top: 20px;
+    }
+    .buttons{
+      margin: 30px 10px;
+      button{
+        width: 200px;
+        color:white;
+        padding: 10px 40px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        margin: 5px 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        padding: 13px;
+        cursor: pointer;
+      }
+      .see{
+        background-color:#484848;
+      }
+      .save{
+        background-color:#FF5A5F;
+      }
+    }
+  }
 }

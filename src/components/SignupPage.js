@@ -13,6 +13,7 @@ class SignupPage extends Component{
       email: "",
       originalPassword: "",
       // currentUser: null, = delete to synchronize
+      avatar: "",
     }
   }
 
@@ -75,6 +76,12 @@ class SignupPage extends Component{
             <input value={this.state.originalPassword}
                    onChange={event => this.genericSync(event)}
                    type="password" name="originalPassword" placeholder="*******" className="originalPassword"/>
+          </label>
+
+          <label>
+            <input value={this.state.avatar}
+                   onChange={event => this.genericSync(event)}
+                   type="url" name="avatar" placeholder="Put your avatar url (optional)" className="avatar" />
           </label>
 
           <button className="h6">Sign Up</button>

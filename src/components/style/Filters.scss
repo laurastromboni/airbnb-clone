@@ -69,6 +69,12 @@
     }
     .DateRangePickerInput__withBorder{
       border : none;
+      .DateInput {
+        .DateInput_input{
+          font-size: 16px;
+          font-weight: 400;
+        }
+      }
     }
     input{
       border:none;

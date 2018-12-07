@@ -1,3 +1,38 @@
 .Trips {
   padding-top: 120px;
+  .cover{
+    height: 300px;
+    width: 90%;
+    margin: 50px auto;
+    background-image: url("../../images/coverbar-0.jpg");
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h2{
+    line-height: 50px;
+  }
+  p{
+    margin: 0 20px;
+  }
+  .been{
+    .booking-button{
+      color:white;
+      background-color:#FF5A5F;
+      padding: 13px;
+      border-radius: 10px;
+      border:none;
+      outline: none;
+      width: 300px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      margin-top: 30px;
+    }
+  }
 }

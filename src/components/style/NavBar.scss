@@ -49,9 +49,22 @@
         font-weight: bold;
       }
     }
-    .App-user{
+    .profile-pic{
       height: 40px;
+      width: 40px;
+      object-fit: fill;
       margin: 0 10px;
+      border-radius: 50px;
+      background-image:url("../../images/user.svg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      .App-user{
+        height: 40px;
+        width: 40px;
+        object-fit: fill;
+        border-radius: 50px;
+      }
     }
   }
   .NavBar-rightside-2{

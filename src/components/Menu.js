@@ -10,7 +10,8 @@ class Menu extends Component{
     return(
       <section className="Menu">
         <ul>
-            <li><h1><b>My Account</b></h1></li>
+            {this.props.currentUser &&
+            <Link to={`/settinguser/${this.props.currentUser._id}`}><li><h1><b>My Account</b></h1></li></Link>}
             <Link to="/becomehost"><li><h1><b>Become a Host</b></h1></li></Link>
             <Link to="/saved"><li><h1><b>Saved</b></h1></li></Link>
             <Link to="/trips"><li><h1><b>Trips</b></h1></li></Link>

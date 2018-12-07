@@ -5,9 +5,7 @@ import SearchBar from "./SearchBar.js";
 import './style/NavBar.scss';
 import './style/FontColors.scss';
 import logo from '../images/logo.svg';
-import user from '../images/user.svg';
 import menu from '../images/menu.svg';
-
 
 class NavBar extends Component{
   
@@ -44,7 +42,9 @@ class NavBar extends Component{
                     <NavLink to="/trips"><li>Trips</li></NavLink>
                     <NavLink to="/messages"><li>Messages</li></NavLink>
                     <button onClick={() => this.props.logClick()}><li>Log Out</li></button>
-                    <NavLink to={`/settinguser/${this.props.currentUser._id}`}><img src={user} className="App-user" alt="logo" /></NavLink>
+                    <NavLink to={`/settinguser/${this.props.currentUser._id}`} className="profile-pic">
+                      <img src={this.props.currentUser.avatar} className="App-user" alt="" />
+                    </NavLink>
                 </span>
             ) : (
                 <span>
