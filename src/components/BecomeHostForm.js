@@ -82,19 +82,39 @@ class BecomeHostForm extends Component {
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
-            Type: <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" />
+            Title <input value={this.state.title} onChange={event => this.synchro(event)} type="text" name="title" />
+          </label>
+
+          <div className="type-price">
+
+            <label>
+              Type <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" />
+            </label>
+
+            <label>
+              Price <input value={this.state.price} onChange={event => this.synchro(event)} type="number" name="price" />
+            </label>
+
+          </div>
+
+          <label>
+            Description <input value={this.state.description} onChange={event => this.synchro(event)} type="text" name="description" />
+          </label>
+          
+          <label>
+            Maximum guests <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" />
           </label>
 
           <label>
-            Room type: <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" />
+            Amenities <input value={this.state.amenities} onChange={event => this.synchro(event)} type="text" name="amenities" />
           </label>
 
           <label>
-            Maximum guests: <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" />
+            Room type <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" />
           </label>
 
           <label>
-            Bed(s): <input value={this.state.beds} onChange={event => this.synchro(event)} type="number" name="beds" />
+            Bed(s) <input value={this.state.beds} onChange={event => this.synchro(event)} type="number" name="beds" />
           </label>
 
           <label>
@@ -102,7 +122,7 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            Bathroom(s): <input value={this.state.bathrooms} onChange={event => this.synchro(event)} type="number" name="bathrooms" />
+            Bathroom(s) <input value={this.state.bathrooms} onChange={event => this.synchro(event)} type="number" name="bathrooms" />
           </label>
 
           <label>
@@ -110,34 +130,18 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            Amenities: <input value={this.state.amenities} onChange={event => this.synchro(event)} type="text" name="amenities" />
+            City <input value={this.state.city} onChange={event => this.synchro(event)} type="text" name="city" />
           </label>
 
           <label>
-            Title: <input value={this.state.title} onChange={event => this.synchro(event)} type="text" name="title" />
+            Country <input value={this.state.country} onChange={event => this.synchro(event)} type="text" name="country" />
           </label>
 
           <label>
-            Description: <input value={this.state.description} onChange={event => this.synchro(event)} type="text" name="description" />
+            Image <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" />
           </label>
 
-          <label>
-            Country: <input value={this.state.country} onChange={event => this.synchro(event)} type="text" name="country" />
-          </label>
-
-          <label>
-            City: <input value={this.state.city} onChange={event => this.synchro(event)} type="text" name="city" />
-          </label>
-
-          <label>
-            Price: <input value={this.state.price} onChange={event => this.synchro(event)} type="number" name="price" />
-          </label>
-
-          <label>
-            Image: <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" />
-          </label>
-
-          <button>Put your home on AirBnb !</button>
+          <button>Add your Home</button>
 
         </form>
 
