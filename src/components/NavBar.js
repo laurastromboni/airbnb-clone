@@ -18,8 +18,6 @@ class NavBar extends Component{
     }
   }
   
-  
-  
   // revenir à la page où on était quand on clique sur le menu responsive
   menuIsClicked(event){
     const {isOpen} = this.state
@@ -28,7 +26,6 @@ class NavBar extends Component{
       this.props.history.goBack();
     }
   }
-
 
   render(){
     return(

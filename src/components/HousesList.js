@@ -94,14 +94,11 @@ funcFocusChange = (focusedInput) => {
     this.setState({focusedInput})
 }
 
-
-
-
 componentDidMount(){
 //   const {allResults} = this.state;
   let gps = {...this.state.gps};
   window.scrollTo(0,0)
-  axios.get("http://localhost:5555/api/houses")
+  axios.get("http://localhost:5555/api/houses", { withCredentials: true })
       .then(response =>{
         gps.lng = response.data[0].geopoint[1]                       
         gps.lat = response.data[0].geopoint[0]

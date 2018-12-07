@@ -27,6 +27,10 @@ class BecomeHostForm extends Component {
     }
   }
 
+  componentDidMount(){
+    window.scrollTo(0,0)
+  }
+
   synchro(event) {
     const { name, value } = event.target;
 
@@ -38,7 +42,7 @@ class BecomeHostForm extends Component {
     const {_id} = this.props.currentUser;
     this.setState({owner: _id}, ()=> {       
     console.log("---------------------",this.state);
-    axios.post("http://localhost:5555/api/houses", this.state)
+    axios.post("http://localhost:5555/api/houses", this.state, { withCredentials: true })
     .then(response => {
       console.log("Add House", response.data);
       this.setState({
@@ -72,7 +76,7 @@ class BecomeHostForm extends Component {
       return <Redirect to="/houses" />
     }
     return(
-      <section className="BecomeHost">
+      <section className="BecomeHostForm">
 
         <h2>Become a Host</h2>
 
