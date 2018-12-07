@@ -11,6 +11,7 @@ class SettingUser extends Component {
       fullName: "",
       email: "",
       originalPassword:"",
+      avatar: "",
     }
   }
 
@@ -32,7 +33,8 @@ class SettingUser extends Component {
       // console.log("------------------",response.data);
       this.setState({
         fullName: response.data.fullName,
-        email: response.data.email
+        email: response.data.email,
+        avatar: response.data.avatar,
       })
     })
     .catch(err => {
@@ -57,23 +59,29 @@ class SettingUser extends Component {
   render() {
     return(
       <section className="SettingUser">
+        <h2>Welcome, {this.state.fullName} !</h2>
+        <p>Here you can update your settings & access to the places you've add.</p>
+        <div className="cover"></div>
+
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
-            Change your name: <input value={this.state.fullName} onChange={event => this.genSync(event)} type="text" name="fullName" />
+            <input value={this.state.fullName} onChange={event => this.genSync(event)} type="text" name="fullName" />
           </label>
 
           <label>
-            Change your email: <input value={this.state.email} onChange={event => this.genSync(event)} type="email" name="email" />
+            <input value={this.state.email} onChange={event => this.genSync(event)} type="email" name="email" />
           </label>
 
           <label>
-            Password: <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" />
+            <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
           </label>
 
-          <button>Change your profile parameters</button>
-
-          <Link to="/userhouses"><button>See all of the places that you created</button></Link>
+          <div className="buttons">
+          {this.props.userHousesArray.length > 0 ? <Link to="/userhouses"><button className="see">My places</button></Link> : <Link to="/becomehostform"><button>You still haven't created any house, it's the right time !</button></Link>}
+            <button className="save">Save your changes</button>
+          </div>
         </form>
+
       </section>
     )
   }

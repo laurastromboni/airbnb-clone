@@ -45,6 +45,9 @@ class BecomeHostForm extends Component {
     axios.post("http://localhost:5555/api/houses", this.state, { withCredentials: true })
     .then(response => {
       console.log("Add House", response.data);
+      const newArray = [...this.props.userHousesArray];
+      newArray.push(response.data);
+      this.props.onHouseChange(newArray);
       this.setState({
         owner: "",
         property_type: "",

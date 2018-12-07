@@ -4,20 +4,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 class UserHouses extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      userHousesArray: []
-    }
-  }
-
   componentDidMount() {
     window.scrollTo(0,0)
     axios.get("http://localhost:5555/api/userhouses", {withCredentials : true})
     .then(response => {
       console.log("HOUSES OWNER", response.data);
-      this.setState({userHousesArray: response.data});
+      this.props.onHouseChange(response.data);
     })
     .catch(err => {
       console.log("FAIL", err)
@@ -29,10 +21,10 @@ class UserHouses extends Component {
     axios.delete(`http://localhost:5555/api/deletehouse/${oneHouse._id}`, {withCredentials: true})
     .then(response => {
       console.log("HOUSE DELETED", response.data)
-      console.log(this.state.userHousesArray)
-      let copyUserHouseArray = [...this.state.userHousesArray];
+      console.log(this.props.userHousesArray)
+      let copyUserHouseArray = [...this.props.userHousesArray];
       copyUserHouseArray.splice(index, 1);
-      this.setState({userHousesArray: copyUserHouseArray});
+      this.props.onHouseChange(copyUserHouseArray);
 
     })
     .catch(err => {
@@ -45,7 +37,7 @@ class UserHouses extends Component {
   }
 
   render() {
-    const { userHousesArray } = this.state;
+    const { userHousesArray } = this.props;
 
     return(
       <section className="user-houses">

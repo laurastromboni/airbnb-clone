@@ -36,6 +36,7 @@ class App extends Component {
 
     this.state = {
         currentUser: null,
+        userHousesArray: []
     }
   }
 
@@ -52,6 +53,15 @@ class App extends Component {
             console.log("Check User ERROR", err);
             alert("Sorry! Something went wrong");
         })
+
+    axios.get("http://localhost:5555/api/userhouses", {withCredentials : true})
+      .then(response => {
+        console.log("HOUSES OWNER", response.data);
+        this.syncHousesArray(response.data);
+      })
+      .catch(err => {
+        console.log("FAIL", err)
+      })
   }
 
     // (must be defined in App.js since it's the owner of "currentUser" now)
@@ -71,6 +81,10 @@ class App extends Component {
         })
   }
 
+  syncHousesArray(userHousesArray) {
+    this.setState({userHousesArray})
+  }
+
   render() {
     return (
       <div className="App">
@@ -85,7 +99,9 @@ class App extends Component {
           <Route path="/maps" component={SingleMap}/>
           <Route path="/becomehost" component={BecomeHost}/>
           <Route path="/becomehostform" render = {() => {
-            return <BecomeHostForm currentUser={this.state.currentUser}/>
+            return <BecomeHostForm currentUser={this.state.currentUser}
+              userHousesArray={this.state.userHousesArray}
+              onHouseChange={array => this.syncHousesArray(array)}/>
           }}/>
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
@@ -105,9 +121,14 @@ class App extends Component {
               <LoginPage currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
           } />
           
-          <Route path="/settinguser/:userId" component={SettingUser} />
+          <Route path="/settinguser/:userId" render = {props => { 
+            return <SettingUser userHousesArray={this.state.userHousesArray} match={props.match} />
+            }} />
           <Route path="/edithouse/:id" component={EditPlace} />
-          <Route path="/userhouses" component={UserHouses} />
+        <Route path="/userhouses" render= {() => {
+          return <UserHouses userHousesArray={this.state.userHousesArray}
+              onHouseChange={array => this.syncHousesArray(array)} />
+          } } />
           
           <Route component = {NotFound} />
         </Switch> 
