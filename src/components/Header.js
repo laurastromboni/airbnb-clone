@@ -31,7 +31,7 @@ submitHandler(event){
     // PUT and POST requests 
     axios.get(`http://localhost:5555/api/search/${this.state.where}`, { withCredentials: true })
         .then(response => {
-            console.log("search", response.data)
+            // console.log("search", response.data)
             response.data.map(oneHouse=>{
               return(
               searchResults.push(oneHouse)

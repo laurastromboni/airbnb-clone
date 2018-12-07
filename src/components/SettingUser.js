@@ -19,16 +19,17 @@ class SettingUser extends Component {
 
     this.setState({[name]: value});
   }  
-
+  
   componentDidMount() {
     const { params } = this.props.match;
   
+    window.scrollTo(0,0)
     console.log(params.userId);
 
     // Get the fields of the user in the database
     axios.get(`http://localhost:5555/api/settinguser/${params.userId}`, {withCredentials: true})
     .then(response => {
-      console.log("------------------",response.data);
+      // console.log("------------------",response.data);
       this.setState({
         fullName: response.data.fullName,
         email: response.data.email
@@ -43,9 +44,9 @@ class SettingUser extends Component {
     event.preventDefault();
     const { params } = this.props.match;
 
-    axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state)
+    axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state, { withCredentials: true })
     .then(response => {
-      console.log("guguguguggugug", response);
+      // console.log("guguguguggugug", response);
     })
     .catch(err => {
       console.log("Something went wrong", err)

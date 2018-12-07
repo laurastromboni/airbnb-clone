@@ -40,12 +40,15 @@
       }
     }
   }
-  .GoogleMap{
+  #GoogleMap{
     position: relative;
     .map{
     position: sticky;
     position: -webkit-sticky;
     top: 120px;
+    }
+    @media(max-width:	540px){
+      display: none;
     }
   }
 }

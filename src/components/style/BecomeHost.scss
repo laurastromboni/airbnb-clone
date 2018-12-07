@@ -63,13 +63,6 @@
     }
   }
   .steps{
-    hr{
-      width: 50px;
-      border-top: 3px solid #484848;
-    }
-    h1{
-      font-family: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
-    }
     .step-list{
       padding: 0 150px;
       display: flex;
@@ -125,7 +118,7 @@
     }
     .host-right{
       img{
-        height: 100%;
+        width: 100%;
         margin: 0 auto;
       }
     }
@@ -133,5 +126,89 @@
       padding: 50px;
       flex-direction: column-reverse;
     }
+  }
+  .worldwide{
+    margin-top: 100px;
+    .h1{
+      font-family: 'Cereal-Book', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+      color: #484848;
+    }
+    .one-step{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    @media(max-width:991px){
+      margin-top: 0;
+    }
+  }
+  .more{
+    h3{
+      line-height: 0;
+      margin-bottom: 0;
+      text-align: left;
+      padding: 0 160px;
+      margin: 40px 0 30px 0;
+      @media (max-width:991px){
+        padding:0;
+        text-align: center;
+        margin: 40px 0 30px 0;
+      }
+    }
+    .step-list{
+      .one-step{
+        padding: 10px;
+        p{
+          margin-bottom: 0;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+        a{
+          .p{
+            color:rgb(0, 132, 137);
+            font-size: 14px;
+          }
+        }
+      }
+    } 
+  }
+  .cover2{
+      height: 300px;
+      width: 90%;
+      margin: 60px auto 40px auto;
+      background-image: url("../../images/becomeahost-4.jpg");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a{
+        button{
+          cursor: pointer;
+          width: 300px;
+          color:black;
+          background-color:white;
+          padding: 13px;
+          border-radius: 10px;
+          border:none;
+          outline: none;
+          margin-top: 10px;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 12px;
+        }
+      }
+  }
+  hr{
+    width: 50px;
+    border-top: 3px solid #484848;
+  }
+  h1{
+    font-family: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
   }
 }

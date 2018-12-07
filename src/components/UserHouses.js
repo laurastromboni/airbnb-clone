@@ -13,6 +13,7 @@ class UserHouses extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0,0)
     axios.get("http://localhost:5555/api/userhouses", {withCredentials : true})
     .then(response => {
       console.log("HOUSES OWNER", response.data);
@@ -66,7 +67,7 @@ class UserHouses extends Component {
               <p>Amenities: {oneHouse.amenities}</p>
               <p>Country: {oneHouse.country}</p>
               <p>{oneHouse.price} $</p>
-              <img src={oneHouse.picture_url} />
+              <img src={oneHouse.picture_url} alt="pic" />
 
               <Link to={this.getHouseIdUrl(oneHouse)}><button>Edit this house</button></Link>
               <button onClick={() => this.deleteHouse(oneHouse, index)}>Delete this house</button>

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Axios from "axios";
+import axios from "axios";
 import "./style/EditPlace.scss";
 import { Redirect } from "react-router-dom";
 
@@ -35,9 +35,10 @@ class EditPlace extends Component {
 
   componentDidMount() {
     const { params } = this.props.match;
+    window.scrollTo(0,0)
     console.log(params);
     // Get the house fields in the database
-    Axios.get(`http://localhost:5555/api/houses/${params.id}`, {withCredentials: true})
+    axios.get(`http://localhost:5555/api/houses/${params.id}`, {withCredentials: true})
     .then(response => {
       this.setState({
         property_type: response.data.property_type,
@@ -63,7 +64,7 @@ class EditPlace extends Component {
     event.preventDefault();
     const { params } = this.props.match;
 
-    Axios.put(`http://localhost:5555/api/houses/${params.id}`, this.state)
+    axios.put(`http://localhost:5555/api/houses/${params.id}`, this.state, { withCredentials: true })
     .then(response => {
       console.log(response.data);
       this.setState({ isSubmitSuccessful: true })
