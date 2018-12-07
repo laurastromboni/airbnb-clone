@@ -24,12 +24,8 @@ class PlaceDetails extends Component {
         window.scrollTo(0,0)
         axios.get(`http://localhost:5555/api/houses/${params.houseId}`, { withCredentials: true })
             .then(response => {
-<<<<<<< HEAD
-                // console.log("House Detail", response.data)
-=======
               const { currentUser } = this.props  
               console.log("House Detail", response.data)
->>>>>>> 75770c2bb07fbcbbd76a9f95466e11bce2ef491b
                 this.setState(response.data)
                 return axios.get(`http://localhost:5555/api/settinguser/${currentUser._id}`)
             })

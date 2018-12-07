@@ -15,17 +15,6 @@ function houseUrl(oneHouse){
   return `/houses/${oneHouse._id}`;
 }
 
-function getDates(startDate, stopDate) {
-    var dateArray = [];
-    var currentDate = moment(startDate);
-    var stopDate = moment(stopDate);
-    while (currentDate <= stopDate) {
-        dateArray.push( moment(currentDate).format('YYYY-MM-DD') )
-        currentDate = moment(currentDate).add(1, 'days');
-    }
-    return dateArray;
-}
-
 class PlacesList extends Component{
 
   constructor(props){
@@ -46,6 +35,7 @@ class PlacesList extends Component{
         startDate: null,
         endDate: null,
         focusedInput: null,
+        dateArray:[]
     }
 }
 
@@ -56,7 +46,10 @@ genSync(event){
 
 submitHandler(event){
     event.preventDefault();
-    let gps = {...this.state.gps};  
+    let gps = {...this.state.gps}; 
+    const {dateArray} = this.state 
+    const arrayOfDates =[]
+
     axios.get(`http://localhost:5555/api/search/${this.state.where}`, {withCredentials : true})
     .then(response => {
         // console.log("search", response.data[0])
@@ -65,7 +58,14 @@ submitHandler(event){
         gps.lat = response.data[0].geopoint[0]
         // console.log("gps", gps)
         
+        var currentDate = this.state.startDate;
+        while (currentDate <= this.state.endDate) {
+            arrayOfDates.push( moment(currentDate).format('YYYY-MM-DD') )
+            currentDate = moment(currentDate).add(1, 'days');
+        }
+
         this.setState({
+            dateArray : arrayOfDates,
             gps,
             searchResults: response.data,
             isSubmitSuccessful : true, 
@@ -73,7 +73,7 @@ submitHandler(event){
     })
     .catch(err =>{
         console.log("search", err);
-        alert("sorry something went wrong Retrieving Data")
+        alert("We can't find houses for this city")
     })
     }
     
