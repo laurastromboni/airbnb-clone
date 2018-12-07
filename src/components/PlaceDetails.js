@@ -62,7 +62,7 @@ class PlaceDetails extends Component {
       const {params} = this.props.match
       axios.put(`http://localhost:5555/api/favorites/${params.houseId}/delete`, {}, { withCredentials: true })
         .then(response => {
-          console.log("User", response.data)
+          // console.log("User", response.data)
           this.setState({ isFavorite : false })
         })
         .catch(err => {

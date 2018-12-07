@@ -8,6 +8,7 @@ import SingleMap from "./SingleMap.js";
 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
+import moment from "moment"
 
 
 function houseUrl(oneHouse){
@@ -34,6 +35,7 @@ class PlacesList extends Component{
         startDate: null,
         endDate: null,
         focusedInput: null,
+        dateArray:[]
     }
 }
 
@@ -44,16 +46,27 @@ genSync(event){
 
 submitHandler(event){
     event.preventDefault();
-    let gps = {...this.state.gps};  
-    axios.get(`http://localhost:5555/api/search/${this.state.where}`, {withCredentials : true})
+    let gps = {...this.state.gps}; 
+    const {dateArray, where, searchResults} = this.state 
+    const arrayOfDates =[]
+
+    var currentDate = this.state.startDate;
+    while (currentDate <= this.state.endDate) {
+        arrayOfDates.push( moment(currentDate).format('YYYY-MM-DD') )
+        currentDate = moment(currentDate).add(1, 'days');
+    }
+
+    axios.post(`http://localhost:5555/api/search`, {arrayOfDates, where})
     .then(response => {
-        console.log("search", response.data[0])
+        console.log("search", response.data)
         
         gps.lng = response.data[0].geopoint[1]                       
         gps.lat = response.data[0].geopoint[0]
-        console.log("gps", gps)
+        // console.log("gps", gps)
         
+
         this.setState({
+            dateArray : arrayOfDates,
             gps,
             searchResults: response.data,
             isSubmitSuccessful : true, 
@@ -61,7 +74,7 @@ submitHandler(event){
     })
     .catch(err =>{
         console.log("search", err);
-        alert("sorry something went wrong Retrieving Data")
+        alert("We can't find houses for this city")
     })
     }
     
@@ -100,7 +113,7 @@ componentDidMount(){
   render(){
       const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
-      console.log("resultats",results)
+    //   console.log("resultats",results)
     return(
       <section className="PlacesList col-lg-12">
           <section className="Header col-lg-12">
