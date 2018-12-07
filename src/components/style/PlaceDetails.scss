@@ -206,7 +206,6 @@
       font-size: 12px;
     }
   }
-  .popup-overlay{
     .popup-content{
       padding: 0;
       width: 70%;
@@ -215,6 +214,11 @@
       background: none;
       ul{
         padding-inline-start: 0;
+        .slide{
+          div{
+            height: 100%;
+          }
+        }
       }
       ul.thumbs.animated{
         margin: 0;
@@ -226,5 +230,4 @@
         display: none;
       }
     }
-  }
 }
