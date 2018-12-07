@@ -206,4 +206,25 @@
       font-size: 12px;
     }
   }
+  .popup-overlay{
+    .popup-content{
+      padding: 0;
+      width: 70%;
+      margin-bottom: 35px;
+      border: 0;
+      background: none;
+      ul{
+        padding-inline-start: 0;
+      }
+      ul.thumbs.animated{
+        margin: 0;
+      }
+      .carousel .thumbs-wrapper {
+        display: none;
+      }
+      .carousel-status{
+        display: none;
+      }
+    }
+  }
 }

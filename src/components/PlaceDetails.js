@@ -135,13 +135,13 @@ class PlaceDetails extends Component {
             <Popup trigger={<button className="pictures-button h6">See pictures</button>} modal>
                 <Carousel>  
                     <div>
-                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide3_6a822d9089.jpg" />
+                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide3_6a822d9089.jpg" alt="img" />
                     </div>
                     <div>
-                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide2_3fdeabc763.jpg" />
+                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide2_3fdeabc763.jpg" alt="img" />
                     </div>
                     <div>
-                        <img src="https://www.polimmolamaison.bzh/wp-content/uploads/2018/04/mode-2-pans-volumes-decales-770x420.jpg" />
+                        <img src="https://www.polimmolamaison.bzh/wp-content/uploads/2018/04/mode-2-pans-volumes-decales-770x420.jpg" alt="img" />
                     </div>
                 </Carousel>
             </Popup>
