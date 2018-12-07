@@ -7,6 +7,7 @@ class Help extends Component {
     return(
       <section className="Help">
         <h2>Help</h2>
+        <div className="cover"></div>
       </section>
     )
   }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import "./style/BecomeHostForm.scss";
 import axios from "axios";
 
@@ -78,70 +78,68 @@ class BecomeHostForm extends Component {
     return(
       <section className="BecomeHostForm">
 
+        <div className="cover"><Link to="/houses"><button className="h6">Discover our places</button></Link></div>
+
         <h2>Become a Host</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
-            Name <input value={this.state.name} onChange={event => this.synchro(event)} type="text" name="name" />
+            <p>Name</p> <input value={this.state.name} onChange={event => this.synchro(event)} type="text" name="name" placeholder="Quiet cute place perfect for couples" />
           </label>
 
-          <div className="type-price">
-
-            <label>
-              Type <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" />
-            </label>
-
-            <label>
-              Price <input value={this.state.price} onChange={event => this.synchro(event)} type="number" name="price" />
-            </label>
-
-          </div>
+          <label>
+            <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" />
+          </label>
 
           <label>
-            Description <input value={this.state.description} onChange={event => this.synchro(event)} type="text" name="description" />
+            <p>Room type</p> <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" />
+          </label>
+
+          <label>
+            <p>Description</p> <input value={this.state.description} onChange={event => this.synchro(event)} type="text" name="description" placeholder="Describe your place (100 letters min)" />
           </label>
           
           <label>
-            Maximum guests <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" />
+            <p>Maximum guests</p> <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" placeholder="3" />
           </label>
 
           <label>
-            Amenities <input value={this.state.amenities} onChange={event => this.synchro(event)} type="text" name="amenities" />
+            <p>Amenities</p> <input value={this.state.amenities} onChange={event => this.synchro(event)} type="text" name="amenities" placeholder="Wifi, Heating, Free parking, Washer..." />
           </label>
 
           <label>
-            Room type <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" />
+            <p>Bed(s)</p> <input value={this.state.beds} onChange={event => this.synchro(event)} type="number" name="beds" placeholder="2" />
           </label>
 
           <label>
-            Bed(s) <input value={this.state.beds} onChange={event => this.synchro(event)} type="number" name="beds" />
+            <p>Bedroom(s)</p> <input value={this.state.bedrooms} onChange={event => this.synchro(event)} type="number" name="bedrooms" placeholder="1" />
           </label>
 
           <label>
-            Bedroom(s) <input value={this.state.bedrooms} onChange={event => this.synchro(event)} type="number" name="bedrooms" />
+            <p>Bathroom(s)</p> <input value={this.state.bathrooms} onChange={event => this.synchro(event)} type="number" name="bathrooms" placeholder="1" />
           </label>
 
           <label>
-            Bathroom(s) <input value={this.state.bathrooms} onChange={event => this.synchro(event)} type="number" name="bathrooms" />
+            <p>Neighbourhood</p> <input value={this.state.neighbourhood} onChange={event => this.synchro(event)} type="text" name="neighbourhood" placeholder="Le Marais" />
           </label>
 
           <label>
-            Neighbourhood <input value={this.state.neighbourhood} onChange={event => this.synchro(event)} type="text" name="neighbourhood" />
+            <p>City</p> <input value={this.state.city} onChange={event => this.synchro(event)} type="text" name="city" placeholder="Paris" />
           </label>
 
           <label>
-            City <input value={this.state.city} onChange={event => this.synchro(event)} type="text" name="city" />
+            <p>Country</p> <input value={this.state.country} onChange={event => this.synchro(event)} type="text" name="country" placeholder="France" />
           </label>
 
           <label>
-            Country <input value={this.state.country} onChange={event => this.synchro(event)} type="text" name="country" />
+            <p>Price</p> <input value={this.state.price} onChange={event => this.synchro(event)} type="number" name="price" placeholder="120 €" />
           </label>
 
           <label>
-            Image <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" />
+            <p>Image</p> <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" placeholder="Image URL" />
           </label>
 
-          <button>Add your Home</button>
+          <button className="add-button h6">Add your Home</button>
 
         </form>
 
