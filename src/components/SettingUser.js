@@ -65,6 +65,7 @@ class SettingUser extends Component {
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
+            <h4>Change your informations</h4>
             <input value={this.state.fullName} onChange={event => this.genSync(event)} type="text" name="fullName" />
           </label>
 
@@ -76,8 +77,13 @@ class SettingUser extends Component {
             <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
           </label>
 
+          <label className="avatars">
+            <h4>Change your avatar</h4>
+            <input value={this.state.avatar} onChange={event => this.genSync(event)} type="url" name="avatar" placeholder="avatar url" />
+          </label>
+
           <div className="buttons">
-          {this.props.userHousesArray.length > 0 ? <Link to="/userhouses"><button className="see">My places</button></Link> : <Link to="/becomehostform"><button className="see">You still haven't created any house, it's the right time !</button></Link>}
+          {this.props.userHousesArray.length > 0 ? <Link to="/userhouses"><button className="see">My places</button></Link> : <Link to="/becomehostform"><button className="see">Add a place</button></Link>}
             <button className="save">Save your changes</button>
           </div>
         </form>
