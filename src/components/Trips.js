@@ -20,3 +20,5 @@ class Trips extends Component {
 }
 
 export default Trips;
+
+

@@ -22,18 +22,18 @@ class PlacesList extends Component{
     this.state = {
         searchResults : [],
         allResults : [],
-        where :'',
+        where :'Paris',
         when1 :'',
         when2 :'',
-        guest :'',
+        guest : 1,
         isSubmitSuccessful : false, 
         gps : {
             lat : 48.8534,
             lng : 2.3488
         }, 
-        address :'', 
-        startDate: null,
-        endDate: null,
+        address :'Paris, France', 
+        startDate: moment().add(7, 'days'),
+        endDate: moment().add(9, 'days'),
         focusedInput: null,
         dateArray:[]
     }
@@ -47,7 +47,7 @@ genSync(event){
 submitHandler(event){
     event.preventDefault();
     let gps = {...this.state.gps}; 
-    const {dateArray, where, searchResults} = this.state 
+    const {where, guest} = this.state 
     const arrayOfDates =[]
 
     var currentDate = this.state.startDate;
@@ -56,7 +56,7 @@ submitHandler(event){
         currentDate = moment(currentDate).add(1, 'days');
     }
 
-    axios.post(`http://localhost:5555/api/search`, {arrayOfDates, where})
+    axios.post(`http://localhost:5555/api/search`, {arrayOfDates, where, guest})
     .then(response => {
         console.log("search", response.data)
         

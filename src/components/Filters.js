@@ -4,16 +4,18 @@ import './style/FontColors.scss';
 import PlacesAutocomplete from "./LocationSearchInput";
 import { classnames } from './helpers';
 import './style/GoogleSearch.scss';
-
+import moment from "moment"
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-
 import { DateRangePicker } from 'react-dates';
 
-
-class Filters extends Component{
+class Filters extends Component{  
 
   render(){
+    
+  const BAD_DATES = [moment("2018-12-20"), moment("2018-12-21")];
+  const isDayBlocked = day => BAD_DATES.filter(d => d.isSame(day, 'day')).length > 0;
+    
     return(
       <section>
         <form onSubmit={event=>this.props.handleSubmit(event)} className="Filters">
@@ -83,13 +85,7 @@ class Filters extends Component{
           onDatesChange = {this.props.functionDatesChange}
           focusedInput={this.props.focusedInput}
           onFocusChange={this.props.functionFocusChange}
-          disabledDays={[
-            new Date(2018, 12, 12),
-            {
-              after: new Date(2019, 1, 12),
-              before: new Date(2019, 1, 25),
-            },
-          ]}
+          // isDayBlocked = {isDayBlocked}
         />
             {/* <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-1" placeholder="Check in" className="when-1" /> → <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="when-2" placeholder="Check out" className="when-2" /> */}
           </div>

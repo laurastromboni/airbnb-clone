@@ -7,7 +7,7 @@ import './style/SingleMap.scss';
 import './style/FontColors.scss';
 
 function houseUrl(oneHouse){
-    return `/houses/${oneHouse.recordid}`;
+    return `/houses/${oneHouse._id}`;
   }
 const AnyReactComponent = ({ oneloc }) => <div>{<Link to={houseUrl(oneloc)}><img className = "map-icon" src={mapicon} alt="map" /></Link>}</div>;
  
