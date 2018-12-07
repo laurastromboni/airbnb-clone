@@ -76,7 +76,7 @@ class BecomeHostForm extends Component {
   render() {
     
     if (this.state.isSubmitSuccessful) {
-      return <Redirect to="/houses" />
+      return <Redirect to="/userhouses" />
     }
     return(
       <section className="BecomeHostForm">
@@ -143,7 +143,6 @@ class BecomeHostForm extends Component {
           </label>
 
           <button className="add-button h6">Add your Home</button>
-
         </form>
 
       </section>

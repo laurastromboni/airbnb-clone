@@ -5,6 +5,10 @@ import './style/PlaceDetails.scss';
 import './style/FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
 
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import Popup from "reactjs-popup";
+
 import emptyHeart from '../images/heart-empty.svg';
 import fullHeart from '../images/heart-full.svg';
 
@@ -71,11 +75,14 @@ class PlaceDetails extends Component {
       })
     }
 
+
     render(){
 
       const { isFavorite } = this.state
-
+      console.log(this.state.isButtonClicked);
+      
         return(
+
           <section className = "PlaceDetails">
           <div className="img-div">
             <img src = {this.state.xl_picture_url} alt='housepic' />
@@ -94,7 +101,19 @@ class PlaceDetails extends Component {
             </button>
             }
             
-            <button className="pictures-button h6">See pictures</button>
+            <Popup trigger={<button className="pictures-button h6">See pictures</button>} modal>
+                <Carousel>  
+                    <div>
+                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide3_6a822d9089.jpg" />
+                    </div>
+                    <div>
+                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide2_3fdeabc763.jpg" />
+                    </div>
+                    <div>
+                        <img src="https://www.polimmolamaison.bzh/wp-content/uploads/2018/04/mode-2-pans-volumes-decales-770x420.jpg" />
+                    </div>
+                </Carousel>
+            </Popup>
           </div>
           <div className= "content">
             <div className="content-left col-lg-8 column-1">
