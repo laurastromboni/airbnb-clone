@@ -30,6 +30,7 @@
       letter-spacing: 1px;
       font-size: 12px;
       outline: none;
+      cursor: pointer;
     }
     .save-button{
       position: absolute;
@@ -178,6 +179,7 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         font-size: 12px;
+        cursor: pointer;
       }
       @media (max-width: 600px){
         margin-top: 20px;
@@ -204,6 +206,7 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       font-size: 12px;
+      cursor: pointer;
     }
   }
     .popup-content{

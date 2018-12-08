@@ -1,17 +1,186 @@
 .Help {
-  padding-top: 120px;
+  padding-top: 80px;
   .cover{
-    height: 300px;
+    width: 100%;
+    height: 400px;
+    padding: 50px;
+    background-image: linear-gradient(80deg, rgb(0, 133, 122), rgb(0, 106, 117));
+    .content-cover{
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
+      width: 90%;
+      margin: 0 auto;
+      height: 100%;
+      h1{
+        font-family: 'Cereal-Bold', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+      }
+      h1, p{
+        color: white;
+        margin: 10px 0;
+      }
+      button{
+        width: 300px;
+        margin: 10px 0;
+        cursor: pointer;
+        color:white;
+        background-color:transparent;
+        border: 2px solid white;
+        padding: 13px 50px;
+        border-radius: 10px;
+        outline: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      @media (max-width: 991px){
+        align-items: center;
+      }
+    }
+  }
+  .top-content{
     width: 90%;
-    margin: 30px auto;
-    background-image: url("../../images/coverbar-3.jpg");
-    background-position: center;
-    background-size: cover;
+    margin: 40px auto;
+    h2{
+      text-align: left;
+      padding: 0 30px;
+      @media (max-width:991px){
+        padding: 0 ;
+        text-align: center;
+      }
+    }
+    .top-blocs{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      width: 100%;
+      .right-bloc, .left-bloc{
+        margin: 20px 0;
+        a{
+          height: 150px;
+          display: flex;
+          align-items: flex-start;
+          flex-direction: column;
+          justify-content: center;
+          width: 98%;
+          margin: 0 auto;
+          padding: 30px;
+          h4, p{
+            text-align: left;
+            color:white;
+          }
+        }
+      }
+      .left-bloc a{
+        background-image: linear-gradient(80deg, rgb(135, 23, 82), rgb(0, 127, 169));
+      }
+      .right-bloc a{
+        background-image: linear-gradient(80deg, rgb(54, 151, 159), rgb(31, 207, 203));
+      }
+    }
+  }
+  hr{
+    width: 85%;
+  }
+  .recommanded{
+    margin: 30px 0;
+    padding: 0 110px;
+    h2{
+      text-align: left;
+      @media (max-width:991px){
+        text-align: center;
+      }
+    }
+    .step-list{
+      display: flex;
+      padding: 0;
+      flex-wrap: wrap;
+      .one-step{
+        text-align: left;
+        padding: 20px 0;
+        h3{
+          margin-bottom: 20px;
+        }
+        p{
+          line-height: 16px;
+          a{
+            span{
+              color:#008489;
+            }
+          }
+          a:hover{
+            text-decoration: underline;
+          }
+        }
+        @media (max-width: 991px){
+          text-align: center;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 991px){
+        padding: 10px 50px;
+      }
+    }
+    @media (max-width: 740px){
+      padding: 0;
+    }
+  }
+  .topics{
+    margin: 30px 0;
+    padding: 0 110px;
+    h2{
+      text-align: left;
+      @media (max-width:991px){
+        text-align: center;
+      }
+    }
+    .step-list{
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      .one-step{
+        text-align: left;
+        padding: 20px 0;
+        img{
+          height: 50px;
+          margin-bottom: 20px;
+        }
+        h3{
+          margin-bottom: 20px;
+        }
+        p{
+          line-height: 16px;
+          a{
+            span{
+              color:#008489;
+            }
+          }
+          a:hover{
+            text-decoration: underline;
+          }
+        }  
+        @media (max-width: 991px){
+          text-align: center;
+          padding: 10px;
+        }
+      }
+      @media (max-width: 991px){
+        padding: 10px 50px;
+      }
+    }
+    @media (max-width: 740px){
+      padding: 0;
+    }
+  }
+  .endcover{
+    margin-top: 100px;
+    background-image: url(../../images/helpcover2.svg);
     background-repeat: no-repeat;
-    border-radius: 5px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    background-size: cover;
+    background-position: top;
+    width: 100%;
+    height: 200px;
   }
 }
