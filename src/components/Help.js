@@ -76,13 +76,13 @@ class Help extends Component {
         <div className="col-lg-12 topics">
             <h2>All topics</h2>
             <div className="col-lg-12 step-list">
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon1} alt="topic" />
                 <h3>Getting started</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1095/finding-a-place-to-stay">Finding a place to stay</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1128/traveling-safely">Traveling safely</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon2} alt="topic" />
                 <h3>Booking</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1105/booking-a-home">Booking a home</a></p>
@@ -91,7 +91,7 @@ class Help extends Component {
                 <p><a href="https://www.airbnb.com/help/topic/1113/booking---paying">Booking & paying</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1117/pre-approvals---special-offers">Pre-approvals & special offers</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon3} alt="topic" />
                 <h3>Payment</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1119/paying-for-your-reservation">Paying for your reservation</a></p>
@@ -100,7 +100,7 @@ class Help extends Component {
                 <p><a href="https://www.airbnb.com/help/topic/1143/security-deposits">Security deposits</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1122/coupons---credits">Coupons & credits</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon4} alt="topic" />
                 <h3>Your trips</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1124/help-with-your-trip">Help with your trip</a></p>
@@ -110,26 +110,26 @@ class Help extends Component {
                 <p><a href="https://www.airbnb.com/help/topic/1133/changing-a-reservation">Changing a reservation</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1134/canceling-a-reservation">Canceling a reservation</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon5} alt="topic" />
                 <h3>Your account</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1145/your-profile">Your profile</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1146/account-security">Account security</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1137/reviews">Reviews</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon6} alt="topic" />
                 <h3>Become a host</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1152/becoming-a-homes-host">Becoming a homes host</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon7} alt="topic" />
                 <h3>Business travel </h3>
                 <p><a href="https://www.airbnb.com/help/topic/1101/for-business-travelers">For business travelers</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1102/for-bookers-using-airbnb-for-work">For bookers using Airbnb for Work</a></p>
                 <p><a href="https://www.airbnb.com/help/topic/1103/for-admins-using-airbnb-for-work">For admins using Airbnb for Work</a></p>
               </div>
-              <div className="col-lg-3 one-step">
+              <div className="col-lg-3 col-md-4 one-step">
                 <img src={icon8} alt="topic" />
                 <h3>Partners & community</h3>
                 <p><a href="https://www.airbnb.com/help/topic/1149/airbnb-community">Airbnb community</a></p>
