@@ -71,6 +71,13 @@
         .top-content-left{
           h3{
             margin-top: 8px;
+            text-transform: lowercase;
+          }
+          h3::first-letter{
+            text-transform: uppercase;
+          }
+          h5::first-letter{
+            text-transform: uppercase;
           }
           img{
             height: 60px;
