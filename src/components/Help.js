@@ -12,6 +12,11 @@ import icon8 from "../images/helpicon8.jpg"
 import "./style/Help.scss"
 
 class Help extends Component {
+
+  componentDidMount(){
+    window.scrollTo(0,0)
+  }
+  
   render() {
     return(
       <section className="Help">
