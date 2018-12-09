@@ -15,12 +15,10 @@ class OrderRecap extends Component {
         }
     }
 
-
   componentDidMount(){
     window.scrollTo(0,0)
     this.setState({recipient : this.props.recipient})
   }
-
 
   handleSubmit(event){
     event.preventDefault();
@@ -51,41 +49,34 @@ class OrderRecap extends Component {
       }
     return(
       <section className="OrderRecap">
-        <h3>Order Recap</h3>
+        <h2>Order Recap</h2>
+            <div className="big-content">
 
-            <div className="big-content-right col-lg-12">
-              <div className="content-right">
-              <form onSubmit={event=>this.handleSubmit(event)}>
-                  <div className="name">
-                    <h2>{this.props.name}$</h2>
-                  </div>
-                  <div className="guests">
-                    <h2>{this.props.guest} guests</h2>
-                  </div>
-                  <div className="dates">
-                    <h2>{this.props.dates[0]} <i className="fas fa-arrow-right"></i> {this.props.dates[this.props.dates.length-1]} </h2>
-                  </div>
-                  <hr />
-                    <div className="price">
-                        <h2>{this.props.price}$ x {this.props.dates.length} nights : {this.props.price*this.props.dates.length}$</h2>
-                        <h2>Fees : {this.props.price*0.1}$</h2>
-                    </div>
-                <hr />
-                <div className="total-price">
-                        <h2>Total Price : {Math.floor(this.props.price*this.props.dates.length*1.1)}$ </h2>
-                </div>
-                <div className="message">
-                    <label>
-                        Message :
-                        <input onChange = {event=> this.genSync(event)} type="text" name="message" placeholder="Write a message to the host..."/> 
-                    </label>
-                </div>
-                
-                  
-                  <button className="booking-button h6">Book</button>
-                  
-                  </form>
+              <div className="content-left col-lg-8 col-md-6 col-sm-12">
+                <label>
+                  <h4>Message</h4>
+                  <p>You can now add a message to your host, ask some questions, recommandations, or just present yourself.</p>
+                  <input onChange = {event=> this.genSync(event)} type="text" name="message" placeholder="Something..."/> 
+                </label>
+                <img src={this.props.xl_picture_url} alt="housepic" />
               </div>
+
+              <div className="content-right col-lg-4 col-md-6 col-sm-12">
+              <form onSubmit={event=>this.handleSubmit(event)}>
+                  <div className="resume">
+                    <h3>{this.props.name}$</h3>
+                    <p>{this.props.guest} guest(s)</p>
+                    <h4>{this.props.dates[0]}<i className="fa fa-arrow-right"></i>{this.props.dates[this.props.dates.length-1]} </h4>
+                    <hr />
+                    <div className="price"><p>{this.props.price}$ x {this.props.dates.length} nights</p><p>{this.props.price*this.props.dates.length}$</p></div>
+                    <div className="price"><p>Fees</p><p>{this.props.price*0.1}$</p></div>
+                    <hr />
+                    <div className="price"><h4>Total Price</h4><h4>{Math.floor(this.props.price*this.props.dates.length*1.1)}$ </h4></div>
+                </div>
+                  <button className="booking-button h6">Book</button>
+                  </form> 
+              </div>
+
             </div>
 
 

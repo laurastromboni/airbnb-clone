@@ -22,9 +22,7 @@ import UserHouses from "./components/UserHouses";
 import OrderRecap from "./components/OrderRecap";
 import "./components/style/Menu.scss";
 
-
 import Menu from "./components/Menu.js";
-
 
 import axios from 'axios';
 
@@ -87,6 +85,10 @@ class App extends Component {
     this.setState({userHousesArray})
   }
 
+  syncMessagesArray(userMessagesArray) {
+    this.setState({userMessagesArray})
+  }
+
   render() {
     return (
       <div className="App">
@@ -109,8 +111,12 @@ class App extends Component {
               onHouseChange={array => this.syncHousesArray(array)}/>
           }}/>
           <Route path="/help" component={Help}/>
+
           <Route path="/messages" component={Messages}/>
-          <Route path="/onemessage" component={OneMessage}/>
+          <Route path="/onemessage" render = {props => { 
+            return <OneMessage userMessagesArray={this.state.userMessagesArray} match={props.match} currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
+            }} />
+
           <Route path="/trips" component={Trips}/>
           <Route exact path ="/menu" render ={() => {
             return <Menu currentUser={this.state.currentUser} />

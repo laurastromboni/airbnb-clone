@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom"
 import axios from 'axios'
-import './style/PlaceDetails.scss';
-import './style/FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
-import { Switch, Route, Redirect } from "react-router-dom";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Popup from "reactjs-popup";
 import OrderRecap from "./OrderRecap"
 import moment from "moment"
 import emptyHeart from '../images/heart-empty.svg';
 import fullHeart from '../images/heart-full.svg';
-import 'react-dates/initialize';
-import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize';
+import './style/PlaceDetails.scss';
+import './style/FontColors.scss';
+
+
 let blockedDates = []
 
 
@@ -157,7 +158,6 @@ class PlaceDetails extends Component {
         return(
           
           <section className = "PlaceDetails">
-          {/* <div className="img-div-2"></div> */}
           <div className="img-div">
             <img src = {this.state.xl_picture_url} alt='housepic' />
             
@@ -178,13 +178,7 @@ class PlaceDetails extends Component {
             <Popup trigger={<button className="pictures-button h6">See pictures</button>} modal>
                 <Carousel>  
                     <div>
-                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide3_6a822d9089.jpg" alt="img" />
-                    </div>
-                    <div>
-                        <img src="http://www.maisons-moyse.fr/typo3temp/_processed_/csm_slide2_3fdeabc763.jpg" alt="img" />
-                    </div>
-                    <div>
-                        <img src="https://www.polimmolamaison.bzh/wp-content/uploads/2018/04/mode-2-pans-volumes-decales-770x420.jpg" alt="img" />
+                        <img src={this.state.xl_picture_url} alt="img" />
                     </div>
                 </Carousel>
             </Popup>
