@@ -49,7 +49,7 @@ class UserHouses extends Component {
           {userHousesArray.map((oneHouse, index) => {
             return(
               <li key={oneHouse._id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                <div className="place-img"><img src={oneHouse.picture_url} alt="pic" /></div>
+                <div className="place-img"><img src={oneHouse.xl_picture_url} alt="pic" /></div>
                 <h4>{oneHouse.name}</h4>
                 <h5>{oneHouse.price} $ per night</h5>
 

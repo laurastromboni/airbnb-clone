@@ -22,7 +22,7 @@ class BecomeHostForm extends Component {
       country: "",
       city: "",
       price: "",
-      picture_url: "",
+      xl_picture_url: "",
       isSubmitSuccessful: false
     }
   }
@@ -63,7 +63,7 @@ class BecomeHostForm extends Component {
         country: "",
         city: "",
         price: "",
-        picture_url: "",
+        xl_picture_url: "",
         isSubmitSuccessful: true
       })
     })
@@ -139,7 +139,7 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            <p>Image</p> <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" placeholder="Image URL" />
+            <p>Image</p> <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" />
           </label>
 
           <button className="add-button h6">Add your place</button>

@@ -151,6 +151,7 @@ class PlaceDetails extends Component {
         price={this.state.price}
         dates={this.state.arrayOfDates}
         name={this.state.name}
+        recipient={this.state.owner}
         onHouseChange={array => this.syncHousesArray(array)}/>
       }
         return(

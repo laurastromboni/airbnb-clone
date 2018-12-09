@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-
-import {Link} from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import "./style/OrderRecap.scss"
 
@@ -11,30 +10,32 @@ class OrderRecap extends Component {
         super(props);
         this.state = {
             isSubmitSuccessful: false,
-            message : ""
+            message : "",
+            recipient : "",
         }
     }
 
 
   componentDidMount(){
     window.scrollTo(0,0)
+    this.setState({recipient : this.props.recipient})
   }
 
 
   handleSubmit(event){
     event.preventDefault();
-    const {message} = this.state
-    axios.post(`http://localhost:5555/api/message`, {message})
+    const {message, recipient} = this.state
+    axios.post(`http://localhost:5555/api/message`, {message, recipient}, { withCredentials: true })
     .then(response => {
         console.log("create message", response.data)
         
-        this.setState({
-            isSubmitSuccessful : true, 
-        })
+        // this.setState({
+        //     isSubmitSuccessful : true, 
+        // })
     })
     .catch(err =>{
         console.log("search", err);
-        alert("We can't create the booking")
+        alert("We can't send the message")
     })
   }
 
@@ -45,6 +46,9 @@ class OrderRecap extends Component {
 
 
   render() {
+    if (this.state.isSubmitSuccessful) {
+        return <Redirect to="/messages" />
+      }
     return(
       <section className="OrderRecap">
         <h3>Order Recap</h3>
