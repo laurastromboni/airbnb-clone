@@ -12,6 +12,7 @@ class Messages extends Component {
     return(
       <section className="Messages">
         <h2>Messages</h2>
+
       </section>
     )
   }

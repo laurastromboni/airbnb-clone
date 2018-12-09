@@ -1,5 +1,8 @@
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKChe2j9C1j-Bz2lzlNEx5TRnHEhyHRhQ&libraries=places"></script>
 
+// /* <script src="/socket.io/socket.io.js"></script>
+// <script>var socket = io()</script> */
+
 // document.addEventListener('DOMContentLoaded', () => {
 //     console.log('IronGenerator JS imported successfully!');
 //   }, false);

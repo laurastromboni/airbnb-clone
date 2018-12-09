@@ -10,6 +10,7 @@ import BecomeHost from "./components/BecomeHost";
 import BecomeHostForm from "./components/BecomeHostForm";
 import Help from "./components/Help";
 import Messages from "./components/Messages";
+import OneMessage from "./components/OneMessage";
 import Trips from "./components/Trips";
 import Saved from "./components/Saved";
 import SignupPage from "./components/SignupPage.js";
@@ -105,6 +106,7 @@ class App extends Component {
           }}/>
           <Route path="/help" component={Help}/>
           <Route path="/messages" component={Messages}/>
+          <Route path="/onemessage" component={OneMessage}/>
           <Route path="/trips" component={Trips}/>
           <Route exact path ="/menu" render ={() => {
             return <Menu currentUser={this.state.currentUser} />
