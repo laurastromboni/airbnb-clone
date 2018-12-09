@@ -191,15 +191,18 @@
       @media (max-width: 600px){
         margin-top: 20px;
       }
-      @media (max-width: 1200px){
-        padding: 5% 5%;
-      }
     }
     @media (max-width: 767px){
         flex-direction: column-reverse;
         .content-right{
           margin-bottom: 30px;
         }
+    }
+    @media (max-width: 991px){
+      padding: 5% 5%;
+    }
+    @media (max-width: 1200px){
+      padding: 5% 10%;
     }
   }
   .more{

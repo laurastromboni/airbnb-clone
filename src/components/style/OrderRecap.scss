@@ -1,96 +1,108 @@
 .OrderRecap {
     padding-top: 120px;
-  }
-        .content-right{
-          border: 1px solid rgb(224, 224, 224);
-          height: auto;
-          padding: 20px;
-          position: sticky;
-          position: -webkit-sticky;
-          top: 120px;
-          .name{
-            display: flex;
-            align-items: center;
-            h2{
-                text-align: left;
-                display: flex;
-                align-items: baseline;
-              }
-          }
-          .guests{
+    .big-content{
+      padding: 5% 15%;
+      display: flex;
+      flex-direction: row;
+      position: relative;
+      height: auto;
+      .content-left{
+        padding: 0;
+        display: flex;
+        justify-content: flex-start;
+        flex-direction: column;
+        label{
+          width: 90%;
+          text-align: left;
+          input{
+            background-color: #ffffff !important;
+            -webkit-transition: box-shadow 200ms ease-in !important;
+            -moz-transition: box-shadow 200ms ease-in !important;
+            transition: box-shadow 200ms ease-in !important;
+            border: 1px solid #EBEBEB !important;
+            border-radius: 4px !important;
+            height: 48px !important;
             width: 100%;
-            h2{
-                text-align: left;
-                display: flex;
-                align-items: baseline;
-              }
+            outline: none;
+            padding: 13px;
+            background-origin: content-box;
+            letter-spacing: 1px;
+            font-size: 12px;
+            text-transform: uppercase;
           }
-        .dates{
+          @media (max-width: 767px){
+            width: 100%;
+          }
+        }
+        @media (max-width: 767px){
+          margin-top: 15px;
+        }
+        img{
+          width: 100%;
+          height: auto;
+          margin-top:15px;
+        }
+      }
+      .content-right{
+        padding: 0;
+        border: 1px solid rgb(224, 224, 224);
+        height: auto;
+        padding: 20px;
+        position: relative;
+        .resume{
+          text-align: left;
+          content:"\f061";
+          .fa{
+            padding : 0 10px;
+          }
+          h3{
+            margin-bottom: 15px;
+          }
+          p{
+            line-height: 15px;
+          }
+          .price{
             display: flex;
             flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: left;
-            margin-top: -10px;
-            h2{
-                text-align: left;
-                display: flex;
-                align-items: baseline;
-              }
-        }
-        .price{
-            align-items: center;
-            h2{
-              text-align: left;
-              display: flex;
-              align-items: baseline;
+            justify-content: space-between;
+            p{
+              line-height: 15px;
             }
-            h5{
-              margin-left: 5px;
-            }
+          }
+          hr{
+            margin-top: 0 0 5px 0;
+          }
         }
-        .total-price{
-            display: flex;
-            align-items: center;
-            h2{
-              text-align: left;
-              display: flex;
-              align-items: baseline;
-            }
-            h5{
-              margin-left: 5px;
-            }
-        }
-        h4{
-          text-align:left;
-          margin-top: 10px;
-        }
-          
-        .booking-button{
-          color:white;
-          background-color:#FF5A5F;
-          padding: 13px;
-          border-radius: 10px;
-          border:none;
-          outline: none;
-          width: 100%;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          font-size: 12px;
-        }
-        @media (max-width: 600px){
-          margin-top: 20px;
-        }
-        @media (max-width: 1200px){
-          padding: 5% 5%;
-        }
+      }
+      .booking-button{
+        color:white;
+        background-color:#FF5A5F;
+        padding: 13px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        width: 100%;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        margin-top: 15px;
+      }
+      @media (max-width: 600px){
+        margin-top: 20px;
       }
       @media (max-width: 767px){
-          flex-direction: column-reverse;
-          .content-right{
-            margin-bottom: 30px;
-          }
+        flex-direction: column-reverse;
+        .content-right{
+          margin-bottom: 30px;
+        }
       }
+      @media (max-width: 991px){
+        padding: 5% 5%;
+      }
+      @media (max-width: 1200px){
+        padding: 5% 10%;
+      }
+    }
     .more{
       .booking-button{
         color:white;
@@ -104,4 +116,4 @@
         font-size: 12px;
       }
     }
-  
+  }
