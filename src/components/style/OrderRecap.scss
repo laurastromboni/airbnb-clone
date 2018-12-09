@@ -1,0 +1,107 @@
+.OrderRecap {
+    padding-top: 120px;
+  }
+        .content-right{
+          border: 1px solid rgb(224, 224, 224);
+          height: auto;
+          padding: 20px;
+          position: sticky;
+          position: -webkit-sticky;
+          top: 120px;
+          .name{
+            display: flex;
+            align-items: center;
+            h2{
+                text-align: left;
+                display: flex;
+                align-items: baseline;
+              }
+          }
+          .guests{
+            width: 100%;
+            h2{
+                text-align: left;
+                display: flex;
+                align-items: baseline;
+              }
+          }
+        .dates{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            margin-top: -10px;
+            h2{
+                text-align: left;
+                display: flex;
+                align-items: baseline;
+              }
+        }
+        .price{
+            align-items: center;
+            h2{
+              text-align: left;
+              display: flex;
+              align-items: baseline;
+            }
+            h5{
+              margin-left: 5px;
+            }
+        }
+        .total-price{
+            display: flex;
+            align-items: center;
+            h2{
+              text-align: left;
+              display: flex;
+              align-items: baseline;
+            }
+            h5{
+              margin-left: 5px;
+            }
+        }
+        h4{
+          text-align:left;
+          margin-top: 10px;
+        }
+          
+        .booking-button{
+          color:white;
+          background-color:#FF5A5F;
+          padding: 13px;
+          border-radius: 10px;
+          border:none;
+          outline: none;
+          width: 100%;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          font-size: 12px;
+        }
+        @media (max-width: 600px){
+          margin-top: 20px;
+        }
+        @media (max-width: 1200px){
+          padding: 5% 5%;
+        }
+      }
+      @media (max-width: 767px){
+          flex-direction: column-reverse;
+          .content-right{
+            margin-bottom: 30px;
+          }
+      }
+    .more{
+      .booking-button{
+        color:white;
+        background-color:#484848;
+        padding: 13px 50px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+      }
+    }
+  
