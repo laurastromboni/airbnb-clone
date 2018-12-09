@@ -4,11 +4,11 @@ import axios from 'axios'
 import './style/PlaceDetails.scss';
 import './style/FontColors.scss';
 import StarRatingComponent from 'react-star-rating-component';
-
+import { Switch, Route, Redirect } from "react-router-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import Popup from "reactjs-popup";
-
+import OrderRecap from "./OrderRecap"
 import moment from "moment"
 import emptyHeart from '../images/heart-empty.svg';
 import fullHeart from '../images/heart-full.svg';
@@ -16,7 +16,6 @@ import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
 let blockedDates = []
-
 
 
 class PlaceDetails extends Component {
@@ -30,6 +29,9 @@ class PlaceDetails extends Component {
             startDate: null,
             endDate: null,
             focusedInput: null,
+            guest : 1,
+            isSubmitSuccessful: false,
+            arrayOfDates : []
         }
     }
 
@@ -105,14 +107,54 @@ class PlaceDetails extends Component {
       })
     }
 
+    genSync(event){
+      const {name, value} = event.target
+      this.setState({[name] : value})
+  }
+
+
+  handleSubmit(event){
+    event.preventDefault();
+    const {where, guest, price} = this.state 
+    const arrayOfDates =[]
+
+    var currentDate = this.state.startDate;
+    while (currentDate <= this.state.endDate) {
+        arrayOfDates.push( moment(currentDate).format('YYYY-MM-DD') )
+        currentDate = moment(currentDate).add(1, 'days');
+    }
+
+    axios.post(`http://localhost:5555/api/booking/${this.state._id}`, {arrayOfDates, where, guest, price })
+    .then(response => {
+        console.log("booking", response.data)
+        
+        this.setState({
+            isSubmitSuccessful : true, 
+            arrayOfDates:arrayOfDates,
+
+        })
+    })
+    .catch(err =>{
+        console.log("search", err);
+        alert("We can't create the booking")
+    })
+    }
+
 
     render(){
 
       const { isFavorite } = this.state
       const isDayBlocked = day => blockedDates.filter(d => d.isSame(day, 'day')).length > 0;
 
+      if (this.state.isSubmitSuccessful){
+        return <OrderRecap guest={this.state.guest}
+        price={this.state.price}
+        dates={this.state.arrayOfDates}
+        name={this.state.name}
+        onHouseChange={array => this.syncHousesArray(array)}/>
+      }
         return(
-
+          
           <section className = "PlaceDetails">
           <div className="img-div">
             <img src = {this.state.xl_picture_url} alt='housepic' />
@@ -176,42 +218,44 @@ class PlaceDetails extends Component {
             </div>
             <div className="big-content-right col-lg-4 column-2">
               <div className="content-right">
-                <div className="price">
-                  <h2>{this.state.price}$</h2>
-                  <h5>per night</h5>
-                </div>
-                <div className="reviews">
-                  <StarRatingComponent 
-                    name="rate1" 
-                    editing={false}
-                    starCount={5}
-                    value={Math.round(this.state.review_scores_rating/20)}
-                  />
-                  <h6>{this.state.number_of_reviews}</h6>
-                </div>
-                <hr />
-                <h4>Dates</h4>
-                
-                  <DateRangePicker
-                    startDateId="blahStart"
-                    endDateId="blahEnd"
-                    startDate={this.state.startDate}
-                    endDate={this.state.endDate}
-                    onDatesChange = {dates=>this.functionDatesChange(dates)}
-                    focusedInput={this.state.focusedInput}
-                    onFocusChange={focused=>this.functionFocusChange(focused)}
-                    isDayBlocked = {isDayBlocked}
-                    startDatePlaceholderText = "Start"
-                    endDatePlaceholderText = "End"
-                  />
-                
-                <h4>Guests</h4>
-                <div className="book-div">
-                  <div className="guests">
-                    <input onChange = {event=> this.props.onGenericChange(event)} type="number" name="guests" placeholder="1" className="guests" />
+                <form onSubmit={event=>this.handleSubmit(event)}>
+                  <div className="price">
+                    <h2>{this.state.price}$</h2>
+                    <h5>per night</h5>
                   </div>
-                </div>
-                <button className="booking-button h6">Book</button>
+                  <div className="reviews">
+                    <StarRatingComponent 
+                      name="rate1" 
+                      editing={false}
+                      starCount={5}
+                      value={Math.round(this.state.review_scores_rating/20)}
+                    />
+                    <h6>{this.state.number_of_reviews}</h6>
+                  </div>
+                  <hr />
+                  <h4>Dates</h4>
+                  
+                    <DateRangePicker
+                      startDateId="blahStart"
+                      endDateId="blahEnd"
+                      startDate={this.state.startDate}
+                      endDate={this.state.endDate}
+                      onDatesChange = {dates=>this.functionDatesChange(dates)}
+                      focusedInput={this.state.focusedInput}
+                      onFocusChange={focused=>this.functionFocusChange(focused)}
+                      isDayBlocked = {isDayBlocked}
+                      startDatePlaceholderText = "Start"
+                      endDatePlaceholderText = "End"
+                    />
+                  
+                  <h4>Guests</h4>
+                  <div className="book-div">
+                    <div className="guests">
+                      <input onChange = {event=> this.genSync(event)} type="number" name="guests" placeholder="1" className="guests" />
+                    </div>
+                  </div>
+                  <button className="booking-button h6">Book</button>
+                </form>
               </div>
             </div>
           </div>
@@ -219,7 +263,6 @@ class PlaceDetails extends Component {
             <Link to="/houses"><button className="booking-button h6">Back to all places</button></Link>
           </div>
 
-         
         </section>
         )
     }

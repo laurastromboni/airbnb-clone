@@ -18,6 +18,7 @@ import GoogleSearch from "./components/GoogleSearch.js";
 import SettingUser from "./components/SettingUser";
 import EditPlace from "./components/EditPlace";
 import UserHouses from "./components/UserHouses";
+import OrderRecap from "./components/OrderRecap";
 import "./components/style/Menu.scss";
 
 
@@ -94,6 +95,9 @@ class App extends Component {
           <Route exact path="/" component={PlacesList} />
           <Route path="/houses/:houseId" render={({match}) => {
               return <PlaceDetails currentUser={this.state.currentUser} match={match}/>
+          }} />
+           <Route path="/order-recap" render = {() => {
+            return <OrderRecap currentUser={this.state.currentUser} />
           }} />
           <Route path="/houses" component={PlacesList} />
           <Route path="/maps" component={SingleMap}/>
