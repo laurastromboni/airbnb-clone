@@ -1,7 +1,16 @@
 import React, { Component } from "react";
 import axios from 'axios'
+import {Link} from "react-router-dom"
 
 import "./style/Messages.scss"
+
+function recipientUrl(oneMessage){
+  return `/message/${oneMessage._id}`;
+}
+
+function senderUrl(oneMessage){
+  return `/message/${oneMessage.sender._id}`;
+}
 
 class Messages extends Component {
 
@@ -36,8 +45,11 @@ class Messages extends Component {
           {allMessages.map(oneMessage=>{
             return(
               <div>
-            <li><h3>Message : {oneMessage.message}</h3></li>
-            <li><h3>from : {oneMessage.sender.fullName}</h3></li>
+                {oneMessage.sender.fullName === this.props.currentUser.fullName ? 
+                <Link to={recipientUrl(oneMessage)}><li><h3>Chat with {oneMessage.recipient.fullName}</h3></li></Link>
+                :
+                <Link to={recipientUrl(oneMessage)}><li><h3>Chat with {oneMessage.sender.fullName}</h3></li></Link>
+              }
             </div>
             )})}
         </ul>

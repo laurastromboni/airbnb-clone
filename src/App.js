@@ -103,7 +103,9 @@ class App extends Component {
            <Route path="/order-recap" render = {() => {
             return <OrderRecap currentUser={this.state.currentUser} />
           }} />
-          <Route path="/houses" component={PlacesList} />
+          <Route path="/houses" render = {() => {
+            return <PlacesList currentUser={this.state.currentUser} />
+          }}  />
           <Route path="/maps" component={SingleMap}/>
           <Route path="/becomehost" component={BecomeHost}/>
           <Route path="/becomehostform" render = {() => {
@@ -113,7 +115,11 @@ class App extends Component {
           }}/>
           <Route path="/help" component={Help}/>
 
-          <Route path="/messages" component={Messages}/>
+          <Route path="/messages" render = {() => {
+            return <Messages currentUser={this.state.currentUser} /> }}/>
+          <Route path="/message/:recipientId" render={({match}) => {
+              return <OneMessage currentUser={this.state.currentUser} match={match}/>
+          }} />
           <Route path="/onemessage" render = {props => { 
             return <OneMessage userMessagesArray={this.state.userMessagesArray} match={props.match} currentUser={this.state.currentUser} onUserChange={userDoc => this.syncCurrentUser(userDoc)} />
             }} />

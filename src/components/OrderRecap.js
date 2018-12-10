@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios'
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import "./style/OrderRecap.scss"
 
@@ -45,7 +45,7 @@ class OrderRecap extends Component {
 
   render() {
     if (this.state.isSubmitSuccessful) {
-        return <Redirect to="/messages" />
+        return <Redirect to="/trips" />
       }
     return(
       <section className="OrderRecap">
@@ -55,7 +55,7 @@ class OrderRecap extends Component {
               <div className="content-left col-lg-8 col-md-6 col-sm-12">
                 <label>
                   <h4>Message</h4>
-                  <p>You can now add a message to your host, ask some questions, recommandations, or just present yourself.</p>
+                  <p>You have now to send a message to your host, ask some questions, recommandations, or just present yourself (10 characters min). </p>
                   <input onChange = {event=> this.genSync(event)} type="text" name="message" placeholder="Something..."/> 
                 </label>
                 <img src={this.props.xl_picture_url} alt="housepic" />
