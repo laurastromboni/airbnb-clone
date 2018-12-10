@@ -102,7 +102,9 @@ class App extends Component {
            <Route path="/order-recap" render = {() => {
             return <OrderRecap currentUser={this.state.currentUser} />
           }} />
-          <Route path="/houses" component={PlacesList} />
+          <Route path="/houses" render = {() => {
+            return <PlacesList currentUser={this.state.currentUser} />
+          }}  />
           <Route path="/maps" component={SingleMap}/>
           <Route path="/becomehost" component={BecomeHost}/>
           <Route path="/becomehostform" render = {() => {

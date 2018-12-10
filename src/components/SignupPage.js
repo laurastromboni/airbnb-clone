@@ -86,6 +86,7 @@ class SignupPage extends Component{
 
           <button className="h6">Sign Up</button>
         </form>
+        <Link to="/login"><h5><u>Already registered ? Please log in.</u></h5></Link>
       </section>
     )
 
