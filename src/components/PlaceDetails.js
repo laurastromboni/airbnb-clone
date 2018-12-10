@@ -260,7 +260,7 @@ class PlaceDetails extends Component {
                   <h4>Guests</h4>
                   <div className="book-div">
                     <div className="guests">
-                      <input onChange = {event=> this.genSync(event)} type="number" name="guests" placeholder="1" className="guests" />
+                      <input onChange = {event=> this.genSync(event)} type="number" name="guests" placeholder="0" className="guests" />
                     </div>
                   </div>
 
