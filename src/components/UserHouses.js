@@ -36,6 +36,10 @@ class UserHouses extends Component {
     return `/edithouse/${oneHouse._id}`
   }
 
+  houseUrl(oneHouse){
+    return `/houses/${oneHouse._id}`;
+  }
+
   render() {
     const { userHousesArray } = this.props;
 
@@ -50,7 +54,7 @@ class UserHouses extends Component {
             return(
               <li key={oneHouse._id} className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
                 <div className="place-img"><img src={oneHouse.xl_picture_url} alt="pic" /></div>
-                <h4>{oneHouse.name}</h4>
+                <Link to={this.houseUrl(oneHouse)}><h4>{oneHouse.name}</h4></Link>
                 <h5>{oneHouse.price} $ per night</h5>
 
                 <div className="buttons">

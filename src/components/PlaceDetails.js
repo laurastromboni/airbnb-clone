@@ -16,7 +16,7 @@ import './style/PlaceDetails.scss';
 import './style/FontColors.scss';
 
 
-let blockedDates = []
+let blockedDates = [];
 
 
 class PlaceDetails extends Component {
@@ -116,8 +116,8 @@ class PlaceDetails extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    const {where, guests, price} = this.state 
-    const arrayOfDates =[]
+    const {where, guests, price} = this.state ;
+    const arrayOfDates =[];
 
     var currentDate = this.state.startDate;
     while (currentDate <= this.state.endDate) {
@@ -131,8 +131,7 @@ class PlaceDetails extends Component {
         
         this.setState({
             isSubmitSuccessful : true, 
-            arrayOfDates:arrayOfDates,
-
+            arrayOfDates: arrayOfDates,
         })
     })
     .catch(err =>{
@@ -197,6 +196,7 @@ class PlaceDetails extends Component {
                 </Carousel>
             </Popup>
           </div>
+
           <div className= "content">
             <div className="content-left col-lg-8 column-1">
               <div className="col-lg-12 top-content">

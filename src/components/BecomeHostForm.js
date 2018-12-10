@@ -3,6 +3,15 @@ import { Redirect, Link } from "react-router-dom";
 import "./style/BecomeHostForm.scss";
 import axios from "axios";
 
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize';
+import moment from "moment";
+
+let blockedDates = [];
+
+
+
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
@@ -23,12 +32,26 @@ class BecomeHostForm extends Component {
       city: "",
       price: "",
       xl_picture_url: "",
-      isSubmitSuccessful: false
+      isSubmitSuccessful: false,
+
+      startDate: null,
+      endDate: null,
+      focusedInput: null,
+      availableDates: [],
+      test: ""
     }
   }
 
+  functionDatesChange = ({ startDate, endDate }) => { 
+    this.setState({ startDate, endDate })
+}
+
+  functionFocusChange = (focusedInput) => { 
+      this.setState({focusedInput})
+  }
+
   componentDidMount(){
-    window.scrollTo(0,0)
+    window.scrollTo(0,0);
   }
 
   synchro(event) {
@@ -36,18 +59,31 @@ class BecomeHostForm extends Component {
 
     this.setState({[name]: value});
   }
+
+
+  getDatesfromStartToEnd(){
+    const arrayOfDates =[];
+    var startDate = this.state.startDate;
+    while (startDate <= this.state.endDate) {
+      arrayOfDates.push( moment(startDate).format('YYYY-MM-DD') )
+      startDate = moment(startDate).add(1, 'days');
+    };
+    return arrayOfDates
+  }
   
   handleSubmit(event) {
     event.preventDefault();
+
     const {_id} = this.props.currentUser;
-    this.setState({owner: _id}, ()=> {       
-    console.log("---------------------",this.state);
+    this.setState({owner: _id, availableDates: this.getDatesfromStartToEnd()},()=> { 
     axios.post("http://localhost:5555/api/houses", this.state, { withCredentials: true })
     .then(response => {
       console.log("Add House", response.data);
       const newArray = [...this.props.userHousesArray];
       newArray.push(response.data);
+
       this.props.onHouseChange(newArray);
+
       this.setState({
         owner: "",
         property_type: "",
@@ -74,6 +110,8 @@ class BecomeHostForm extends Component {
   }
 
   render() {
+
+    const isDayBlocked = day => blockedDates.filter(d => d.isSame(day, 'day')).length > 0;
     
     if (this.state.isSubmitSuccessful) {
       return <Redirect to="/userhouses" />
@@ -141,6 +179,19 @@ class BecomeHostForm extends Component {
           <label>
             <p>Image</p> <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" />
           </label>
+          
+          <DateRangePicker
+                      startDateId="blahStart"
+                      endDateId="blahEnd"
+                      startDate={this.state.startDate}
+                      endDate={this.state.endDate}
+                      onDatesChange = {dates=>this.functionDatesChange(dates)}
+                      focusedInput={this.state.focusedInput}
+                      onFocusChange={focused=>this.functionFocusChange(focused)}
+                      isDayBlocked = {isDayBlocked}
+                      startDatePlaceholderText = "Start"
+                      endDatePlaceholderText = "End"
+                    />
 
           <button className="add-button h6">Add your place</button>
 
