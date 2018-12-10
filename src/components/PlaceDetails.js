@@ -161,7 +161,13 @@ class PlaceDetails extends Component {
           
           <section className = "PlaceDetails">
           <div className="img-div">
+            <div className="big-img col-lg-8">
             <img src = {this.state.xl_picture_url} alt='housepic' />
+            </div>
+            <div className="little-img col-lg-4">
+            <img src = {this.state.xl_picture_url_2} alt='housepic' />
+            <img src = {this.state.xl_picture_url_3} alt='housepic' />
+            </div>
             
             {isFavorite ? 
               <button  onClick={() => this.deleteToFavorites()}
@@ -181,6 +187,12 @@ class PlaceDetails extends Component {
                 <Carousel>  
                     <div>
                         <img src={this.state.xl_picture_url} alt="img" />
+                    </div>
+                    <div>
+                        <img src={this.state.xl_picture_url_2} alt="img" />
+                    </div>
+                    <div>
+                        <img src={this.state.xl_picture_url_3} alt="img" />
                     </div>
                 </Carousel>
             </Popup>
