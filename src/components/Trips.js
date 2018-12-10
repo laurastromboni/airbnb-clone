@@ -68,7 +68,6 @@ class Trips extends Component {
           :
           <div className="col-lg-12 more">
             <p>You have no upcoming trips. Start exploring ideas for your next trip.</p>
-            <Link to="/houses"><button className="booking-button h6">Find more places</button></Link>
             <div className="cover"></div>
           </div>
         } 

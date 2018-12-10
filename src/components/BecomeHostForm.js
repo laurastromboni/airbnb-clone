@@ -32,13 +32,15 @@ class BecomeHostForm extends Component {
       city: "",
       price: "",
       xl_picture_url: "",
+      xl_picture_url_2: "",
+      xl_picture_url_3: "",
       isSubmitSuccessful: false,
 
       startDate: null,
       endDate: null,
       focusedInput: null,
       availableDates: [],
-      test: ""
+      test: "",
     }
   }
 
@@ -100,6 +102,8 @@ class BecomeHostForm extends Component {
         city: "",
         price: "",
         xl_picture_url: "",
+        xl_picture_url_2: "",
+        xl_picture_url_3: "",
         isSubmitSuccessful: true
       })
     })
@@ -177,7 +181,10 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            <p>Image</p> <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" />
+            <p>Images</p> 
+            <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" />
           </label>
           
           <DateRangePicker
