@@ -11,7 +11,7 @@ class BecomeHostForm extends Component {
       owner: "",
       property_type: "",
       room_type: "",
-      accomodates: "",
+      accommodates: "",
       beds: "",
       bedrooms: "",
       bathrooms: "",
@@ -25,7 +25,8 @@ class BecomeHostForm extends Component {
       xl_picture_url: "",
       xl_picture_url_2: "",
       xl_picture_url_3: "",
-      isSubmitSuccessful: false
+      isSubmitSuccessful: false,
+      host_picture_url : this.props.currentUser.avatar,
     }
   }
 
@@ -54,7 +55,7 @@ class BecomeHostForm extends Component {
         owner: "",
         property_type: "",
         room_type: "",
-        accomodates: "",
+        accommodates: "",
         beds: "",
         bedrooms: "",
         bathrooms: "",
@@ -68,7 +69,8 @@ class BecomeHostForm extends Component {
         xl_picture_url: "",
         xl_picture_url_2: "",
         xl_picture_url_3: "",
-        isSubmitSuccessful: true
+        host_picture_url : this.props.currentUser.avatar,
+        isSubmitSuccessful: true,
       })
     })
     .catch(err => {
@@ -107,7 +109,7 @@ class BecomeHostForm extends Component {
           </label>
           
           <label>
-            <p>Maximum guests</p> <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" placeholder="3" />
+            <p>Maximum accommodates</p> <input value={this.state.accommodates} onChange={event => this.synchro(event)} type="number" name="accommodates" placeholder="3" min="1" />
           </label>
 
           <label>
@@ -115,15 +117,15 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            <p>Bed(s)</p> <input value={this.state.beds} onChange={event => this.synchro(event)} type="number" name="beds" placeholder="2" />
+            <p>Bed(s)</p> <input value={this.state.beds} onChange={event => this.synchro(event)} type="number" name="beds" placeholder="2" min="1" />
           </label>
 
           <label>
-            <p>Bedroom(s)</p> <input value={this.state.bedrooms} onChange={event => this.synchro(event)} type="number" name="bedrooms" placeholder="1" />
+            <p>Bedroom(s)</p> <input value={this.state.bedrooms} onChange={event => this.synchro(event)} type="number" name="bedrooms" placeholder="1" min="0" />
           </label>
 
           <label>
-            <p>Bathroom(s)</p> <input value={this.state.bathrooms} onChange={event => this.synchro(event)} type="number" name="bathrooms" placeholder="1" />
+            <p>Bathroom(s)</p> <input value={this.state.bathrooms} onChange={event => this.synchro(event)} type="number" name="bathrooms" placeholder="1" min="1" />
           </label>
 
           <label>
@@ -139,7 +141,7 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            <p>Price</p> <input value={this.state.price} onChange={event => this.synchro(event)} type="number" name="price" placeholder="120 €" />
+            <p>Price</p> <input value={this.state.price} onChange={event => this.synchro(event)} type="number" name="price" placeholder="120 €" min="1" />
           </label>
 
           <label>

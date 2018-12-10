@@ -155,8 +155,14 @@ class PlaceDetails extends Component {
         dates={this.state.arrayOfDates}
         name={this.state.name}
         recipient={this.state.owner}
-        onHouseChange={array => this.syncHousesArray(array)}/>
+        onHouseChange={array => this.syncHousesArray(array)}
+        />
       }
+
+      console.log("OWER ID -----------------------------", this.state.owner)
+      console.log("CURRENT USER ID -----------------------------", this.props.currentUser)
+      console.log("HOST PICTURE -----------------------------", this.state.host_picture_url)
+
         return(
           
           <section className = "PlaceDetails">
@@ -206,16 +212,18 @@ class PlaceDetails extends Component {
                     <h5>{this.state.neighbourhood}</h5>
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
+
                   <img src={this.state.host_picture_url} alt="host pic" />
+
                 </div>
               </div>
               <div className="col-lg-12 middle-content-left">
                 <p><i className="fa fa-home" ></i><b>{this.state.room_type}</b></p>
                 <div className="place-type">
-                  <p>{this.state.accommodates} guests</p>
-                  <p>{this.state.bedrooms} bedrooms</p>
-                  <p>{this.state.beds} beds</p>
-                  <p>{this.state.bathrooms} bath</p>
+                  <p>{this.state.accommodates} guest(s)</p>
+                  <p>{this.state.bedrooms} bedroom(s)</p>
+                  <p>{this.state.beds} bed(s)</p>
+                  <p>{this.state.bathrooms} bath(s)</p>
                 </div>
                 <hr />
                 <p><b>The space</b></p>

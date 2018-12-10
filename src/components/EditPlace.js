@@ -107,7 +107,7 @@ class EditPlace extends Component {
           </label>
           
           <label>
-            <p>Maximum guests</p> <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" placeholder="3" />
+            <p>Maximum accomodates</p> <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" placeholder="3" />
           </label>
 
           <label>
