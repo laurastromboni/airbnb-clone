@@ -11,6 +11,7 @@ function recipientUrl(oneMessage){
 function senderUrl(oneMessage){
   return `/message/${oneMessage.sender._id}`;
 }
+
 class Messages extends Component {
 
   constructor(props){

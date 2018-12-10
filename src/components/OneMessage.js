@@ -37,6 +37,12 @@ class OneMessage extends Component {
     }) 
   }
 
+  synchro(event) {
+    const { name, value } = event.target;
+
+    this.setState({[name]: value});
+  }
+
   handleSubmit(event) {
     const {params} = this.props.match
     if (this.props.currentUser._id === this.state.recipient._id){
