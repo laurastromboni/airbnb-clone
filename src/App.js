@@ -36,7 +36,8 @@ class App extends Component {
 
     this.state = {
         currentUser: null,
-        userHousesArray: []
+        userHousesArray: [],
+        userMessagesArray: []
     }
   }
 
