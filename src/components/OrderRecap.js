@@ -27,9 +27,9 @@ class OrderRecap extends Component {
     .then(response => {
         console.log("create message", response.data)
         
-        // this.setState({
-        //     isSubmitSuccessful : true, 
-        // })
+        this.setState({
+            isSubmitSuccessful : true, 
+        })
     })
     .catch(err =>{
         console.log("search", err);
@@ -64,14 +64,14 @@ class OrderRecap extends Component {
               <div className="content-right col-lg-4 col-md-6 col-sm-12">
               <form onSubmit={event=>this.handleSubmit(event)}>
                   <div className="resume">
-                    <h3>{this.props.name}$</h3>
-                    <p>{this.props.guest} guest(s)</p>
+                    <h3>{this.props.name}</h3>
+                    <p>{this.props.guests} guest(s)</p>
                     <h4>{this.props.dates[0]}<i className="fa fa-arrow-right"></i>{this.props.dates[this.props.dates.length-1]} </h4>
                     <hr />
-                    <div className="price"><p>{this.props.price}$ x {this.props.dates.length} nights</p><p>{this.props.price*this.props.dates.length}$</p></div>
-                    <div className="price"><p>Fees</p><p>{this.props.price*0.1}$</p></div>
+                    <div className="price"><p>{this.props.price}$ x {this.props.dates.length-1} nights</p><p>{this.props.price*(this.props.dates.length-1)}$</p></div>
+                    <div className="price"><p>Fees</p><p>{Math.floor(this.props.price*(this.props.dates.length-1)*0.1)}$</p></div>
                     <hr />
-                    <div className="price"><h4>Total Price</h4><h4>{Math.floor(this.props.price*this.props.dates.length*1.1)}$ </h4></div>
+                    <div className="price"><h4>Total Price</h4><h4>{Math.floor(this.props.price*(this.props.dates.length-1)*1.1)}$ </h4></div>
                 </div>
                   <button className="booking-button h6">Book</button>
                   </form> 

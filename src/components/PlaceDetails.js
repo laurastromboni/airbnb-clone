@@ -30,7 +30,7 @@ class PlaceDetails extends Component {
             startDate: null,
             endDate: null,
             focusedInput: null,
-            guest : 1,
+            guests : 1,
             isSubmitSuccessful: false,
             arrayOfDates : []
         }
@@ -109,14 +109,14 @@ class PlaceDetails extends Component {
     }
 
     genSync(event){
-      const {name, value} = event.target
-      this.setState({[name] : value})
+      const {value} = event.target
+      this.setState({guests : value})
   }
 
 
   handleSubmit(event){
     event.preventDefault();
-    const {where, guest, price} = this.state 
+    const {where, guests, price} = this.state 
     const arrayOfDates =[]
 
     var currentDate = this.state.startDate;
@@ -125,7 +125,7 @@ class PlaceDetails extends Component {
         currentDate = moment(currentDate).add(1, 'days');
     }
 
-    axios.post(`http://localhost:5555/api/booking/${this.state._id}`, {arrayOfDates, where, guest, price })
+    axios.post(`http://localhost:5555/api/booking/${this.state._id}`, {arrayOfDates, where, guests, price })
     .then(response => {
         console.log("booking", response.data)
         
@@ -148,8 +148,10 @@ class PlaceDetails extends Component {
       const isDayBlocked = day => blockedDates.filter(d => d.isSame(day, 'day')).length > 0;
 
       if (this.state.isSubmitSuccessful){
-        return <OrderRecap guest={this.state.guest}
+        return <OrderRecap 
+        guests={this.state.guests}
         price={this.state.price}
+        xl_picture_url={this.state.xl_picture_url}
         dates={this.state.arrayOfDates}
         name={this.state.name}
         recipient={this.state.owner}
