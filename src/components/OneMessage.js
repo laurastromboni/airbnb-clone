@@ -10,50 +10,94 @@ class OneMessage extends Component {
     super(props);
 
     this.state = {
-      message: "",
+      allMessages : [],
       recipient: "",
       sender: "",
+      message : "",
       isSubmitSuccessful: false
     }
   }
 
   componentDidMount(){
+    const {params} = this.props.match
     window.scrollTo(0,0)
+
+    axios.get(`http://localhost:5555/api/message/${params.recipientId}`, { withCredentials: true })
+    .then(response => {
+      console.log("One recipient messages", response.data)
+      this.setState({
+        allMessages : response.data.message,
+        recipient : response.data.recipient,
+        sender : response.data.sender,
+      })
+    })
+      .catch(err => {
+        console.log("Messages  Error", err);
+        alert('pb retrieving messages')
+    }) 
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    const {_idSend} = this.props.currentUser;
-    const {_idRecipe} = this.props.owner;
-    this.setState({recipient: _idRecipe, sender: _idSend }, ()=> {       
-    console.log("---------------------",this.state);
-    axios.post("http://localhost:5555/api/message", this.state, { withCredentials: true })
+    const {params} = this.props.match
+    if (this.props.currentUser._id === this.state.recipient._id){
+    axios.post(`http://localhost:5555/api/new-message-host/${params.recipientId}`, this.state, { withCredentials: true })
     .then(response => {
       console.log("Add Message", response.data);
-      const newMessagesArray = [...this.props.userMessagesArray];
-      newMessagesArray.push(response.data);
-      this.props.onHouseChange(newMessagesArray);
       this.setState({
+        allMessages : response.data, 
         message: "",
-        recipient: "",
-        sender: "",
         isSubmitSuccessful: false
       })
     })
     .catch(err => {
       console.log("Something went wrong...", err)
     })
-  });
   }
+  else {
+    axios.post(`http://localhost:5555/api/new-message-guest/${params.recipientId}`, this.state, { withCredentials: true })
+    .then(response => {
+      console.log("Add Message", response.data);
+      this.setState({
+        allMessages : response.data, 
+        message: "",
+        isSubmitSuccessful: false
+      })
+    })
+    .catch(err => {
+      console.log("Something went wrong...", err)
+    })
+  }
+  }
+  
+
+  genSync(event){
+    const {value} = event.target
+    this.setState({message : value})
+}
 
   render() {
+    const {allMessages} = this.state
     return(
       <section className="OneMessage">
         
-        <ul id="messages"></ul>
+        <ul id="messages">
+          {allMessages.map(oneMessage=>{
+            return (
+                <div>
+            <li>
+              {oneMessage.guestMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>{this.state.sender.fullName}</h5> : <h5>you</h5> } : {oneMessage.guestMessage}</h5> : null }
+              {oneMessage.hostMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>you</h5> : <h5>{this.state.recipient.fullName}</h5> } : {oneMessage.hostMessage}</h5> : null }
+              
+              </li>
+              </div>
+              )})
+            }
+              
+        </ul>
+
 
         <form onSubmit={event => this.handleSubmit(event)}>
-          <input id="m" autoComplete="off" value={this.state.message} onChange={event => this.synchro(event)} />
+          <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
           <button>Send</button>
         </form>
 
