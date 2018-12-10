@@ -15,7 +15,7 @@ class NavBar extends Component{
       isOpen: false,
     }
   }
-  
+
   // revenir à la page où on était quand on clique sur le menu responsive
   menuIsClicked(event){
     const {isOpen} = this.state

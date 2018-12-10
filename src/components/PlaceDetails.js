@@ -30,7 +30,7 @@ class PlaceDetails extends Component {
             startDate: null,
             endDate: null,
             focusedInput: null,
-            guests : 1,
+            guests : 0,
             isSubmitSuccessful: false,
             arrayOfDates : []
         }
@@ -162,15 +162,15 @@ class PlaceDetails extends Component {
           <section className = "PlaceDetails">
           <div className="img-div">
             <div className="big-img col-lg-8">
-            <img src = {this.state.xl_picture_url} alt='housepic' />
+              <img src = {this.state.xl_picture_url} alt='housepic' />
             </div>
             <div className="little-img col-lg-4">
-            <img src = {this.state.xl_picture_url_2} alt='housepic' />
-            <img src = {this.state.xl_picture_url_3} alt='housepic' />
+              <img src = {this.state.xl_picture_url_2} alt='housepic' />
+              <img src = {this.state.xl_picture_url_3} alt='housepic' />
             </div>
             
             {isFavorite ? 
-              <button  onClick={() => this.deleteToFavorites()}
+              <button onClick={() => this.deleteToFavorites()}
               className="save-button h6">
                 <img src={fullHeart} alt="fav" />
                 Saved
@@ -264,7 +264,13 @@ class PlaceDetails extends Component {
                       <input onChange = {event=> this.genSync(event)} type="number" name="guests" placeholder="1" className="guests" />
                     </div>
                   </div>
-                  <button className="booking-button h6">Book</button>
+
+                  { this.state.startDate != null && this.state.endDate != null && this.state.guests > 0 && this.state.guests <= this.state.accommodates ?
+                  <button className="booking-button h6 clickable">Book</button>
+                  :
+                  <div className="booking-button h6 unclickable">Book</div>
+                  }
+
                 </form>
               </div>
             </div>

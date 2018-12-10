@@ -206,7 +206,12 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         font-size: 12px;
+      }
+      .clickable{
         cursor: pointer;
+      }
+      .unclickable{
+        cursor: default;
       }
       @media (max-width: 600px){
         margin-top: 20px;
