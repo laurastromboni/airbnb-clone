@@ -220,10 +220,9 @@ class PlaceDetails extends Component {
                 <hr />
                 <p><b>The space</b></p>
                 <p>{this.state.description}</p>
-                {/* <hr /> */}
-                {/* <p><b>Amenities</b></p> */}
-               
-                {/* To add : country, city, amenities (list), aviabilities (calendrier à demander), reviews */}
+                <hr />
+                <p><b>Amenities</b></p>
+                <p>{this.state.amenities}</p>
               </div>
             </div>
             <div className="big-content-right col-lg-4 column-2">
