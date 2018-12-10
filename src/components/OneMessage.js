@@ -1,8 +1,11 @@
+import { connect }  from '../api';
 import React, { Component } from "react";
 
 import axios from "axios";
-
+import socketIOClient from "socket.io-client";
+import openSocket from 'socket.io-client';
 import "./style/OneMessage.scss"
+const socket = openSocket('http://localhost:5555');
 
 class OneMessage extends Component {
 
@@ -14,9 +17,16 @@ class OneMessage extends Component {
       recipient: "",
       sender: "",
       message : "",
-      isSubmitSuccessful: false
+      isSubmitSuccessful: false, 
+
     }
+    
+    connect(message => {
+      console.log(message);
+    });
+ 
   }
+
 
   componentDidMount(){
     const {params} = this.props.match
@@ -75,31 +85,34 @@ class OneMessage extends Component {
     this.setState({message : value})
 }
 
-  render() {
-    const {allMessages} = this.state
-    return(
-      <section className="OneMessage">
-        
+render() {
+  
+  const {allMessages} = this.state
+  return(
+    
+    <section className="OneMessage">
+               
         <ul id="messages">
-          {allMessages.map(oneMessage=>{
-            return (
-                <div>
-            <li>
-              {oneMessage.guestMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>{this.state.sender.fullName}</h5> : <h5>you</h5> } : {oneMessage.guestMessage}</h5> : null }
-              {oneMessage.hostMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>you</h5> : <h5>{this.state.recipient.fullName}</h5> } : {oneMessage.hostMessage}</h5> : null }
-              
-              </li>
-              </div>
-              )})
-            }
-              
-        </ul>
-
+        {allMessages.map(oneMessage=>{
+          return (
+              <div>
+          <li>
+            {oneMessage.guestMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>{this.state.sender.fullName}</h5> : <h5>you</h5> } : {oneMessage.guestMessage}</h5> : null }
+            {oneMessage.hostMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>you</h5> : <h5>{this.state.recipient.fullName}</h5> } : {oneMessage.hostMessage}</h5> : null }
+            
+            </li>
+            </div>
+            )})
+          }
+            
+      </ul>
+       
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
           <button>Send</button>
         </form>
+
 
       </section>
     )
