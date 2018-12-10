@@ -146,7 +146,23 @@ componentDidMount(){
         {results.map(oneHouse=>{
             return(
                 <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
-                    {this.props.currentUser ?
+                    
+                    <Link to={houseUrl(oneHouse)}>
+                    <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
+                    <h4>{oneHouse.name}</h4>
+                    <h5>{oneHouse.price}$ per night</h5>
+                    <div className="reviews">
+                    <StarRatingComponent 
+                    name="rate1" 
+                    editing={false}
+                    starCount={5}
+                    value={Math.round(oneHouse.review_scores_rating/20)}
+                    />
+                        <h6>{oneHouse.number_of_reviews}</h6>
+                    </div>
+                    </Link>
+                    
+                    {/* {this.props.currentUser ?
                     <Link to={houseUrl(oneHouse)}>
                     <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
                     <h4>{oneHouse.name}</h4>
@@ -176,7 +192,7 @@ componentDidMount(){
                         <h6>{oneHouse.number_of_reviews}</h6>
                     </div>
                     </Link>
-                    }
+                    } */}
                     
                  </li>
             )
