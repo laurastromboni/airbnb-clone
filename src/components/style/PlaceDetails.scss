@@ -6,19 +6,39 @@
     width: 100%;
     height: 300px;
     overflow: hidden;
-    img{
-      width: 100%;
-      height: 100%;
-      align-self: center;
-      object-fit: cover;
-      transition: all 0.3s ease-out;
+    display:flex;
+    flex-direction: row;
+    .big-img{
+      margin:0;
+      padding: 0;
+      overflow: hidden;
+      img{
+        width: 100%;
+        height: 100%;
+        align-self: center;
+        object-fit: cover;
+        transition: all 0.3s ease-out;
+      }
+    }
+    .little-img{
+      margin:0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      img{
+        height: 50%;
+        width: auto;
+        object-fit: cover;
+        transition: all 0.3s ease-out;
+      }
     }
     img:hover{
-          backface-visibility: hidden;
-          transform: scale(1.05);
-          opacity: 1;
-          object-fit: cover;
-      }
+      backface-visibility: hidden;
+      transform: scale(1.05);
+      opacity: 1;
+      object-fit: cover;
+    }
     .save-button, .pictures-button{
       color:#484848;
       background-color:white;
@@ -186,7 +206,12 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         font-size: 12px;
+      }
+      .clickable{
         cursor: pointer;
+      }
+      .unclickable{
+        cursor: default;
       }
       @media (max-width: 600px){
         margin-top: 20px;
