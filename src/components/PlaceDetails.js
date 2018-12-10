@@ -16,7 +16,7 @@ import './style/PlaceDetails.scss';
 import './style/FontColors.scss';
 
 
-let blockedDates = []
+let blockedDates = [];
 
 
 class PlaceDetails extends Component {
@@ -116,8 +116,8 @@ class PlaceDetails extends Component {
 
   handleSubmit(event){
     event.preventDefault();
-    const {where, guests, price} = this.state 
-    const arrayOfDates =[]
+    const {where, guests, price} = this.state ;
+    const arrayOfDates =[];
 
     var currentDate = this.state.startDate;
     while (currentDate <= this.state.endDate) {
@@ -131,8 +131,7 @@ class PlaceDetails extends Component {
         
         this.setState({
             isSubmitSuccessful : true, 
-            arrayOfDates:arrayOfDates,
-
+            arrayOfDates: arrayOfDates,
         })
     })
     .catch(err =>{
@@ -155,8 +154,14 @@ class PlaceDetails extends Component {
         dates={this.state.arrayOfDates}
         name={this.state.name}
         recipient={this.state.owner}
-        onHouseChange={array => this.syncHousesArray(array)}/>
+        onHouseChange={array => this.syncHousesArray(array)}
+        />
       }
+
+      console.log("OWER ID -----------------------------", this.state.owner)
+      console.log("CURRENT USER ID -----------------------------", this.props.currentUser)
+      console.log("HOST PICTURE -----------------------------", this.state.host_picture_url)
+
         return(
           
           <section className = "PlaceDetails">
@@ -197,6 +202,7 @@ class PlaceDetails extends Component {
                 </Carousel>
             </Popup>
           </div>
+
           <div className= "content">
             <div className="content-left col-lg-8 column-1">
               <div className="col-lg-12 top-content">
@@ -206,24 +212,25 @@ class PlaceDetails extends Component {
                     <h5>{this.state.neighbourhood}</h5>
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
+
                   <img src={this.state.host_picture_url} alt="host pic" />
+
                 </div>
               </div>
               <div className="col-lg-12 middle-content-left">
                 <p><i className="fa fa-home" ></i><b>{this.state.room_type}</b></p>
                 <div className="place-type">
-                  <p>{this.state.accommodates} guests</p>
-                  <p>{this.state.bedrooms} bedrooms</p>
-                  <p>{this.state.beds} beds</p>
-                  <p>{this.state.bathrooms} bath</p>
+                  <p>{this.state.accommodates} guest(s)</p>
+                  <p>{this.state.bedrooms} bedroom(s)</p>
+                  <p>{this.state.beds} bed(s)</p>
+                  <p>{this.state.bathrooms} bath(s)</p>
                 </div>
                 <hr />
                 <p><b>The space</b></p>
                 <p>{this.state.description}</p>
-                {/* <hr /> */}
-                {/* <p><b>Amenities</b></p> */}
-               
-                {/* To add : country, city, amenities (list), aviabilities (calendrier à demander), reviews */}
+                <hr />
+                <p><b>Amenities</b></p>
+                <p>{this.state.amenities}</p>
               </div>
             </div>
             <div className="big-content-right col-lg-4 column-2">
@@ -261,7 +268,7 @@ class PlaceDetails extends Component {
                   <h4>Guests</h4>
                   <div className="book-div">
                     <div className="guests">
-                      <input onChange = {event=> this.genSync(event)} type="number" name="guests" placeholder="1" className="guests" />
+                      <input onChange = {event=> this.genSync(event)} type="number" name="guests" placeholder="0" className="guests" />
                     </div>
                   </div>
 

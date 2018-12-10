@@ -112,6 +112,9 @@
           i{
             padding-right: 10px;
           }
+          ::first-letter{
+            text-transform: uppercase;
+          }
         }
         .place-type{
           display: flex;
@@ -256,6 +259,10 @@
         .slide{
           div{
             height: 100%;
+          }
+          img{
+            height: 100%;
+            object-fit: cover;
           }
         }
       }
