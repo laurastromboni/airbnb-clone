@@ -22,7 +22,9 @@ class EditPlace extends Component {
       country: "",
       city: "",
       price: "",
-      picture_url: "",
+      xl_picture_url: "",
+      xl_picture_url_2: "",
+      xl_picture_url_3: "",
       isSubmitSuccessful: false
     }
   }
@@ -54,7 +56,9 @@ class EditPlace extends Component {
         country: response.data.country,
         city: response.data.city,
         price: response.data.price,
-        picture_url: response.data.picture_url
+        xl_picture_url: response.data.xl_picture_url,
+        xl_picture_url_2: response.data.xl_picture_url_2,
+        xl_picture_url_3: response.data.xl_picture_url_3
       })
     })
     .catch(err => {console.log("Something went wrong", err)});
@@ -139,7 +143,10 @@ class EditPlace extends Component {
           </label>
 
           <label>
-            <p>Image</p> <input value={this.state.picture_url} onChange={event => this.synchro(event)} type="url" name="picture_url" placeholder="Image URL" />
+            <p>Image</p> 
+            <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" />
           </label>
 
           <button className="add-button h6">Edit your place</button>

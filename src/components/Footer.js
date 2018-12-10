@@ -9,6 +9,10 @@ import tw from '../images/tw.svg';
 import fb from '../images/fb.svg';
 
 class Footer extends Component{
+  
+  scrollTo(event) {
+    return window.scrollTo(0, 0);
+  }
 
   render(){
     return(
@@ -51,7 +55,7 @@ class Footer extends Component{
         </ul>
       </div>
       <hr />
-      <img src={logoGrey} className="logo" alt="logo" />
+      <img src={logoGrey} className="logo" alt="logo" onClick={event => this.scrollTo(event)}/>
       </section>
     )
   }

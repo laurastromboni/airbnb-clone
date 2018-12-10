@@ -16,6 +16,10 @@ class NavBar extends Component{
     }
   }
 
+  scrollTo(event) {
+    return window.scrollTo(0, 0);
+  }
+
   // revenir à la page où on était quand on clique sur le menu responsive
   menuIsClicked(event){
     const {isOpen} = this.state
@@ -29,7 +33,7 @@ class NavBar extends Component{
     return(
       <section className="NavBar">
         <div className="NavBar-leftside col-lg-4 col-md-4 col-sm-4 col-xs-2">
-          <NavLink exact to="/"><img src={logo} className="App-logo" alt="logo" /></NavLink>
+          <NavLink exact to="/"><img src={logo} className="App-logo" alt="logo" onClick={event => this.scrollTo(event)}/></NavLink>
           <SearchBar />
         </div>
         <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8">
