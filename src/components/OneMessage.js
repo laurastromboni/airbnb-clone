@@ -103,8 +103,23 @@ render() {
           return (
               <div>
           <li>
-            {oneMessage.guestMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>{this.state.sender.fullName}</h5> : <h5>you</h5> } : {oneMessage.guestMessage}</h5> : null }
-            {oneMessage.hostMessage ? <h5>{this.props.currentUser._id === this.state.recipient._id ? <h5>you</h5> : <h5>{this.state.recipient.fullName}</h5> } : {oneMessage.hostMessage}</h5> : null }
+            {oneMessage.guestMessage ? 
+            <h5>{this.props.currentUser._id === this.state.recipient._id ? 
+              <h5>{this.state.sender.fullName}</h5> 
+                : 
+              <h5>you</h5> } 
+              : 
+            {oneMessage.guestMessage}</h5> 
+            : null 
+            }
+            {oneMessage.hostMessage ? 
+              <h5>{this.props.currentUser._id === this.state.recipient._id ? 
+                <h5>you</h5> 
+                  : 
+                <h5>{this.state.recipient.fullName}</h5> } 
+                : 
+                {oneMessage.hostMessage}</h5> 
+                : null }
             
             </li>
             </div>
