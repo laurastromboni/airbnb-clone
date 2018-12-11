@@ -39,10 +39,11 @@ class NavBar extends Component{
         </div>
         <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8">
           <ul>
-            <NavLink to="/becomehost"><li>Become a Host</li></NavLink>
-            <NavLink to="/help"><li>Help</li></NavLink>
+            
             {this.props.currentUser ? (
                 <span>
+                    <NavLink to="/becomehost"><li>Become a Host</li></NavLink>
+                    <NavLink to="/help"><li>Help</li></NavLink>
                     <NavLink to="/saved"><li>Saved</li></NavLink>
                     <NavLink to="/trips"><li>Trips</li></NavLink>
                     <NavLink to="/messages"><li>Messages</li></NavLink>
@@ -53,6 +54,8 @@ class NavBar extends Component{
                 </span>
             ) : (
                 <span>
+                <NavLink to="/login"><li>Become a Host</li></NavLink>
+                <NavLink to="/help"><li>Help</li></NavLink>
                 <NavLink to="/login"><li>Log In</li></NavLink>
                 <NavLink to="/signup"><li>Sign Up</li></NavLink>
                 </span>
