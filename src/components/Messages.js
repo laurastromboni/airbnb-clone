@@ -59,7 +59,7 @@ class Messages extends Component {
                       <img src={user} alt="recipient-img" />
                     }
                   </div>
-                  <div className="book col-lg-3 col-md-4"><h4>{oneMessage.recipient.fullName}</h4> <h6>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</h6></div>
+                  <div className="book col-lg-3 col-md-4"><h3>{oneMessage.recipient.fullName}</h3> <h6>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</h6></div>
                   <div className="msg col-lg-7 col-md-4"><h5>{oneMessage.message[oneMessage.message.length-1].guestMessage}{oneMessage.message[oneMessage.message.length-1].hostMessage}</h5> <h5><b>{oneMessage.city}</b></h5></div>
                   <div className="price col-lg-1 col-md-2"><p>{oneMessage.price}$</p></div>
                 </li></Link>
@@ -72,7 +72,7 @@ class Messages extends Component {
                       <img src={user} alt="recipient-img" />
                     }
                   </div>
-                  <div className="book col-lg-3 col-md-4"><h4>{oneMessage.sender.fullName}</h4> <p>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</p></div>
+                  <div className="book col-lg-3 col-md-4"><h3>{oneMessage.sender.fullName}</h3> <p>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</p></div>
                   <div className="msg col-lg-7 col-md-4"><p>{oneMessage.message[oneMessage.message.length-1].guestMessage}{oneMessage.message[oneMessage.message.length-1].hostMessage}</p> <p>{oneMessage.city}</p></div>
                   <div className="price col-lg-1 col-md-2"><p>{oneMessage.price}$</p></div>
                 </li></Link>
