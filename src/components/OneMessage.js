@@ -34,8 +34,10 @@ class OneMessage extends Component {
         sender : response.data.sender,
       })
         
-      connect(message => {
-        this.pushMessage(message);
+      connect(this.props.currentUser._id, message => {
+        
+           this.pushMessage(message);
+        
       });
     })
     .catch(err => {
@@ -54,7 +56,7 @@ class OneMessage extends Component {
   pushMessage(newMessage) {
     const { allMessages } = this.state;
     const isThere = allMessages.some(msg => msg._id === newMessage._id);
-
+    
     if (!isThere) {
       allMessages.push(newMessage);
       this.setState({ allMessages });
