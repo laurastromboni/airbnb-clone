@@ -1,11 +1,8 @@
-import { connect }  from '../api';
+import { connect, sendMessage }  from '../api';
 import React, { Component } from "react";
 
 import axios from "axios";
-import socketIOClient from "socket.io-client";
-import openSocket from 'socket.io-client';
 import "./style/OneMessage.scss"
-const socket = openSocket('http://localhost:5555');
 
 class OneMessage extends Component {
 
@@ -17,14 +14,8 @@ class OneMessage extends Component {
       recipient: "",
       sender: "",
       message : "",
-      isSubmitSuccessful: false, 
-
-    }
-    
-    connect(message => {
-      console.log(message);
-    });
- 
+      isSubmitSuccessful: false,
+    } 
   }
 
 
@@ -40,11 +31,16 @@ class OneMessage extends Component {
         recipient : response.data.recipient,
         sender : response.data.sender,
       })
+        
+      connect(message => {
+        this.pushMessage(message);
+      });
     })
-      .catch(err => {
-        console.log("Messages  Error", err);
-        alert('pb retrieving messages')
-    }) 
+    .catch(err => {
+      console.log("Messages  Error", err);
+      alert('pb retrieving messages')
+    })
+    
   }
 
   synchro(event) {
@@ -52,18 +48,31 @@ class OneMessage extends Component {
 
     this.setState({[name]: value});
   }
+  
+  pushMessage(newMessage) {
+    const { allMessages } = this.state;
+    const isThere = allMessages.some(msg => msg._id === newMessage._id);
+
+    if (!isThere) {
+      allMessages.push(newMessage);
+      this.setState({ allMessages });
+    }
+  }
 
   handleSubmit(event) {
+    event.preventDefault();
     const {params} = this.props.match
     if (this.props.currentUser._id === this.state.recipient._id){
     axios.post(`http://localhost:5555/api/new-message-host/${params.recipientId}`, this.state, { withCredentials: true })
     .then(response => {
-      console.log("Add Message", response.data);
+      console.log("Add Message Host", response.data);
       this.setState({
-        allMessages : response.data, 
+        allMessages : response.data.message, 
         message: "",
         isSubmitSuccessful: false
       })
+      const lastIndex = response.data.message.length - 1;
+      sendMessage(response.data.message[lastIndex]);
     })
     .catch(err => {
       console.log("Something went wrong...", err)
@@ -72,12 +81,14 @@ class OneMessage extends Component {
   else {
     axios.post(`http://localhost:5555/api/new-message-guest/${params.recipientId}`, this.state, { withCredentials: true })
     .then(response => {
-      console.log("Add Message", response.data);
+      console.log("Add Message Guest", response.data);
       this.setState({
-        allMessages : response.data, 
+        allMessages : response.data.message, 
         message: "",
         isSubmitSuccessful: false
       })
+      const lastIndex = response.data.message.length - 1;
+      sendMessage(response.data.message[lastIndex]);
     })
     .catch(err => {
       console.log("Something went wrong...", err)
@@ -101,22 +112,22 @@ render() {
         <ul id="messages">
         {allMessages.map(oneMessage=>{
           return (
-              <div>
+              <div key={oneMessage._id}>
           <li>
             {oneMessage.guestMessage ? 
-            <h5>{this.props.currentUser._id === this.state.recipient._id ? 
-              <h5>{this.state.sender.fullName}</h5> 
+            <h5>{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
+              <span>{this.state.sender.fullName}</span> 
                 : 
-              <h5>you</h5> } 
+              <span>you</span> } 
               : 
             {oneMessage.guestMessage}</h5> 
             : null 
             }
             {oneMessage.hostMessage ? 
-              <h5>{this.props.currentUser._id === this.state.recipient._id ? 
-                <h5>you</h5> 
+              <h5>{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
+                <span>you</span> 
                   : 
-                <h5>{this.state.recipient.fullName}</h5> } 
+                <span>{this.state.recipient.fullName}</span> } 
                 : 
                 {oneMessage.hostMessage}</h5> 
                 : null }
