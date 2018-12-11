@@ -140,21 +140,29 @@ render() {
                   <div key={oneMessage._id}>
               <li>
                 {oneMessage.guestMessage ? 
-                <h5>{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
-                  <span>{this.state.sender.fullName}</span> 
+                <div className="content">{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
+                  <div className="content-user-2">
+                    <img src={this.state.sender.avatar} alt="profile-pic" />
+                  </div>
                     : 
-                  <span>You</span> } 
-                  : 
-                {oneMessage.guestMessage}</h5> 
+                  <div className="content-user-1"> 
+                    <div className="content-message">{oneMessage.guestMessage}</div> 
+                    <img src={this.props.currentUser.avatar} alt="profile-pic" />
+                  </div> } 
+                </div> 
                 : null 
                 }
                 {oneMessage.hostMessage ? 
-                  <h5>{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
-                    <span>You</span> 
+                  <div className="content">{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
+                    <div className="content-user-1">  
+                      <img src={this.props.currentUser.avatar} alt="profile-pic" />
+                    </div>
                       : 
-                    <span>{this.state.recipient.fullName}</span> } 
-                    : 
-                    {oneMessage.hostMessage}</h5> 
+                    <div className="content-user-2"> 
+                      <img src={this.state.recipient.avatar} alt="profile-pic" />
+                    <div className="content-message">{oneMessage.hostMessage}</div>
+                    </div>   }
+                  </div> 
                     : null }
                 </li>
                 </div>

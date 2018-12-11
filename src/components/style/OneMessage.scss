@@ -20,7 +20,44 @@
       h5{
         span{
           color:#008489;
+          }
+      }
+      @media (max-width: 767px){
+        margin-top: 30px;
+      }
+    }
+      .content{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        .content-user-1{
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          width: 100%;
+          img{
+            width:50px;
+            height:50px;
+            border-radius: 25px;
+            margin: 0 10px;
+          }
         }
+        .content-user-2{
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          width: 100%;
+          img{
+            width:50px;
+            height:50px;
+            border-radius: 25px;
+            margin: 0 10px;
+          }
+        }
+      }
+      @media (max-width:767px){
+        padding: 30px 50px;
+        flex-wrap: wrap-reverse;
       }
     }
     .chat{
@@ -31,7 +68,7 @@
         li { 
           padding: 5px 10px; 
           :nth-child(odd) { 
-            background: #eee;
+            // background: #eee;
           }
           h5{
             display : inline;
@@ -73,8 +110,4 @@
         }
       }    
     }
-    @media (max-width:767px){
-      flex-wrap: wrap-reverse;
-    }
   }
-}
