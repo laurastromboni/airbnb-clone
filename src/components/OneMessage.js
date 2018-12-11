@@ -1,6 +1,8 @@
 import { connect, sendMessage }  from '../api';
 import React, { Component } from "react";
-
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+ 
+import 'react-notifications/lib/notifications.css';
 import axios from "axios";
 import "./style/OneMessage.scss"
 
@@ -144,7 +146,6 @@ render() {
           <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
           <button>Send</button>
         </form>
-
 
       </section>
     )

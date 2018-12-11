@@ -19,8 +19,10 @@ import GoogleSearch from "./components/GoogleSearch.js";
 import SettingUser from "./components/SettingUser";
 import EditPlace from "./components/EditPlace";
 import UserHouses from "./components/UserHouses";
+import Notification from "./components/Notification";
 import OrderRecap from "./components/OrderRecap";
 import "./components/style/Menu.scss";
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import Menu from "./components/Menu.js";
 
@@ -125,6 +127,7 @@ class App extends Component {
             }} />
 
           <Route path="/trips" component={Trips}/>
+          <Route path="/notification" component={Notification}/>
           <Route exact path ="/menu" render ={() => {
             return <Menu currentUser={this.state.currentUser} logClick={()=>this.logoutClick()} />
           }} />
@@ -153,7 +156,7 @@ class App extends Component {
         </Switch> 
 
         <Footer />
-
+        <NotificationContainer/>
       </div>
     );
   }

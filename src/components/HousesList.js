@@ -5,6 +5,7 @@ import StarRatingComponent from 'react-star-rating-component';
 import Filters from "./Filters.js";
 import './style/Header.scss';
 import SingleMap from "./SingleMap.js";
+import {NotificationContainer, NotificationManager} from 'react-notifications';
 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
@@ -214,6 +215,7 @@ componentDidMount(){
                 <div className="map"><SingleMap geoloc = {results.map(oneHouse =>{return (oneHouse)})} gps = {this.state.gps} /></div>
           </div>
           </div>
+
       </section>
     )
   }
