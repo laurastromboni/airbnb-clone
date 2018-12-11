@@ -76,8 +76,8 @@ class App extends Component {
     axios.delete("http://localhost:5555/api/logout", { withCredentials: true })
         .then( () => {
             // make "currentUser" empty again (like it was at the start)
-            this.syncCurrentUser(null)
             this.props.history.push("/");
+            this.syncCurrentUser(null)
         })
         .catch(err => {
             console.log("Logout ERROR", err)
@@ -98,7 +98,9 @@ class App extends Component {
       <div className="App">
         <NavBar currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
         <Switch>
-          <Route exact path="/" component={PlacesList} />
+          <Route exact path="/" render={() => {
+            return <PlacesList currentUser={this.state.currentUser} />
+          }} />
           <Route path="/houses/:houseId" render={({match}) => {
               return <PlaceDetails currentUser={this.state.currentUser} match={match}/>
           }} />
@@ -109,7 +111,9 @@ class App extends Component {
             return <PlacesList currentUser={this.state.currentUser} />
           }}  />
           <Route path="/maps" component={SingleMap}/>
-          <Route path="/becomehost" component={BecomeHost}/>
+          <Route path="/becomehost" render={() => {
+            return <BecomeHost currentUser={this.state.currentUser} />
+          }}/>
           <Route path="/becomehostform" render = {() => {
             return <BecomeHostForm currentUser={this.state.currentUser}
               userHousesArray={this.state.userHousesArray}

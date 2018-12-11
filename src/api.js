@@ -20,7 +20,7 @@ function connect(userId, cb) {
 }
 
 function sendMessage(msg) {
-    socket.emit('chat message', msg);
+  socket.emit('chat message', msg);
 }
 
 export { connect, sendMessage }
