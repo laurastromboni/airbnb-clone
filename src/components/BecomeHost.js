@@ -17,6 +17,14 @@ class BecomeHost extends Component {
   }
 
   render(){
+
+    var redirectLink = this.props.currentUser ? (
+     <Link to="/becomehostform"><button className="become-button">Get started</button></Link>  
+     ) : ( 
+     <Link to="/login"><button className="become-button">Get started</button></Link> 
+     )
+
+
       return(
 
         <section className="BecomeHost">
@@ -25,7 +33,7 @@ class BecomeHost extends Component {
             <div className="ready">
               <h1>Are you ready ?</h1>
               <p>Earn money as an Airbnb host</p>
-              <Link to="/becomehostform"><button className="become-button">Get started</button></Link>    
+              {redirectLink}
             </div> 
           </div>
 
