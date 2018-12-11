@@ -46,31 +46,35 @@ class Messages extends Component {
       <section className="Messages">
         <h2>My messages</h2>
         {allMessages.length !== 0 ?
-          <ul className="col-lg-12">
+          <ul>
           {allMessages.map(oneMessage=>{
             return(
               <div className="col-lg-12 one-chat">
                 {oneMessage.sender.fullName === this.props.currentUser.fullName ? 
                 <Link to={recipientUrl(oneMessage)}><li>
-                  {oneMessage.recipient.avatar?
-                    <img src={oneMessage.recipient.avatar} alt="recipient-img" />
-                    :
-                    <img src={user} alt="recipient-img" />
-                  }
-                  <div className="book"><h3>{oneMessage.recipient.fullName}</h3> <p>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</p></div>
-                  <div className="msg"><p>{oneMessage.message[oneMessage.message.length-1].guestMessage}{oneMessage.message[oneMessage.message.length-1].hostMessage}</p> <p>{oneMessage.city}</p></div>
-                  <p>{oneMessage.price}$</p>
+                  <div className="profile-pic col-lg-1 col-md-2">
+                    {oneMessage.recipient.avatar?
+                      <img src={oneMessage.recipient.avatar} alt="recipient-img" />
+                      :
+                      <img src={user} alt="recipient-img" />
+                    }
+                  </div>
+                  <div className="book col-lg-3 col-md-4"><h3>{oneMessage.recipient.fullName}</h3> <h6>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</h6></div>
+                  <div className="msg col-lg-7 col-md-4"><h5>{oneMessage.message[oneMessage.message.length-1].guestMessage}{oneMessage.message[oneMessage.message.length-1].hostMessage}</h5> <h5><b>{oneMessage.city}</b></h5></div>
+                  <div className="price col-lg-1 col-md-2"><p>{oneMessage.price}$</p></div>
                 </li></Link>
                 :
                 <Link to={recipientUrl(oneMessage)}><li>
-                  {oneMessage.sender.avatar?
-                    <img src={oneMessage.sender.avatar} alt="recipient-img" />
-                    :
-                    <img src={user} alt="recipient-img" />
-                  }
-                  <div className="book"><h3>{oneMessage.sender.fullName}</h3> <p>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</p></div>
-                  <div className="msg"><p>{oneMessage.message[oneMessage.message.length-1].guestMessage}{oneMessage.message[oneMessage.message.length-1].hostMessage}</p> <p>{oneMessage.city}</p></div>
-                  <p>{oneMessage.price}$</p>
+                  <div className="profile-pic col-lg-1 col-md-2">
+                    {oneMessage.sender.avatar?
+                      <img src={oneMessage.sender.avatar} alt="recipient-img" />
+                      :
+                      <img src={user} alt="recipient-img" />
+                    }
+                  </div>
+                  <div className="book col-lg-3 col-md-4"><h3>{oneMessage.sender.fullName}</h3> <p>{oneMessage.arrayOfDates[0]} > {oneMessage.arrayOfDates[oneMessage.arrayOfDates.length-1]}</p></div>
+                  <div className="msg col-lg-7 col-md-4"><p>{oneMessage.message[oneMessage.message.length-1].guestMessage}{oneMessage.message[oneMessage.message.length-1].hostMessage}</p> <p>{oneMessage.city}</p></div>
+                  <div className="price col-lg-1 col-md-2"><p>{oneMessage.price}$</p></div>
                 </li></Link>
               }
             </div>
@@ -83,6 +87,8 @@ class Messages extends Component {
           <Link to="/houses"><button className="booking-button h6">Find more places</button></Link>
         </div>
         }
+
+        <div className="cover"></div>
         
       </section>
     )

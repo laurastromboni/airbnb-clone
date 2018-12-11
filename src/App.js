@@ -76,8 +76,8 @@ class App extends Component {
     axios.delete("http://localhost:5555/api/logout", { withCredentials: true })
         .then( () => {
             // make "currentUser" empty again (like it was at the start)
-            this.syncCurrentUser(null)
             this.props.history.push("/");
+            this.syncCurrentUser(null)
         })
         .catch(err => {
             console.log("Logout ERROR", err)

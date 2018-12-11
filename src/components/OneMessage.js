@@ -125,7 +125,7 @@ render() {
               <span>{this.state.sender.fullName}</span> 
                 : 
               <span>you</span> } 
-              : 
+               : 
             {oneMessage.guestMessage}</h5> 
             : null 
             }
