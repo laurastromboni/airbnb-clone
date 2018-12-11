@@ -12,8 +12,8 @@ import './style/FontColors.scss';
 import moment from "moment"
 
 
-function houseUrl(oneHouse){
-  return `/houses/${oneHouse._id}`;
+function houseUrl(id){
+  return `/houses/${id}`;
 }
 
 class PlacesList extends Component{
@@ -111,7 +111,6 @@ componentDidMount(){
       })
 }
 
-
   render(){
       const {searchResults, allResults} = this.state
       let results = searchResults.length > 0 ? searchResults : allResults
@@ -130,7 +129,6 @@ componentDidMount(){
                         onAdressChange = {address => this.handleChange(address)} 
                         onGenericChange={event=>this.genSync(event)} 
                         handleSubmit={event=>this.submitHandler(event)} 
-
                 />
           </section>
         
@@ -143,20 +141,22 @@ componentDidMount(){
                 <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
                     
                     {this.props.currentUser ? (
-                    <Link to={houseUrl(oneHouse)}>
-                    <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
-                    <h4>{oneHouse.name}</h4>
-                    <h5>{oneHouse.price}$ per night</h5>
-                    <div className="reviews">
-                    <StarRatingComponent 
-                    name="rate1" 
-                    editing={false}
-                    starCount={5}
-                    value={Math.round(oneHouse.review_scores_rating/20)}
-                    />
-                        <h6>{oneHouse.number_of_reviews}</h6>
-                    </div>
-                    </Link>
+                        <Link to={houseUrl(oneHouse._id)}>
+                            <div className="place-img">
+                                <img src = {oneHouse.xl_picture_url} alt='housepic' />
+                            </div>
+                            <h4>{oneHouse.name}</h4>
+                            <h5>{oneHouse.price}$ per night</h5>
+                            <div className="reviews">
+                                <StarRatingComponent 
+                                name="rate1" 
+                                editing={false}
+                                starCount={5}
+                                value={Math.round(oneHouse.review_scores_rating/20)}
+                                />
+                                <h6>{oneHouse.number_of_reviews}</h6>
+                            </div>
+                        </Link>
                     ) : (
                         <Link to="/login">
                             <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>
@@ -169,7 +169,7 @@ componentDidMount(){
                             starCount={5}
                             value={Math.round(oneHouse.review_scores_rating/20)}
                             />
-                                <h6>{oneHouse.number_of_reviews}</h6>
+                            <h6>{oneHouse.number_of_reviews}</h6>
                             </div>
                         </Link>
                     )}
