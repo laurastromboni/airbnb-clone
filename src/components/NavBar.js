@@ -30,6 +30,7 @@ class NavBar extends Component{
   }
 
   render(){
+    
     return(
       <section className="NavBar">
         <div className="NavBar-leftside col-lg-4 col-md-4 col-sm-4 col-xs-2">
