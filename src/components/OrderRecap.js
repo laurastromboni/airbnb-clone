@@ -22,11 +22,13 @@ class OrderRecap extends Component {
 
   handleSubmit(event){
     event.preventDefault();
+    const price  = Math.floor(this.props.price*(this.props.dates.length-1)*1.1)
+    const city  = this.props.city
+    const arrayOfDates  = this.props.dates
     const {message, recipient} = this.state
-    axios.post(`http://localhost:5555/api/message`, {message, recipient}, { withCredentials: true })
+    axios.post(`http://localhost:5555/api/message`, {message, recipient, arrayOfDates, city, price}, { withCredentials: true })
     .then(response => {
         console.log("create message", response.data)
-        
         this.setState({
             isSubmitSuccessful : true, 
         })

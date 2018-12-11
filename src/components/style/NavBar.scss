@@ -35,6 +35,8 @@
           padding: 0 4px;
           text-align: center;
           color: #484848;
+          -webkit-appearance: button-bevel;
+          background-color: transparent;
           cursor: pointer;
         }
         button:focus{

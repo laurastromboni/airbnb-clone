@@ -1,3 +1,46 @@
 .Messages {
   padding-top: 120px;
+  padding: 120px 50px 0 50px;
+  ul{
+    margin-top: 30px;
+    border: 1px solid #EBEBEB;
+    padding: 0;
+    .one-chat{
+      padding: 0;
+      li {
+        border: 1px solid #EBEBEB;
+        list-style-type: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img{
+          width: auto;
+          height: 50px;
+          margin: 10px;
+          border-radius: 25px;
+        }
+        h3, p{
+          margin-bottom: 0;
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+  .more{
+    margin-top: 30px;
+    .booking-button{
+      color:white;
+      background-color:#FF5A5F;
+      padding: 13px;
+      border-radius: 10px;
+      border:none;
+      outline: none;
+      width: 300px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 12px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  }
 }
