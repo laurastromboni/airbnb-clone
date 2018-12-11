@@ -14,16 +14,17 @@
   }
   ul{
     padding-inline-start: 0;
-    border: 1px solid #EBEBEB;
-    margin: 50px 100px 0 100px;
+    border: 0.5px solid #EBEBEB;
+    margin: 50px 200px 0 200px;
     .one-chat{
       padding: 0;
       text-align:left;
       a{
         width: 100%;
         li {
+          padding : 25px 0;
           width: 100%;
-          border: 1px solid #EBEBEB;
+          border: 0.5px solid #EBEBEB;
           list-style-type: none;
           display: flex;
           flex-direction: row;
