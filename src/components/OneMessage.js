@@ -116,42 +116,52 @@ render() {
   return(
     
     <section className="OneMessage">
-               
-        <ul id="messages">
-        {allMessages.map(oneMessage=>{
-          return (
-              <div key={oneMessage._id}>
-          <li>
-            {oneMessage.guestMessage ? 
-            <h5>{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
-              <span>{this.state.sender.fullName}</span> 
-                : 
-              <span>you</span> } 
-               : 
-            {oneMessage.guestMessage}</h5> 
-            : null 
-            }
-            {oneMessage.hostMessage ? 
-              <h5>{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
-                <span>you</span> 
-                  : 
-                <span>{this.state.recipient.fullName}</span> } 
-                : 
-                {oneMessage.hostMessage}</h5> 
-                : null }
-            
-            </li>
-            </div>
-            )})
-          }
-            
-      </ul>
-       
 
+        <div className="recap col-lg-4">
+        <img src={this.state.recipient.avatar} alt="" />
+        <h4>{this.state.recipient.fullName}</h4>
+        <h5>You can ask any questions you want to your host, he/she will be happy to answer you !</h5>
+        <hr />
+        <h5><span>{this.state.recipient.email}</span></h5>
+        </div>
+
+        <div className="chat col-lg-8">
+       
         <form onSubmit={event => this.handleSubmit(event)}>
           <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
           <button>Send</button>
         </form>
+
+          <ul id="messages">
+          {allMessages.map(oneMessage=>{
+            return (
+                <div key={oneMessage._id}>
+            <li>
+              {oneMessage.guestMessage ? 
+              <h5>{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
+                <span>{this.state.sender.fullName}</span> 
+                  : 
+                <span>You</span> } 
+                : 
+              {oneMessage.guestMessage}</h5> 
+              : null 
+              }
+              {oneMessage.hostMessage ? 
+                <h5>{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
+                  <span>You</span> 
+                    : 
+                  <span>{this.state.recipient.fullName}</span> } 
+                  : 
+                  {oneMessage.hostMessage}</h5> 
+                  : null }
+              </li>
+              </div>
+              )})
+            }
+              
+        </ul>
+
+      </div>
 
       </section>
     )

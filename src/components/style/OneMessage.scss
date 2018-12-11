@@ -1,53 +1,79 @@
 .OneMessage {
-  padding-top: 120px;
   margin: 0; 
   box-sizing: border-box;
-  form { 
-    padding: 3px;
-    margin: 0 auto; 
-    width: 70%;
-    display: flex;
-    flex-direction: row;
-    input { 
-      border: 0; 
-      padding: 10px; 
-      width: 90%; 
-      margin-right: 10px; 
-      border: 1px solid #EBEBEB;
-      outline: none;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 120px 200px 50px 200px;
+  .recap{
+    border: 1px solid #EBEBEB;
+    padding: 20px;
+    max-height: 540px;
+    min-width: 300px;
+    img{
+      height: 150px;
+      border-radius: 75px;
     }
-    button {
-      background-color:#484848;
-      color:white;
-      padding: 13px;
-      border-radius: 10px;
-      border:none;
-      outline: none;
-      width: 150px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 12px;
-      outline: none;
-      cursor: pointer;
+    h4{
+      margin-top:20px;
+    }
+    h5{
+      span{
+        color:#008489;
+      }
     }
   }
-  #messages { 
-    list-style-type: none; 
-    margin: 0; 
-    padding: 0;
-    li { 
-      padding: 5px 10px; 
-      :nth-child(odd) { 
-        background: #eee;
-      }
-      h5{
-        display : inline;
-        span{
-          ::first-letter{
-            text-transform: uppercase;
+  .chat{
+    #messages { 
+      list-style-type: none; 
+      margin: 0; 
+      padding: 0;
+      li { 
+        padding: 5px 10px; 
+        :nth-child(odd) { 
+          background: #eee;
+        }
+        h5{
+          display : inline;
+          span{
+            ::first-letter{
+              text-transform: uppercase;
+            }
           }
         }
+      } 
+    }
+    form { 
+      padding: 3px;
+      margin: 0 auto; 
+      width: 70%;
+      display: flex;
+      flex-direction: row;
+      input { 
+        border: 0; 
+        padding: 10px; 
+        width: 90%; 
+        margin-right: 10px; 
+        border: 1px solid #EBEBEB;
+        outline: none;
       }
-    } 
+      button {
+        background-color:#484848;
+        color:white;
+        padding: 13px;
+        border-radius: 10px;
+        border:none;
+        outline: none;
+        width: 150px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 12px;
+        outline: none;
+        cursor: pointer;
+      }
+    }    
+  }
+  @media (max-width:991px){
+    flex-wrap: wrap-reverse;
+    padding: 120px 50px 50px 50px;
   }
 }
