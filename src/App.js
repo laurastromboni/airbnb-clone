@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import NavBar from "./components/NavBar.js";
 import PlaceDetails from "./components/PlaceDetails.js";
 import PlacesList from "./components/HousesList.js";
@@ -38,7 +38,6 @@ class App extends Component {
         currentUser: null,
         userHousesArray: [],
         userMessagesArray: [],
-        redirect: false
     }
   }
 
@@ -76,7 +75,7 @@ class App extends Component {
         .then( () => {
             // make "currentUser" empty again (like it was at the start)
             this.syncCurrentUser(null)
-            this.setState({redirect: true})
+            this.props.history.push("/");
         })
         .catch(err => {
             console.log("Logout ERROR", err)
@@ -93,11 +92,6 @@ class App extends Component {
   }
 
   render() {
-
-    if (this.state.redirect) {
-      return <Redirect to="/" />
-    }
-
     return (
       <div className="App">
         <NavBar currentUser = {this.state.currentUser} logClick={()=>this.logoutClick()}/>
@@ -132,7 +126,7 @@ class App extends Component {
 
           <Route path="/trips" component={Trips}/>
           <Route exact path ="/menu" render ={() => {
-            return <Menu currentUser={this.state.currentUser} />
+            return <Menu currentUser={this.state.currentUser} logClick={()=>this.logoutClick()} />
           }} />
           <Route path="/saved" component={Saved}/>
           <Route path="/google" component={GoogleSearch}/>
@@ -165,4 +159,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

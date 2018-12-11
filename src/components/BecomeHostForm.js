@@ -188,6 +188,7 @@ class BecomeHostForm extends Component {
             <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" />
           </label>
           
+          <p>Availables dates</p>
           <DateRangePicker
                       startDateId="blahStart"
                       endDateId="blahEnd"
