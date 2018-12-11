@@ -153,6 +153,7 @@ class PlaceDetails extends Component {
         xl_picture_url={this.state.xl_picture_url}
         dates={this.state.arrayOfDates}
         name={this.state.name}
+        city={this.state.city}
         recipient={this.state.owner}
         onHouseChange={array => this.syncHousesArray(array)}
         />
@@ -213,7 +214,7 @@ class PlaceDetails extends Component {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
 
-                  <img src={this.state.host_picture_url} alt="host pic" />
+                  <img src={this.state.host_picture_url} alt="" />
 
                 </div>
               </div>

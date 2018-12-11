@@ -64,8 +64,12 @@ class OneMessage extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const {params} = this.props.match
+    const { allMessages,recipient,sender,message} = this.state
+    // const price  = Math.floor(this.props.price*(this.props.dates.length-1)*1.1)
+    // const city  = this.props.city
+    // const arrayOfDates  = this.props.dates
     if (this.props.currentUser._id === this.state.recipient._id){
-    axios.post(`http://localhost:5555/api/new-message-host/${params.recipientId}`, this.state, { withCredentials: true })
+    axios.post(`http://localhost:5555/api/new-message-host/${params.recipientId}`, {allMessages, recipient, sender, message}, { withCredentials: true })
     .then(response => {
       console.log("Add Message Host", response.data);
       this.setState({
@@ -81,7 +85,7 @@ class OneMessage extends Component {
     })
   }
   else {
-    axios.post(`http://localhost:5555/api/new-message-guest/${params.recipientId}`, this.state, { withCredentials: true })
+    axios.post(`http://localhost:5555/api/new-message-guest/${params.recipientId}`, {allMessages, recipient, sender, message}, { withCredentials: true })
     .then(response => {
       console.log("Add Message Guest", response.data);
       this.setState({
