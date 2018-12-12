@@ -36,7 +36,7 @@ class BecomeHostForm extends Component {
       xl_picture_url_3: "",
 
       isSubmitSuccessful: false,
-      host_picture_url : this.props.currentUser.avatar,
+      host_picture_url : this.props.currentUser && this.props.currentUser.avatar,
       startDate: null,
       endDate: null,
       focusedInput: null,
