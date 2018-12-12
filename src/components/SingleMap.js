@@ -43,6 +43,11 @@ class SimpleMap extends Component {
     // const {geoloc}=this.props
     // console.log("geoloc",geoloc)
     // console.log("this.props.gps",this.props.gps)
+    console.log("haloooo", {
+      env: process.env.REACT_APP_GOOGLE_MAPS_API,
+      gps: this.props.gps,
+      zoom: this.props.zoom,
+    })
 
     return (
       // Important! Always set the container height explicitly

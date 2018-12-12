@@ -97,7 +97,7 @@ class SettingUser extends Component {
           </label>
 
           <label>
-            <input value={this.state.password} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
+            <input value={this.state.encryptedPassword} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
           </label>
 
           <label className="avatars">
