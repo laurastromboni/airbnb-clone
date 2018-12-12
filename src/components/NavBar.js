@@ -30,18 +30,27 @@ class NavBar extends Component{
   }
 
   render(){
+    
     return(
       <section className="NavBar">
-        <div className="NavBar-leftside col-lg-4 col-md-4 col-sm-4 col-xs-2">
+        <div className="NavBar-leftside col-lg-5 col-md-5 col-sm-5 col-xs-2">
           <NavLink exact to="/"><img src={logo} className="App-logo" alt="logo" onClick={event => this.scrollTo(event)}/></NavLink>
-          <SearchBar />
+          <SearchBar 
+              onChange={this.props.onAdressChange}
+              value={this.props.address}
+              shouldFetchSuggestions={this.props.address.length > 2} 
+              handleSubmit={this.props.handleSubmit} 
+              startDate={this.props.startDate} 
+              endDate={this.props.endDate} 
+          />
         </div>
-        <div className="NavBar-rightside-1 col-lg-8 col-md-8 col-sm-8">
+        <div className="NavBar-rightside-1 col-lg-7 col-md-7 col-sm-7">
           <ul>
-            <NavLink to="/becomehost"><li>Become a Host</li></NavLink>
-            <NavLink to="/help"><li>Help</li></NavLink>
+            
             {this.props.currentUser ? (
                 <span>
+                    <NavLink to="/becomehost"><li>Become a Host</li></NavLink>
+                    <NavLink to="/help"><li>Help</li></NavLink>
                     <NavLink to="/saved"><li>Saved</li></NavLink>
                     <NavLink to="/trips"><li>Trips</li></NavLink>
                     <NavLink to="/messages"><li>Messages</li></NavLink>
@@ -52,6 +61,8 @@ class NavBar extends Component{
                 </span>
             ) : (
                 <span>
+                <NavLink to="/login"><li>Become a Host</li></NavLink>
+                <NavLink to="/help"><li>Help</li></NavLink>
                 <NavLink to="/login"><li>Log In</li></NavLink>
                 <NavLink to="/signup"><li>Sign Up</li></NavLink>
                 </span>

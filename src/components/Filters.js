@@ -4,7 +4,6 @@ import './style/FontColors.scss';
 import PlacesAutocomplete from "./LocationSearchInput";
 import { classnames } from './helpers';
 import './style/GoogleSearch.scss';
-import moment from "moment"
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
 import { DateRangePicker } from 'react-dates';
@@ -12,9 +11,6 @@ import { DateRangePicker } from 'react-dates';
 class Filters extends Component{  
 
   render(){
-    
-  const BAD_DATES = [moment("2018-12-20"), moment("2018-12-21")];
-  const isDayBlocked = day => BAD_DATES.filter(d => d.isSame(day, 'day')).length > 0;
     
     return(
       <section>
@@ -24,7 +20,7 @@ class Filters extends Component{
           <div className="places-autocomplete">
         
         <PlacesAutocomplete
-          onChange={this.props.onAdressChange}
+          onChange={this.props.onChange}
           value={this.props.address}
           shouldFetchSuggestions={this.props.address.length > 2}
         >
@@ -47,7 +43,6 @@ class Filters extends Component{
                       });
 
                       return (
-                        /* eslint-disable react/jsx-key */
                         <div
                           {...getSuggestionItemProps(suggestion, { className })}
                         >
@@ -59,7 +54,6 @@ class Filters extends Component{
                           </small>
                         </div>
                       );
-                      /* eslint-enable react/jsx-key */
                     })}
                   </div>
                 )}
@@ -69,7 +63,6 @@ class Filters extends Component{
         </PlacesAutocomplete>
 
       </div>
-          {/* <input onChange = {event=> this.props.onGenericChange(event)} type="text" name="where" value= {this.props.where} placeholder="Destination" /> */}
         </div>
 
 

@@ -34,8 +34,10 @@ class OneMessage extends Component {
         sender : response.data.sender,
       })
         
-      connect(message => {
-        this.pushMessage(message);
+      connect(this.props.currentUser._id, message => {
+        
+           this.pushMessage(message);
+        
       });
     })
     .catch(err => {
@@ -54,7 +56,7 @@ class OneMessage extends Component {
   pushMessage(newMessage) {
     const { allMessages } = this.state;
     const isThere = allMessages.some(msg => msg._id === newMessage._id);
-
+    
     if (!isThere) {
       allMessages.push(newMessage);
       this.setState({ allMessages });
@@ -114,42 +116,60 @@ render() {
   return(
     
     <section className="OneMessage">
-               
-        <ul id="messages">
-        {allMessages.map(oneMessage=>{
-          return (
-              <div key={oneMessage._id}>
-          <li>
-            {oneMessage.guestMessage ? 
-            <h5>{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
-              <span>{this.state.sender.fullName}</span> 
-                : 
-              <span>you</span> } 
-               : 
-            {oneMessage.guestMessage}</h5> 
-            : null 
-            }
-            {oneMessage.hostMessage ? 
-              <h5>{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
-                <span>you</span> 
-                  : 
-                <span>{this.state.recipient.fullName}</span> } 
-                : 
-                {oneMessage.hostMessage}</h5> 
-                : null }
-            
-            </li>
-            </div>
-            )})
-          }
-            
-      </ul>
-       
 
-        <form onSubmit={event => this.handleSubmit(event)}>
-          <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
-          <button>Send</button>
-        </form>
+      <div className="col-lg-12 messages-div justify-content-lg-center justify-content-md-center">
+
+          <div className="recap col-lg-4 col-md-4">
+            <img src={this.state.recipient.avatar} alt="" />
+            <h4>{this.state.recipient.fullName}</h4>
+            <h5>You can ask any questions you want to your host, he/she will be happy to answer you !</h5>
+            <hr />
+            <h5><span>{this.state.recipient.email}</span></h5>
+          </div>
+
+          <div className="chat col-lg-6 col-md-6">
+        
+          <form onSubmit={event => this.handleSubmit(event)}>
+            <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
+            <button>Send</button>
+          </form>
+
+            <ul id="messages">
+            {allMessages.map(oneMessage=>{
+              return (
+                  <div key={oneMessage._id}>
+              <li>
+                {oneMessage.guestMessage ? 
+                <div className="content">{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
+                  <div className="content-user-2"><img src={this.state.sender.avatar} alt="profile-pic" /></div>
+                    : 
+                  <div className="content-user-1"><img src={this.props.currentUser.avatar} alt="profile-pic" /></div> }
+                
+                    {<div className="content-message">{oneMessage.guestMessage}</div> } 
+                </div> 
+                : null 
+                }
+                {oneMessage.hostMessage ? 
+                  <div className="content">
+                  {<div className="content-message">{oneMessage.hostMessage}</div>}
+                  
+                  {(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
+                    <div className="content-user-1"><img src={this.props.currentUser.avatar} alt="profile-pic" /></div>
+                      : 
+                    <div className="content-user-2"><img src={this.state.recipient.avatar} alt="profile-pic" /></div>}
+                 
+                  </div> 
+                    : null }
+                </li>
+                </div>
+                )})
+              }
+                
+          </ul>
+
+        </div>
+
+      </div>
 
       </section>
     )
