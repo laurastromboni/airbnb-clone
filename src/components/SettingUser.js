@@ -12,6 +12,7 @@ class SettingUser extends Component {
       email: "",
       originalPassword:"",
       avatar: "",
+      image: "",
     }
   }
 
@@ -57,7 +58,25 @@ class SettingUser extends Component {
     .catch(err => {
       console.log("Something went wrong", err)
     })
+  }
 
+    uploadImage(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post("http://localhost:5555/api/becomehostform", uploadData, {withCredentials: true})
+    .then(response => {
+      console.log("Upload Image", response.data);
+      this.setState({ image: response.data.fileUrl })
+    })
+    .catch(err => {
+      console.log("Upload image failed", err)
+    });
   }
 
   render() {
@@ -84,6 +103,10 @@ class SettingUser extends Component {
           <label className="avatars">
             <h4>Change your avatar url</h4>
             <input value={this.state.avatar} onChange={event => this.genSync(event)} type="url" name="avatar" placeholder="avatar url" />
+          </label>
+
+          <label>
+            Test image: Image: <input type="file" onChange={event => this.uploadImage(event)} />
           </label>
 
           <div className="buttons">
