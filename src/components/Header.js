@@ -29,7 +29,7 @@ submitHandler(event){
     const {searchResults} = this.state
 
     // PUT and POST requests 
-    axios.get(`http://localhost:5555/api/search/${this.state.where}`, { withCredentials: true })
+    axios.get(process.env.REACT_APP_SERVER_URL + `/api/search/${this.state.where}`, { withCredentials: true })
         .then(response => {
             // console.log("search", response.data)
             response.data.map(oneHouse=>{

@@ -24,7 +24,7 @@ class SignupPage extends Component{
   handleSubmit(event){
     event.preventDefault();
 
-    axios.post("http://localhost:5555/api/signup", this.state, { withCredentials: true })
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/signup", this.state, { withCredentials: true })
       .then(response => {
         console.log("Signup Page SUCCESS", response.data)
         const { userDoc } = response.data;
@@ -48,7 +48,7 @@ class SignupPage extends Component{
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ avatar: response.data.fileUrl })
@@ -99,7 +99,8 @@ class SignupPage extends Component{
 
           <label>
             <p>Images</p> 
-            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" className="avatar" />
+            <div className="avatar">Click here to upload your pic</div>
+            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" className="hidden" />
           </label>
 
           {/* <label>

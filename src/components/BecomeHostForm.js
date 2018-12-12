@@ -77,7 +77,7 @@ class BecomeHostForm extends Component {
 
     const {_id} = this.props.currentUser;
     this.setState({owner: _id, availableDates: this.getDatesfromStartToEnd()},()=> { 
-    axios.post("http://localhost:5555/api/houses", this.state, { withCredentials: true })
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/houses", this.state, { withCredentials: true })
     .then(response => {
       console.log("Add House", response.data);
       const newArray = [...this.props.userHousesArray];
@@ -122,7 +122,7 @@ class BecomeHostForm extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ xl_picture_url: response.data.fileUrl })
@@ -141,7 +141,7 @@ class BecomeHostForm extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ xl_picture_url_2: response.data.fileUrl })
@@ -160,7 +160,7 @@ class BecomeHostForm extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ xl_picture_url_3: response.data.fileUrl })

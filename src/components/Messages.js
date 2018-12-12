@@ -29,7 +29,7 @@ class Messages extends Component {
 
   componentDidMount(){
     window.scrollTo(0,0)
-    axios.get("http://localhost:5555/api/all-messages", { withCredentials: true })
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/all-messages", { withCredentials: true })
     .then(response => {
       console.log("All messages", response.data)
       this.setState({allMessages : response.data})

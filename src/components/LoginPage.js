@@ -24,7 +24,7 @@ class LoginPage extends Component{
   handleSubmit(event){
     event.preventDefault();
 
-    axios.post("http://localhost:5555/api/login", this.state, { withCredentials: true })
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/login", this.state, { withCredentials: true })
       .then(response => {
         console.log("Login Page SUCCESS", response.data)
         const { userDoc } = response.data;

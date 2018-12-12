@@ -64,7 +64,7 @@ class App extends Component {
   componentDidMount(){
 
     let gps = {...this.state.gps};
-  axios.get("http://localhost:5555/api/houses", { withCredentials: true })
+  axios.get(process.env.REACT_APP_SERVER_URL + "/api/houses", { withCredentials: true })
       .then(response =>{
         const index = response.data.length - 1;
         gps.lng = response.data[index].geopoint[1]                       
@@ -78,7 +78,7 @@ class App extends Component {
 
     // React doesn't know at the start if we are logged-in or not
     // (but we can ask the server if we are through an API request)
-    axios.get("http://localhost:5555/api/checkuser", { withCredentials: true })
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/checkuser", { withCredentials: true })
         .then( response => {
             console.log("Check User SUCCESS", response.data);
             const { userDoc } = response.data;
@@ -89,7 +89,7 @@ class App extends Component {
             alert("Sorry! Something went wrong");
         })
 
-    axios.get("http://localhost:5555/api/userhouses", {withCredentials : true})
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/userhouses", {withCredentials : true})
       .then(response => {
         console.log("HOUSES OWNER", response.data);
         this.syncHousesArray(response.data);
@@ -111,7 +111,7 @@ class App extends Component {
 
   
   logoutClick(){
-    axios.delete("http://localhost:5555/api/logout", { withCredentials: true })
+    axios.delete(process.env.REACT_APP_SERVER_URL + "/api/logout", { withCredentials: true })
         .then( () => {
             // make "currentUser" empty again (like it was at the start)
             this.props.history.push("/");
@@ -151,7 +151,7 @@ class App extends Component {
           currentDate = moment(currentDate).add(1, 'days');
       }
   
-      axios.post(`http://localhost:5555/api/search`, {arrayOfDates, where, guest})
+      axios.post(process.env.REACT_APP_SERVER_URL + `/api/search`, {arrayOfDates, where, guest})
       .then(response => {
           console.log("search", response.data)
           
@@ -199,7 +199,7 @@ class App extends Component {
           currentDate = moment(currentDate).add(1, 'days');
       }
   
-      axios.post(`http://localhost:5555/api/search`, {arrayOfDates, where, guest})
+      axios.post(process.env.REACT_APP_SERVER_URL + `/api/search`, {arrayOfDates, where, guest})
       .then(response => {
           console.log("search", response.data)
           

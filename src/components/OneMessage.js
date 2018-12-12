@@ -25,7 +25,7 @@ class OneMessage extends Component {
     const {params} = this.props.match
     window.scrollTo(0,0)
 
-    axios.get(`http://localhost:5555/api/message/${params.recipientId}`, { withCredentials: true })
+    axios.get(process.env.REACT_APP_SERVER_URL + `/api/message/${params.recipientId}`, { withCredentials: true })
     .then(response => {
       console.log("One recipient messages", response.data)
       this.setState({
@@ -79,7 +79,7 @@ class OneMessage extends Component {
     // const city  = this.props.city
     // const arrayOfDates  = this.props.dates
     if (this.props.currentUser._id === this.state.recipient._id){
-    axios.post(`http://localhost:5555/api/new-message-host/${params.recipientId}`, {allMessages, recipient, sender, message}, { withCredentials: true })
+    axios.post(process.env.REACT_APP_SERVER_URL + `/api/new-message-host/${params.recipientId}`, {allMessages, recipient, sender, message}, { withCredentials: true })
     .then(response => {
       console.log("Add Message Host", response.data);
       this.setState({
@@ -95,7 +95,7 @@ class OneMessage extends Component {
     })
   }
   else {
-    axios.post(`http://localhost:5555/api/new-message-guest/${params.recipientId}`, {allMessages, recipient, sender, message}, { withCredentials: true })
+    axios.post(process.env.REACT_APP_SERVER_URL + `/api/new-message-guest/${params.recipientId}`, {allMessages, recipient, sender, message}, { withCredentials: true })
     .then(response => {
       console.log("Add Message Guest", response.data);
       this.setState({
