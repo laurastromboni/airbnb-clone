@@ -11,17 +11,21 @@ import './style/FontColors.scss';
 function houseUrl(oneHouse){
     return `/houses/${oneHouse._id}`;
   }
-const AnyReactComponent = ({ oneloc }) => <div>{<Popup trigger={<img className = "map-icon" src={mapicon} alt="map" />}>
-                              <p>{oneloc.name}</p>
-                              <img className="littlePic" src={oneloc.xl_picture_url} />
-                              <h5>{oneloc.price}$ per night</h5>
-                              <StarRatingComponent 
-                              name="rate1" 
-                              editing={false}
-                              starCount={5}
-                              value={Math.round(oneloc.review_scores_rating/20)}
-                              />
-                              <Link to={houseUrl(oneloc)}>See details</Link>
+const AnyReactComponent = ({ oneloc }) => <div className="PopupMap">{<Popup trigger={<img className = "map-icon" src={mapicon} alt="map" />}>
+
+                                <p>{oneloc.name}</p>
+                                <img className="littlePic" src={oneloc.xl_picture_url} alt="" />
+                                <h5>{oneloc.price}$ per night</h5>
+                                <div className="details">
+                                  <StarRatingComponent 
+                                  name="rate1" 
+                                  editing={false}
+                                  starCount={5}
+                                  value={Math.round(oneloc.review_scores_rating/20)}
+                                  />
+                                  <Link to={houseUrl(oneloc)}><u>See details</u></Link>
+                                </div>
+
                             </Popup>}</div>;
  
 

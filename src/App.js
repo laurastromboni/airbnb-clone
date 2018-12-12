@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom'
 import NavBar from "./components/NavBar.js";
 import PlaceDetails from "./components/PlaceDetails.js";
 import PlacesList from "./components/HousesList.js";
