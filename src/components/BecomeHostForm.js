@@ -10,8 +10,6 @@ import moment from "moment";
 
 let blockedDates = [];
 
-
-
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
@@ -213,18 +211,20 @@ class BecomeHostForm extends Component {
           </label>
           
           <p>Availables dates</p>
-          <DateRangePicker
-                      startDateId="blahStart"
-                      endDateId="blahEnd"
-                      startDate={this.state.startDate}
-                      endDate={this.state.endDate}
-                      onDatesChange = {dates=>this.functionDatesChange(dates)}
-                      focusedInput={this.state.focusedInput}
-                      onFocusChange={focused=>this.functionFocusChange(focused)}
-                      isDayBlocked = {isDayBlocked}
-                      startDatePlaceholderText = "Start"
-                      endDatePlaceholderText = "End"
-                    />
+          <div className="dates">
+            <DateRangePicker
+              startDateId="blahStart"
+              endDateId="blahEnd"
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              onDatesChange = {dates=>this.functionDatesChange(dates)}
+              focusedInput={this.state.focusedInput}
+              onFocusChange={focused=>this.functionFocusChange(focused)}
+              isDayBlocked = {isDayBlocked}
+              startDatePlaceholderText = "MM/DD/YYYY"
+              endDatePlaceholderText = "MM/DD/YYYY"
+            />
+          </div>
 
           <button className="add-button h6">Add your place</button>
 

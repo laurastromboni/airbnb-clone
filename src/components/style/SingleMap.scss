@@ -1,7 +1,20 @@
-.map-icon{
-    height : 55px;
-}
-
-.littlePic {
-    width: 150px;
+.PopupMap{
+    .map-icon{
+        height : 55px;
+    }
+    .littlePic {
+        width: 150px;
+    }
+    p{
+        margin-top:15px;
+        line-height: 16px;
+    }
+    h5{
+        margin-top: 15px;
+    }
+    .details{
+        display: flex;    
+        align-items: normal;
+        justify-content: space-evenly;
+    }
 }

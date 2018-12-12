@@ -130,27 +130,35 @@ render() {
           <div className="chat col-lg-6 col-md-6">
         
           <form onSubmit={event => this.handleSubmit(event)}>
-            <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
-            <button>Send</button>
+            <div className="input-div">
+              <input id="m" value={this.state.message} onChange={event => this.genSync(event)} />
+              <div className="btn-div">
+                <button>Send a message</button>
+              </div>
+            </div>
+            <img src={this.state.sender.avatar} alt="profile-pic" />
           </form>
+
+          <div className="reminder"><p>REMINDER - LEAVE A REVIEW</p></div>
+          <hr />
 
             <ul id="messages">
             {allMessages.map(oneMessage=>{
               return (
-                  <div key={oneMessage._id}>
+                  <div key={oneMessage._id} className="before-li">
               <li>
                 {oneMessage.guestMessage ? 
-                <div className="content">{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
+                <div className="content-1">{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
                   <div className="content-user-2"><img src={this.state.sender.avatar} alt="profile-pic" /></div>
                     : 
                   <div className="content-user-1"><img src={this.props.currentUser.avatar} alt="profile-pic" /></div> }
                 
-                    {<div className="content-message">{oneMessage.guestMessage}</div> } 
+                    {<div className="content-message">{oneMessage.guestMessage}</div>} 
                 </div> 
                 : null 
                 }
                 {oneMessage.hostMessage ? 
-                  <div className="content">
+                  <div className="content-2">
                   {<div className="content-message">{oneMessage.hostMessage}</div>}
                   
                   {(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
