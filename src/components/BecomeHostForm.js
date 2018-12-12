@@ -34,6 +34,7 @@ class BecomeHostForm extends Component {
       xl_picture_url: "",
       xl_picture_url_2: "",
       xl_picture_url_3: "",
+
       isSubmitSuccessful: false,
       host_picture_url : this.props.currentUser && this.props.currentUser.avatar,
       startDate: null,
@@ -109,6 +110,7 @@ class BecomeHostForm extends Component {
     })
     .catch(err => {
       console.log("Something went wrong...", err)
+      alert("Complete all the forms")
     })
   });
   }
