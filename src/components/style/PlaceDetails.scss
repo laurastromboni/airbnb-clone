@@ -175,6 +175,17 @@
           }
         }
       }
+      .DateRangePicker_picker{
+        @media(max-width: 619px){
+          display: none;
+        }
+      }
+      .DateInput_fang{
+        z-index:500;
+        @media(max-width: 619px){
+          display: none;
+        }
+      }
       .book-div{
         padding: 10px 20px;
         border: 1px solid rgb(224, 224, 224);
@@ -234,6 +245,7 @@
     }
   }
   .more{
+    z-index: -100;
     .booking-button{
       color:white;
       background-color:#484848;
