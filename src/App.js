@@ -155,8 +155,8 @@ class App extends Component {
       .then(response => {
           console.log("search", response.data)
           
-          gps.lng = response.data[0].geopoint[1]                       
-          gps.lat = response.data[0].geopoint[0]
+          gps.lng = response.data[response.data.length-1].geopoint[1]                       
+          gps.lat = response.data[response.data.length-1].geopoint[0]
           // console.log("gps", gps)
           
   
