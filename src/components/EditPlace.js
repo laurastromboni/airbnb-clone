@@ -11,7 +11,7 @@ class EditPlace extends Component {
     this.state = {
       property_type: "",
       room_type: "",
-      accomodates: "",
+      accommodates: "",
       beds: "",
       bedrooms: "",
       bathrooms: "",
@@ -45,7 +45,7 @@ class EditPlace extends Component {
       this.setState({
         property_type: response.data.property_type,
         room_type: response.data.room_type,
-        accomodates: response.data.accomodates,
+        accommodates: response.data.accommodates,
         beds: response.data.beds,
         bedrooms: response.data.bedrooms,
         bathrooms: response.data.bathrooms,
@@ -107,7 +107,7 @@ class EditPlace extends Component {
           </label>
           
           <label>
-            <p>Maximum accomodates</p> <input value={this.state.accomodates} onChange={event => this.synchro(event)} type="number" name="accomodates" placeholder="3" />
+            <p>Maximum accommodates</p> <input value={this.state.accommodates} onChange={event => this.synchro(event)} type="number" name="accommodates" placeholder="3" />
           </label>
 
           <label>

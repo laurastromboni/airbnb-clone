@@ -10,6 +10,8 @@ import moment from "moment";
 
 let blockedDates = [];
 
+
+
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
@@ -39,7 +41,6 @@ class BecomeHostForm extends Component {
       focusedInput: null,
       availableDates: [],
       test: "",
-      image: ""
     }
   }
 
@@ -113,25 +114,6 @@ class BecomeHostForm extends Component {
   });
   }
 
-  uploadImage(event) {
-    const { files } = event.target;
-    console.log("File SELECTED", files[0]);
-
-    // the "FormData" class will format the files for sending to our API
-    const uploadData = new FormData();
-    // the name "fileSubmission" is the one your backend route defined
-    uploadData.append("fileSubmission", files[0]);
-
-    axios.post("http://localhost:5555/api/becomehostform", uploadData, {withCredentials: true})
-    .then(response => {
-      console.log("Upload Image", response.data);
-      this.setState({ image: response.data.fileUrl })
-    })
-    .catch(err => {
-      console.log("Upload image failed", err)
-    });
-  }
-
   render() {
 
     const isDayBlocked = day => blockedDates.filter(d => d.isSame(day, 'day')).length > 0;
@@ -201,30 +183,24 @@ class BecomeHostForm extends Component {
 
           <label>
             <p>Images</p> 
-
-            Image: <input type="file" onChange={event => this.uploadImage(event)} />
-            <img src={this.state.image} />
-
             <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
             <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" />
           </label>
           
           <p>Availables dates</p>
-          <div className="dates">
-            <DateRangePicker
-              startDateId="blahStart"
-              endDateId="blahEnd"
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              onDatesChange = {dates=>this.functionDatesChange(dates)}
-              focusedInput={this.state.focusedInput}
-              onFocusChange={focused=>this.functionFocusChange(focused)}
-              isDayBlocked = {isDayBlocked}
-              startDatePlaceholderText = "MM/DD/YYYY"
-              endDatePlaceholderText = "MM/DD/YYYY"
-            />
-          </div>
+          <DateRangePicker
+                      startDateId="blahStart"
+                      endDateId="blahEnd"
+                      startDate={this.state.startDate}
+                      endDate={this.state.endDate}
+                      onDatesChange = {dates=>this.functionDatesChange(dates)}
+                      focusedInput={this.state.focusedInput}
+                      onFocusChange={focused=>this.functionFocusChange(focused)}
+                      isDayBlocked = {isDayBlocked}
+                      startDatePlaceholderText = "Start"
+                      endDatePlaceholderText = "End"
+                    />
 
           <button className="add-button h6">Add your place</button>
 
