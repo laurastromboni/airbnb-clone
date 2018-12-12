@@ -136,7 +136,7 @@ render() {
                 <button>Send a message</button>
               </div>
             </div>
-            <img src={this.state.sender.avatar} alt="profile-pic" />
+            <img src={this.props.currentUser.avatar} alt="profile-pic" />
           </form>
 
           <div className="reminder"><p>REMINDER - LEAVE A REVIEW</p></div>

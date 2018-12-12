@@ -99,16 +99,14 @@ class SignupPage extends Component{
 
           <label>
             <p>Images</p> 
-
-            Image: <input type="file" onChange={event => this.uploadImage(event)} />
-
+            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" className="avatar" />
           </label>
 
-          <label>
+          {/* <label>
             <input value={this.state.avatar}
                    onChange={event => this.genericSync(event)}
                    type="url" name="avatar" placeholder="Put your avatar url (optional)" className="avatar" />
-          </label>
+          </label> */}
 
           <button className="h6">Sign Up</button>
         </form>

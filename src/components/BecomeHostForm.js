@@ -10,6 +10,8 @@ import moment from "moment";
 
 let blockedDates = [];
 
+
+
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
@@ -188,9 +190,11 @@ class BecomeHostForm extends Component {
           </label>
 
           <label>
-            {/* <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
+            <p>Type</p> 
+            
+            {/* <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
           
-            <select name="property_type" value={this.state.value} onChange={event => this.synchro(event)}>
+            <select name="property_type" value={this.state.value} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
               <option value="Appartment">Appartment</option>
               <option value="House" >House</option>
               <option value="Secondary Unit">Secondary Unit</option>
@@ -247,33 +251,30 @@ class BecomeHostForm extends Component {
           <label>
             <p>Images</p> 
 
-            <input type="file" onChange={event => this.uploadImage(event)} />
-            {/* <img src={this.state.xl_picture_url} /> mettre cette balise si on veut une preview instantanée de l'image uploadée*/}
-            <input type="file" onChange={event => this.uploadImage2(event)} />
-            <input type="file" onChange={event => this.uploadImage3(event)} />
+            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl" />
 
-            
+            {/* <img src={this.state.xl_picture_url} alt="" /> */}
 
-            <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
+            {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" /> */}
           </label>
           
           <p>Availables dates</p>
-          <div className="dates">
-            <DateRangePicker
-              startDateId="blahStart"
-              endDateId="blahEnd"
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              onDatesChange = {dates=>this.functionDatesChange(dates)}
-              focusedInput={this.state.focusedInput}
-              onFocusChange={focused=>this.functionFocusChange(focused)}
-              isDayBlocked = {isDayBlocked}
-              startDatePlaceholderText = "MM/DD/YYYY"
-              endDatePlaceholderText = "MM/DD/YYYY"
-            />
-          </div>
+          <DateRangePicker
+                      startDateId="blahStart"
+                      endDateId="blahEnd"
+                      startDate={this.state.startDate}
+                      endDate={this.state.endDate}
+                      onDatesChange = {dates=>this.functionDatesChange(dates)}
+                      focusedInput={this.state.focusedInput}
+                      onFocusChange={focused=>this.functionFocusChange(focused)}
+                      isDayBlocked = {isDayBlocked}
+                      startDatePlaceholderText = "Start"
+                      endDatePlaceholderText = "End"
+                    />
 
           <button className="add-button h6">Add your place</button>
 
