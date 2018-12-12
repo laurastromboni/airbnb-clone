@@ -214,9 +214,9 @@ class EditPlace extends Component {
             <input type="file" onChange={event => this.uploadImage(event)} />
             <input type="file" onChange={event => this.uploadImage2(event)} />
             <input type="file" onChange={event => this.uploadImage3(event)} />
-            <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" className="pictureUrl" />
+            {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" /> */}
           </label>
 
           <button className="add-button h6">Edit your place</button>
