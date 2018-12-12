@@ -1,6 +1,6 @@
 import { connect, sendMessage }  from '../api';
 import React, { Component } from "react";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
  
 import 'react-notifications/lib/notifications.css';
 import axios from "axios";
@@ -39,7 +39,7 @@ class OneMessage extends Component {
           this.pushMessage(message);
         });
       }
-      
+
     })
     .catch(err => {
       console.log("Messages  Error", err);
