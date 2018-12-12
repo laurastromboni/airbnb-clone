@@ -69,10 +69,10 @@ class SettingUser extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/becomehostform", uploadData, {withCredentials: true})
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
-      this.setState({ image: response.data.fileUrl })
+      this.setState({ avatar: response.data.fileUrl })
     })
     .catch(err => {
       console.log("Upload image failed", err)
@@ -102,15 +102,11 @@ class SettingUser extends Component {
 
           <label className="avatars">
             <h4>Change your avatar url</h4>
-            <input value={this.state.avatar} onChange={event => this.genSync(event)} type="url" name="avatar" placeholder="avatar url" />
-          </label>
-
-          <label>
-            Test image: Image: <input type="file" onChange={event => this.uploadImage(event)} />
+            <input type="file" onChange={event => this.uploadImage(event)} />
           </label>
 
           <div className="buttons">
-          {this.props.userHousesArray.length > 0 ? <Link to="/userhouses"><button className="see">My places</button></Link> : <Link to="/becomehostform"><button className="see">Add a place</button></Link>}
+            {this.props.userHousesArray.length > 0 ? <Link to="/userhouses"><button className="see">My places</button></Link> : <Link to="/becomehostform"><button className="see">Add a place</button></Link>}
             <button className="save">Save your changes</button>
           </div>
         </form>

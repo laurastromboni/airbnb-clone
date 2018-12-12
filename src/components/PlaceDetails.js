@@ -264,8 +264,8 @@ class PlaceDetails extends Component {
                       focusedInput={this.state.focusedInput}
                       onFocusChange={focused=>this.functionFocusChange(focused)}
                       isDayBlocked = {isDayBlocked}
-                      startDatePlaceholderText = "Start"
-                      endDatePlaceholderText = "End"
+                      startDatePlaceholderText = "MM/DD/YYYY"
+                      endDatePlaceholderText = "MM/DD/YYYY"
                     />
                   
                   <h4>Guests</h4>
