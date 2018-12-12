@@ -64,9 +64,43 @@
         margin-bottom: 5px;
       }
     }
-    .DataRangePicker{
-      display: block;
-      width: 100%;
+    .dates{
+      width: 50%;
+      margin: 0 auto;
+      p{
+        margin-bottom: 10px;
+      }
+      .DateRangePicker{
+        width: 100%;
+        .DateRangePickerInput{
+          width: 100%;
+          background-color: #ffffff !important;
+          -webkit-transition: box-shadow 200ms ease-in !important;
+          -moz-transition: box-shadow 200ms ease-in !important;
+          transition: box-shadow 200ms ease-in !important;
+          border: 1px solid #EBEBEB !important;
+          border-radius: 4px !important;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+          outline: none;
+          background-origin: content-box;
+          letter-spacing: 1px;
+          font-size: 12px;
+          text-transform: uppercase;
+          }
+          .DateRangePicker_picker{
+            @media(max-width: 619px){
+              display: none;
+            }
+          }
+          .DateInput_fang{
+            @media(max-width: 619px){
+              display: none;
+            }
+          }
+      }
+      @media (max-width:720px){
+        width: 80%;
+      }
     }
   }
   .add-button{

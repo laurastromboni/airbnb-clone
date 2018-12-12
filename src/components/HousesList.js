@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
+// import axios from 'axios';
 import StarRatingComponent from 'react-star-rating-component';
 import Filters from "./Filters.js";
 import './style/Header.scss';
 import SingleMap from "./SingleMap.js";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
-
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
+ 
 import './style/PlacesList.scss';
 import './style/FontColors.scss';
-import moment from "moment"
+// import moment from "moment"
 
 
 function houseUrl(id){
