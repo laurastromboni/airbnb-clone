@@ -10,7 +10,7 @@ class SettingUser extends Component {
     this.state = {
       fullName: "",
       email: "",
-      originalPassword:"",
+      originalPassword: "",
       avatar: "",
       image: "",
     }
@@ -29,7 +29,7 @@ class SettingUser extends Component {
     console.log(params.userId);
 
     // Get the fields of the user in the database
-    axios.get(`http://localhost:5555/api/settinguser/${params.userId}`, {withCredentials: true})
+    axios.get(process.env.REACT_APP_SERVER_URL + `/api/settinguser/${params.userId}`, {withCredentials: true})
     .then(response => {
       // console.log("------------------",response.data);
       this.setState({
@@ -37,6 +37,7 @@ class SettingUser extends Component {
         email: response.data.email,
         avatar: response.data.avatar,
       })
+
     })
     .catch(err => {
       console.log("Smthg went wrong", err)
@@ -47,7 +48,7 @@ class SettingUser extends Component {
     event.preventDefault();
     const { params } = this.props.match;
 
-    axios.put(`http://localhost:5555/api/settinguser/${params.userId}`, this.state, { withCredentials: true })
+    axios.put(process.env.REACT_APP_SERVER_URL + `/api/settinguser/${params.userId}`, this.state, { withCredentials: true })
     .then(response => {
       console.log(response.data)
       // const { userDoc } = response.data;
@@ -69,7 +70,7 @@ class SettingUser extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ avatar: response.data.fileUrl })

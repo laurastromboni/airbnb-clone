@@ -20,7 +20,7 @@ class Trips extends Component {
 
   componentDidMount(){
     window.scrollTo(0,0)
-    axios.get("http://localhost:5555/api/bookings-list", { withCredentials: true })
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/bookings-list", { withCredentials: true })
       .then(response =>{
         console.log("RESPONSE.DATA TRIPS", response.data)
         this.setState({bookings : response.data})

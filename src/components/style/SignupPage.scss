@@ -36,7 +36,7 @@
     align-items: center;
     label{
       margin: 10px;
-        input{
+        .avatar, input{
           background-size: contain;
           background-repeat: no-repeat;
           background-color: #ffffff !important;
@@ -68,7 +68,12 @@
       .fullName{
         background-image: url(../../images/fullname.svg);
       }
+      .hidden{
+        display: none;
+      }
       .avatar{
+        color:#757575;
+        text-align: left;
         background-image: url(../../images/profilepic.svg);
       }
     }

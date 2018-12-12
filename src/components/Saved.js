@@ -23,7 +23,7 @@ class Saved extends Component {
 
   componentDidMount(){
     window.scrollTo(0,0)
-    axios.get("http://localhost:5555/api/favorites-list", { withCredentials: true })
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/favorites-list", { withCredentials: true })
         .then(response =>{
           // console.log("Favorites list", response.data)
           this.setState({favorites : response.data.favorites})

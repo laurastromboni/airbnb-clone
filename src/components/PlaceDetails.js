@@ -48,7 +48,7 @@ class PlaceDetails extends Component {
         const {params} = this.props.match
         window.scrollTo(0,0)
 
-        axios.get(`http://localhost:5555/api/houses/${params.houseId}`, { withCredentials: true })
+        axios.get(process.env.REACT_APP_SERVER_URL + `/api/houses/${params.houseId}`, { withCredentials: true })
             .then(response => {
                   const { currentUser } = this.props  
                   console.log("House Detail", response.data)
@@ -63,7 +63,7 @@ class PlaceDetails extends Component {
                       }
                   })
 
-                    return axios.get(`http://localhost:5555/api/settinguser/${currentUser._id}`, { withCredentials: true })
+                    return axios.get(process.env.REACT_APP_SERVER_URL + `/api/settinguser/${currentUser._id}`, { withCredentials: true })
                 
             .then(response => {
               console.log("response.data.favorites", response.data.favorites)
@@ -84,7 +84,7 @@ class PlaceDetails extends Component {
     addToFavorites(){
       const {params} = this.props.match
       console.log("ADD FAV TESTING params.houseId", params.houseId)
-        axios.put(`http://localhost:5555/api/favorites/${params.houseId}`, {}, { withCredentials: true })
+        axios.put(process.env.REACT_APP_SERVER_URL + `/api/favorites/${params.houseId}`, {}, { withCredentials: true })
           .then(response => {
             console.log("User", response.data)
             this.setState({ isFavorite : true })
@@ -97,7 +97,7 @@ class PlaceDetails extends Component {
 
     deleteToFavorites(){
       const {params} = this.props.match
-      axios.put(`http://localhost:5555/api/favorites/${params.houseId}/delete`, {}, { withCredentials: true })
+      axios.put(process.env.REACT_APP_SERVER_URL + `/api/favorites/${params.houseId}/delete`, {}, { withCredentials: true })
         .then(response => {
           // console.log("User", response.data)
           this.setState({ isFavorite : false })
@@ -127,7 +127,7 @@ class PlaceDetails extends Component {
         currentDate = moment(currentDate).add(1, 'days');
     }
 
-    axios.post(`http://localhost:5555/api/booking/${this.state._id}`, {arrayOfDates, where, guests, price, currentUser })
+    axios.post(process.env.REACT_APP_SERVER_URL + `/api/booking/${this.state._id}`, {arrayOfDates, where, guests, price, currentUser })
     .then(response => {
         console.log("booking", response.data)
         

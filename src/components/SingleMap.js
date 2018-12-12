@@ -11,8 +11,8 @@ import './style/FontColors.scss';
 function houseUrl(oneHouse){
     return `/houses/${oneHouse._id}`;
   }
-const AnyReactComponent = ({ oneloc }) => <div className="PopupMap">{<Popup trigger={<img className = "map-icon" src={mapicon} alt="map" />}>
-
+const AnyReactComponent = ({ oneloc }) => <div className="PopupMap">
+                            {<Popup trigger={<img className = "map-icon" src={mapicon} alt="map" />}>
                                 <p>{oneloc.name}</p>
                                 <img className="littlePic" src={oneloc.xl_picture_url} alt="" />
                                 <h5>{oneloc.price}$ per night</h5>
@@ -25,8 +25,8 @@ const AnyReactComponent = ({ oneloc }) => <div className="PopupMap">{<Popup trig
                                   />
                                   <Link to={houseUrl(oneloc)}><u>See details</u></Link>
                                 </div>
-
-                            </Popup>}</div>;
+                            </Popup>}
+                            </div>;
  
 
 class SimpleMap extends Component {
@@ -43,11 +43,6 @@ class SimpleMap extends Component {
     // const {geoloc}=this.props
     // console.log("geoloc",geoloc)
     // console.log("this.props.gps",this.props.gps)
-    console.log("haloooo", {
-      env: process.env.REACT_APP_GOOGLE_MAPS_API,
-      gps: this.props.gps,
-      zoom: this.props.zoom,
-    })
 
     return (
       // Important! Always set the container height explicitly
