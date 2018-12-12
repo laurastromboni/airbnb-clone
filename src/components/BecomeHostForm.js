@@ -35,7 +35,7 @@ class BecomeHostForm extends Component {
       xl_picture_url_2: "",
       xl_picture_url_3: "",
       isSubmitSuccessful: false,
-      host_picture_url : this.props.currentUser.avatar,
+      host_picture_url : this.props.currentUser && this.props.currentUser.avatar,
       startDate: null,
       endDate: null,
       focusedInput: null,
@@ -132,6 +132,44 @@ class BecomeHostForm extends Component {
     });
   }
 
+  uploadImage2(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    .then(response => {
+      console.log("Upload Image", response.data);
+      this.setState({ xl_picture_url_2: response.data.fileUrl })
+    })
+    .catch(err => {
+      console.log("Upload image failed", err)
+    });
+  }
+
+  uploadImage3(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    .then(response => {
+      console.log("Upload Image", response.data);
+      this.setState({ xl_picture_url_3: response.data.fileUrl })
+    })
+    .catch(err => {
+      console.log("Upload image failed", err)
+    });
+  }
+
   render() {
 
     const isDayBlocked = day => blockedDates.filter(d => d.isSame(day, 'day')).length > 0;
@@ -214,8 +252,8 @@ class BecomeHostForm extends Component {
             <p>Images</p> 
 
             <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl" />
-            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url_2" className="pictureUrl" />
-            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url_3" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl" />
 
             {/* <img src={this.state.xl_picture_url} alt="" /> */}
 

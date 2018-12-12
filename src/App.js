@@ -66,8 +66,9 @@ class App extends Component {
     let gps = {...this.state.gps};
   axios.get("http://localhost:5555/api/houses", { withCredentials: true })
       .then(response =>{
-        gps.lng = response.data[0].geopoint[1]                       
-        gps.lat = response.data[0].geopoint[0]
+        const index = response.data.length - 1;
+        gps.lng = response.data[index].geopoint[1]                       
+        gps.lat = response.data[index].geopoint[0]
           this.setState({gps, allResults : response.data})
       })
       .catch(err=>{

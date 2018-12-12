@@ -64,6 +64,64 @@ class EditPlace extends Component {
     .catch(err => {console.log("Something went wrong", err)});
   }
 
+  uploadImage(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    .then(response => {
+      console.log("Upload Image", response.data);
+      this.setState({ xl_picture_url: response.data.fileUrl })
+    })
+    .catch(err => {
+      console.log("Upload image failed", err)
+    });
+  }
+
+  uploadImage2(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    .then(response => {
+      console.log("Upload Image", response.data);
+      this.setState({ xl_picture_url_2: response.data.fileUrl })
+    })
+    .catch(err => {
+      console.log("Upload image failed", err)
+    });
+  }
+
+  uploadImage3(event) {
+    const { files } = event.target;
+    console.log("File SELECTED", files[0]);
+
+    // the "FormData" class will format the files for sending to our API
+    const uploadData = new FormData();
+    // the name "fileSubmission" is the one your backend route defined
+    uploadData.append("fileSubmission", files[0]);
+
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    .then(response => {
+      console.log("Upload Image", response.data);
+      this.setState({ xl_picture_url_3: response.data.fileUrl })
+    })
+    .catch(err => {
+      console.log("Upload image failed", err)
+    });
+  }
+  
+
   handleSubmit(event) {
     event.preventDefault();
     const { params } = this.props.match;
@@ -95,7 +153,16 @@ class EditPlace extends Component {
           </label>
 
           <label>
-            <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" />
+            {/* <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
+          
+            <select name="property_type" value={this.state.value} onChange={event => this.synchro(event)}>
+              <option value="Appartment">Appartment</option>
+              <option value="House" >House</option>
+              <option value="Secondary Unit">Secondary Unit</option>
+              <option value="Unique space">Unique space</option>
+              <option value="Bed and breakfast">Bed and breakfast</option>
+              <option value="Boutique hotel">Boutique hotel</option>
+            </select>
           </label>
 
           <label>
@@ -144,9 +211,12 @@ class EditPlace extends Component {
 
           <label>
             <p>Image</p> 
-            <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage(event)} />
+            <input type="file" onChange={event => this.uploadImage2(event)} />
+            <input type="file" onChange={event => this.uploadImage3(event)} />
+            {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" />
+            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" /> */}
           </label>
 
           <button className="add-button h6">Edit your place</button>

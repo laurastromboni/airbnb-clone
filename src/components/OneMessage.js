@@ -1,6 +1,6 @@
 import { connect, sendMessage }  from '../api';
 import React, { Component } from "react";
-import {NotificationContainer, NotificationManager} from 'react-notifications';
+// import {NotificationContainer, NotificationManager} from 'react-notifications';
  
 import 'react-notifications/lib/notifications.css';
 import axios from "axios";
@@ -29,22 +29,30 @@ class OneMessage extends Component {
     .then(response => {
       console.log("One recipient messages", response.data)
       this.setState({
-        allMessages : response.data.message,
+        allMessages : response.data.message.reverse(),
         recipient : response.data.recipient,
         sender : response.data.sender,
       })
         
-      connect(this.props.currentUser._id, message => {
-        
-           this.pushMessage(message);
-        
-      });
+      if (this.props.currentUser) {
+        connect(this.props.currentUser._id, message => {   
+          this.pushMessage(message);
+        });
+      }
+
     })
     .catch(err => {
       console.log("Messages  Error", err);
       alert('pb retrieving messages')
-    })
-    
+    })  
+  }
+
+  componentDidUpdate(oldProps) {
+    if (oldProps.currentUser && this.props.currentUser && this.state.recipient) {
+      connect(this.props.currentUser._id, message => {   
+        this.pushMessage(message);
+      });
+    }
   }
 
   synchro(event) {
@@ -58,7 +66,7 @@ class OneMessage extends Component {
     const isThere = allMessages.some(msg => msg._id === newMessage._id);
     
     if (!isThere) {
-      allMessages.push(newMessage);
+      allMessages.unshift(newMessage);
       this.setState({ allMessages });
     }
   }
@@ -75,7 +83,7 @@ class OneMessage extends Component {
     .then(response => {
       console.log("Add Message Host", response.data);
       this.setState({
-        allMessages : response.data.message, 
+        allMessages : response.data.message.reverse(), 
         message: "",
         isSubmitSuccessful: false
       })
@@ -91,7 +99,7 @@ class OneMessage extends Component {
     .then(response => {
       console.log("Add Message Guest", response.data);
       this.setState({
-        allMessages : response.data.message, 
+        allMessages : response.data.message.reverse(), 
         message: "",
         isSubmitSuccessful: false
       })
@@ -137,7 +145,7 @@ render() {
                 <button>Send a message</button>
               </div>
             </div>
-            <img src={this.props.currentUser.avatar} alt="profile-pic" />
+            <img src={this.props.currentUser && this.props.currentUser.avatar} alt="profile-pic" />
           </form>
 
           <div className="reminder"><p>REMINDER - LEAVE A REVIEW</p></div>
