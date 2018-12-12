@@ -55,7 +55,7 @@ class SearchBar extends Component{
           }}
         </PlacesAutocomplete>  
         <div className="search-btn">
-            <button className="search-button">Search</button>
+            <button className="search-button"><i className="fa fa-arrow-right"></i></button>
           </div>
         </form>
       </section>
