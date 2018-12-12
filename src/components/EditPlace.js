@@ -166,7 +166,14 @@ class EditPlace extends Component {
           </label>
 
           <label>
-            <p>Room type</p> <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" />
+            <p>Room type</p> 
+            {/* <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" /> */}
+
+            <select name="room" value={this.state.room_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
+              <option value="Entire place">Entire place</option>
+              <option value="Private room" >Private room</option>
+              <option value="Shared room">Shared room</option>
+            </select>
           </label>
 
           <label>
