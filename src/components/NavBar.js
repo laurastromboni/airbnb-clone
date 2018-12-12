@@ -33,7 +33,7 @@ class NavBar extends Component{
     
     return(
       <section className="NavBar">
-        <div className="NavBar-leftside col-lg-5 col-md-7 col-sm-7 col-xs-2">
+        <div className="NavBar-leftside col-lg-6 col-md-7 col-sm-7 col-xs-2">
           <NavLink exact to="/"><img src={logo} className="App-logo" alt="logo" onClick={event => this.scrollTo(event)}/></NavLink>
           <SearchBar 
               onChange={this.props.onAdressChange}
@@ -44,7 +44,7 @@ class NavBar extends Component{
               endDate={this.props.endDate} 
           />
         </div>
-        <div className="NavBar-rightside-1 col-lg-7 col-md-5 col-sm-5">
+        <div className="NavBar-rightside-1 col-lg-6 col-md-5 col-sm-5">
           <ul>
             
             {this.props.currentUser ? (
@@ -70,7 +70,7 @@ class NavBar extends Component{
           </ul>
           
         </div>
-        <div className="NavBar-rightside-2 col-lg-7 col-md-5 col-sm-5">
+        <div className="NavBar-rightside-2 col-lg-6 col-md-5 col-sm-5">
           <Link to="/menu" onClick={() => this.menuIsClicked()}><img src={menu} className="App-menu" alt="logo" /></Link>
         
         </div>
