@@ -211,9 +211,9 @@ class BecomeHostForm extends Component {
           <label>
             <p>Images</p> 
 
-            <input type="file" onChange={event => this.uploadImage(event)} value={this.state.xl_picture_url} name="xl_picture_url" className="pictureUrl" />
-            <input type="file" onChange={event => this.uploadImage(event)} value={this.state.xl_picture_url_2} name="xl_picture_url_2" className="pictureUrl" />
-            <input type="file" onChange={event => this.uploadImage(event)} value={this.state.xl_picture_url_3} name="xl_picture_url_3" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url_2" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url_3" className="pictureUrl" />
 
             {/* <img src={this.state.xl_picture_url} alt="" /> */}
 
