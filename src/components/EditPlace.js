@@ -40,7 +40,7 @@ class EditPlace extends Component {
     window.scrollTo(0,0)
     console.log(params);
     // Get the house fields in the database
-    axios.get(`http://localhost:5555/api/houses/${params.id}`, {withCredentials: true})
+    axios.get(process.env.REACT_APP_SERVER_URL + `/api/houses/${params.id}`, {withCredentials: true})
     .then(response => {
       this.setState({
         property_type: response.data.property_type,
@@ -73,7 +73,7 @@ class EditPlace extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ xl_picture_url: response.data.fileUrl })
@@ -92,7 +92,7 @@ class EditPlace extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ xl_picture_url_2: response.data.fileUrl })
@@ -111,7 +111,7 @@ class EditPlace extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
+    axios.post(process.env.REACT_APP_SERVER_URL + "/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
       this.setState({ xl_picture_url_3: response.data.fileUrl })
@@ -126,7 +126,7 @@ class EditPlace extends Component {
     event.preventDefault();
     const { params } = this.props.match;
 
-    axios.put(`http://localhost:5555/api/houses/${params.id}`, this.state, { withCredentials: true })
+    axios.put(process.env.REACT_APP_SERVER_URL + `/api/houses/${params.id}`, this.state, { withCredentials: true })
     .then(response => {
       console.log(response.data);
       this.setState({ isSubmitSuccessful: true })

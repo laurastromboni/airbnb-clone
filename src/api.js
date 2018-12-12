@@ -1,6 +1,6 @@
 import openSocket from 'socket.io-client';
 
-const socket = openSocket('http://localhost:5555/');
+const socket = openSocket(process.env.REACT_APP_SERVER_URL + '/');
 
 function connect(userId, cb) {
   socket.on("chat", (message) => {

@@ -6,7 +6,7 @@ import axios from "axios";
 class UserHouses extends Component {
   componentDidMount() {
     window.scrollTo(0,0)
-    axios.get("http://localhost:5555/api/userhouses", {withCredentials : true})
+    axios.get(process.env.REACT_APP_SERVER_URL + "/api/userhouses", {withCredentials : true})
     .then(response => {
       console.log("HOUSES OWNER", response.data);
       this.props.onHouseChange(response.data);
@@ -18,7 +18,7 @@ class UserHouses extends Component {
 
   deleteHouse(oneHouse, index) {
 
-    axios.delete(`http://localhost:5555/api/deletehouse/${oneHouse._id}`, {withCredentials: true})
+    axios.delete(process.env.REACT_APP_SERVER_URL + `/api/deletehouse/${oneHouse._id}`, {withCredentials: true})
     .then(response => {
       console.log("HOUSE DELETED", response.data)
       console.log(this.props.userHousesArray)
