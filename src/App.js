@@ -22,7 +22,8 @@ import UserHouses from "./components/UserHouses";
 import Notification from "./components/Notification";
 import OrderRecap from "./components/OrderRecap";
 import "./components/style/Menu.scss";
-import {NotificationContainer} from 'react-notifications';
+import {NotificationContainer, NotificationManager} from 'react-notifications';
+import { connect } from "./api.js";
 
 import Menu from "./components/Menu.js";
 
@@ -46,8 +47,8 @@ class App extends Component {
         allResults : [],
         guest : 1,
         isSubmitSuccessful : false, 
-        startDate: moment().add(7, 'days'),
-        endDate: moment().add(9, 'days'),
+        startDate: moment().add(17, 'days'),
+        endDate: moment().add(19, 'days'),
         focusedInput: null,
         dateArray:[],
         gps : {
@@ -80,7 +81,7 @@ class App extends Component {
         .then( response => {
             console.log("Check User SUCCESS", response.data);
             const { userDoc } = response.data;
-            this.syncCurrentUser(userDoc)
+            this.syncCurrentUser(userDoc);
         })
         .catch(err => {
             console.log("Check User ERROR", err);
@@ -98,7 +99,13 @@ class App extends Component {
   }
 
   syncCurrentUser(userDoc){
-    this.setState({ currentUser : userDoc })
+    this.setState({ currentUser : userDoc });
+
+    if (userDoc) {
+      connect(userDoc._id, (message) => {
+        NotificationManager.info("Message from ",message.sender.fullName);
+      });
+    }
   }
 
   
