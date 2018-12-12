@@ -69,10 +69,10 @@ class SettingUser extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/becomehostform", uploadData, {withCredentials: true})
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
-      this.setState({ image: response.data.fileUrl })
+      this.setState({ avatar: response.data.fileUrl })
     })
     .catch(err => {
       console.log("Upload image failed", err)

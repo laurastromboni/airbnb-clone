@@ -10,8 +10,6 @@ import moment from "moment";
 
 let blockedDates = [];
 
-
-
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
@@ -40,8 +38,7 @@ class BecomeHostForm extends Component {
       endDate: null,
       focusedInput: null,
       availableDates: [],
-      test: "",
-      image: ""
+      test: ""
     }
   }
 
@@ -62,7 +59,6 @@ class BecomeHostForm extends Component {
 
     this.setState({[name]: value});
   }
-
 
   getDatesfromStartToEnd(){
     const arrayOfDates =[];
@@ -124,10 +120,10 @@ class BecomeHostForm extends Component {
     // the name "fileSubmission" is the one your backend route defined
     uploadData.append("fileSubmission", files[0]);
 
-    axios.post("http://localhost:5555/api/becomehostform", uploadData, {withCredentials: true})
+    axios.post("http://localhost:5555/api/upload-image", uploadData, {withCredentials: true})
     .then(response => {
       console.log("Upload Image", response.data);
-      this.setState({ image: response.data.fileUrl })
+      this.setState({ xl_picture_url: response.data.fileUrl })
     })
     .catch(err => {
       console.log("Upload image failed", err)
@@ -155,6 +151,15 @@ class BecomeHostForm extends Component {
 
           <label>
             <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" />
+          
+            <select name="property_type" value={this.state.value} onChange={event => this.synchro(event)}>
+              <option value="Appartment">Appartment</option>
+              <option value="House" >House</option>
+              <option value="Secondary Unit">Secondary Unit</option>
+              <option value="Unique space">Unique space</option>
+              <option value="Bed and breakfast">Bed and breakfast</option>
+              <option value="Boutique hotel">Boutique hotel</option>
+            </select>
           </label>
 
           <label>
@@ -205,7 +210,10 @@ class BecomeHostForm extends Component {
             <p>Images</p> 
 
             Image: <input type="file" onChange={event => this.uploadImage(event)} />
-            <img src={this.state.image} />
+            <input type="file" onChange={event => this.uploadImage(event)} />
+            <input type="file" onChange={event => this.uploadImage(event)} />
+
+            <img src={this.state.xl_picture_url} />
 
             <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
