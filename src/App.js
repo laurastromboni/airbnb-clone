@@ -47,8 +47,8 @@ class App extends Component {
         allResults : [],
         guest : 1,
         isSubmitSuccessful : false, 
-        startDate: moment().add(17, 'days'),
-        endDate: moment().add(19, 'days'),
+        startDate: moment().add(25, 'days'),
+        endDate: moment().add(30, 'days'),
         focusedInput: null,
         dateArray:[],
         gps : {
