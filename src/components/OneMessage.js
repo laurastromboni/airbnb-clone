@@ -141,27 +141,23 @@ render() {
               <li>
                 {oneMessage.guestMessage ? 
                 <div className="content">{(!this.props.currentUser || this.props.currentUser._id === this.state.recipient._id) ? 
-                  <div className="content-user-2">
-                    <img src={this.state.sender.avatar} alt="profile-pic" />
-                  </div>
+                  <div className="content-user-2"><img src={this.state.sender.avatar} alt="profile-pic" /></div>
                     : 
-                  <div className="content-user-1"> 
-                    <div className="content-message">{oneMessage.guestMessage}</div> 
-                    <img src={this.props.currentUser.avatar} alt="profile-pic" />
-                  </div> } 
+                  <div className="content-user-1"><img src={this.props.currentUser.avatar} alt="profile-pic" /></div> }
+                
+                    {<div className="content-message">{oneMessage.guestMessage}</div> } 
                 </div> 
                 : null 
                 }
                 {oneMessage.hostMessage ? 
-                  <div className="content">{(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
-                    <div className="content-user-1">  
-                      <img src={this.props.currentUser.avatar} alt="profile-pic" />
-                    </div>
+                  <div className="content">
+                  {<div className="content-message">{oneMessage.hostMessage}</div>}
+                  
+                  {(this.props.currentUser && this.props.currentUser._id === this.state.recipient._id) ? 
+                    <div className="content-user-1"><img src={this.props.currentUser.avatar} alt="profile-pic" /></div>
                       : 
-                    <div className="content-user-2"> 
-                      <img src={this.state.recipient.avatar} alt="profile-pic" />
-                    <div className="content-message">{oneMessage.hostMessage}</div>
-                    </div>   }
+                    <div className="content-user-2"><img src={this.state.recipient.avatar} alt="profile-pic" /></div>}
+                 
                   </div> 
                     : null }
                 </li>
