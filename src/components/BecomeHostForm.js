@@ -11,7 +11,6 @@ import moment from "moment";
 let blockedDates = [];
 
 
-
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
