@@ -10,7 +10,7 @@ class SettingUser extends Component {
     this.state = {
       fullName: "",
       email: "",
-      originalPassword:"",
+      originalPassword: "",
       avatar: "",
       image: "",
     }
@@ -37,6 +37,7 @@ class SettingUser extends Component {
         email: response.data.email,
         avatar: response.data.avatar,
       })
+
     })
     .catch(err => {
       console.log("Smthg went wrong", err)
@@ -97,7 +98,7 @@ class SettingUser extends Component {
           </label>
 
           <label>
-            <input value={this.state.encryptedPassword} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
+            <input value={this.state.originalPassword} onChange={event => this.genSync(event)} type="password" name="originalPassword" placeholder="*********"/>
           </label>
 
           <label className="avatars">
