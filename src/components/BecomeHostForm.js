@@ -195,7 +195,7 @@ class BecomeHostForm extends Component {
             
             {/* <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
           
-            <select name="property_type" value={this.state.room_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
+            <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
               <option value="Appartment">Appartment</option>
               <option value="House" >House</option>
               <option value="Secondary Unit">Secondary Unit</option>

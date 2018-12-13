@@ -155,7 +155,7 @@ class EditPlace extends Component {
           <label>
             {/* <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
           
-            <select name="property_type" value={this.state.value} onChange={event => this.synchro(event)}>
+            <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)}>
               <option value="Appartment">Appartment</option>
               <option value="House" >House</option>
               <option value="Secondary Unit">Secondary Unit</option>
@@ -175,7 +175,7 @@ class EditPlace extends Component {
               <option value="Shared room">Shared room</option>
             </select>
           </label>
-
+  
           <label>
             <p>Description</p> <input value={this.state.description} onChange={event => this.synchro(event)} type="text" name="description" placeholder="Describe your place (100 letters min)" />
           </label>
