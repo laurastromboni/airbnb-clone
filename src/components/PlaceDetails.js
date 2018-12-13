@@ -165,7 +165,7 @@ class PlaceDetails extends Component {
       console.log("CURRENT USER ID -----------------------------", this.props.currentUser)
       console.log("HOST PICTURE -----------------------------", this.state.host_picture_url)
 
-      const { currentUser } = this.props  
+      // const { currentUser } = this.props  
         return(
           
           <section className = "PlaceDetails">
@@ -217,7 +217,7 @@ class PlaceDetails extends Component {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
 
-                  <img src={this.state.currentUser && this.state.currentUser.avatar} alt="" />
+                  <img src={this.state.host_picture_url} alt="" />
 
                 </div>
               </div>

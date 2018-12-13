@@ -14,9 +14,16 @@
     align-items: center;
     justify-content: center;
   }
+  .profil-pic{
+    height: 60px;
+    border-radius: 30px;
+  }
   form{
     label {
       display: block;
+      h4{
+        margin: 20px 0;
+      }
       #avatar, input{
         background-color: #ffffff !important;
         -webkit-transition: box-shadow 200ms ease-in !important;

@@ -6,6 +6,8 @@ body{
   text-align: center;
 }
 
-#root{
-  overflow-x: hidden;
+@media (max-width:500px){
+  #root{
+    overflow-x: hidden;
+  }
 }

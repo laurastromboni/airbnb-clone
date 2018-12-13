@@ -116,9 +116,9 @@
             text-transform: uppercase;
           }
         }
-        .place-type{
+        .place-type{    
           display: flex;
-          flex-direction: row;
+          flex-wrap: wrap;
           text-align: center;
           p {
             margin: 0 10px;
@@ -127,7 +127,7 @@
       }
     }
       .content-right{
-        z-index: 1000;
+        z-index: 100;
         border: 1px solid rgb(224, 224, 224);
         height: auto;
         padding: 20px;

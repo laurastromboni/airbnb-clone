@@ -96,7 +96,7 @@ class SettingUser extends Component {
         <h2>Welcome, {this.state.fullName} !</h2>
         <p>Here you can update your settings & access to the places you've add.</p>
         <div className="cover"></div>
-
+        <img className="profil-pic" src={this.state.avatar} alt='avatarpic' />
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
             <h4>Change your informations</h4>
