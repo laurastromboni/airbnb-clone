@@ -313,6 +313,7 @@ class BecomeHostForm extends Component {
           </label>
           
           <p>Availables dates</p>
+          <div className="dates">
           <DateRangePicker
                       startDateId="blahStart"
                       endDateId="blahEnd"
@@ -325,6 +326,7 @@ class BecomeHostForm extends Component {
                       startDatePlaceholderText = "Start"
                       endDatePlaceholderText = "End"
                     />
+          </div>
 
           <button className="add-button h6">Add your place</button>
 
