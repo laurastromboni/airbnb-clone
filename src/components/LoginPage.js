@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import { Alert } from "react-alert";
+// import { Alert } from "react-alert";
 
 import axios from "axios";
 
