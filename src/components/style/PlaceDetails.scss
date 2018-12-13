@@ -127,6 +127,7 @@
       }
     }
       .content-right{
+        z-index: 1000;
         border: 1px solid rgb(224, 224, 224);
         height: auto;
         padding: 20px;
@@ -245,7 +246,6 @@
     }
   }
   .more{
-    z-index: -100;
     .booking-button{
       color:white;
       background-color:#484848;

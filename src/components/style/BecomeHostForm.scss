@@ -39,7 +39,7 @@
       p{
         margin-bottom: 10px;
       }
-      select, input{
+      #avatar1, #avatar2, #avatar3, .avatar, select, input{
         background-color: #ffffff !important;
         -webkit-transition: box-shadow 200ms ease-in !important;
         -moz-transition: box-shadow 200ms ease-in !important;
@@ -63,12 +63,27 @@
       select{
         text-indent: 4px;
       }
+      // .avatar{
+      //   margin: 0 auto;
+      // }
+      #avatar1, #avatar2, #avatar3{
+        margin: 0 auto;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
       .pictureUrl{
         margin-bottom: 5px;
       }
+      // .hidden{
+      //   display: none;
+      // }
+      #hidden1, #hidden2, #hidden3{
+        display: none;
+        margin-bottom: 10px;
+      }
     }
-    .dates{
-      width: 50%;
+    .dates{	       
+      width: 50%;     
       margin: 0 auto;
       p{
         margin-bottom: 10px;

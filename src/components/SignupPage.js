@@ -70,6 +70,15 @@ class SignupPage extends Component{
       return <Redirect to ="/houses" />
     }
 
+    var el = document.getElementById('avatar');
+    var myFile = document.getElementById("hidden");
+
+    if(myFile){
+      myFile.addEventListener("change", () => {
+        el.innerHTML = "File uploaded";
+      });   
+    }
+
     return(
       <section className="SignupPage">
         
@@ -96,18 +105,11 @@ class SignupPage extends Component{
                    type="password" name="originalPassword" placeholder="*******" className="originalPassword"/>
           </label>
 
-
           <label>
             <p>Images</p> 
-            <div className="avatar">Click here to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" className="hidden" />
+            <div id="avatar">Click here to upload your pic</div>
+            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" id="hidden" />
           </label>
-
-          {/* <label>
-            <input value={this.state.avatar}
-                   onChange={event => this.genericSync(event)}
-                   type="url" name="avatar" placeholder="Put your avatar url (optional)" className="avatar" />
-          </label> */}
 
           <button className="h6">Sign Up</button>
         </form>
