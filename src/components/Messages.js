@@ -50,7 +50,7 @@ class Messages extends Component {
           {allMessages.map(oneMessage=>{
             return(
               <div className="col-lg-12 one-chat">
-                {oneMessage.sender._id === this.props.currentUser._id && this.props.currentUser ? 
+                {this.props.currentUser && oneMessage.sender._id === this.props.currentUser._id ? 
                 <Link to={recipientUrl(oneMessage)}><li>
                   <div className="profile-pic col-lg-1 col-md-2">
                     {oneMessage.recipient.avatar?

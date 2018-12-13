@@ -2,6 +2,7 @@ import openSocket from 'socket.io-client';
 
 const socket = openSocket(process.env.REACT_APP_SERVER_URL + '/');
 
+// function connect opens the connection between server & client (socket.on)
 function connect(userId, cb) {
   socket.on("chat", (message) => {
     console.log("aiaiaiaiia", message, userId)
@@ -13,7 +14,7 @@ function connect(userId, cb) {
   })
 }
 
-
+// when one user sends a message, it will send info to the socket server (socket.emit)
 function sendMessage(msg) {
   socket.emit('chat message', msg);
 }
