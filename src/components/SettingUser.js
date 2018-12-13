@@ -81,6 +81,16 @@ class SettingUser extends Component {
   }
 
   render() {
+
+    var el = document.getElementById('avatar');
+    var myFile = document.getElementById("hidden");
+
+    if(myFile){
+      myFile.addEventListener("change", () => {
+        el.innerHTML = "File uploaded";
+      });   
+    }
+
     return(
       <section className="SettingUser">
         <h2>Welcome, {this.state.fullName} !</h2>
@@ -102,8 +112,8 @@ class SettingUser extends Component {
           </label>
 
           <label className="avatars">
-            <h4>Change your avatar url</h4>
-            <input type="file" onChange={event => this.uploadImage(event)} />
+            <div id="avatar">Change your avatar url</div>
+            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" id="hidden" />
           </label>
 
           <div className="buttons">

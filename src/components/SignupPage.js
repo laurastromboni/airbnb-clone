@@ -70,6 +70,15 @@ class SignupPage extends Component{
       return <Redirect to ="/houses" />
     }
 
+    var el = document.getElementById('avatar');
+    var myFile = document.getElementById("hidden");
+
+    if(myFile){
+      myFile.addEventListener("change", () => {
+        el.innerHTML = "File uploaded";
+      });   
+    }
+
     return(
       <section className="SignupPage">
         
@@ -99,8 +108,8 @@ class SignupPage extends Component{
 
           <label>
             <p>Images</p> 
-            <div className="avatar">Click here to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" className="hidden" />
+            <div id="avatar">Click here to upload your pic</div>
+            <input type="file" onChange={event => this.uploadImage(event)} name="avatar" id="hidden" />
           </label>
 
           {/* <label>

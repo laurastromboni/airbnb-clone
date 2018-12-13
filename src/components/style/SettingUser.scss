@@ -17,7 +17,7 @@
   form{
     label {
       display: block;
-      input{
+      #avatar, input{
         background-color: #ffffff !important;
         -webkit-transition: box-shadow 200ms ease-in !important;
         -moz-transition: box-shadow 200ms ease-in !important;
@@ -40,9 +40,13 @@
       }
     }
     .avatars{
-      margin-top: 20px;
-      input{
-        text-transform: uppercase;
+      #avatar, input{
+        margin: 0 auto;
+        text-align: left;
+        cursor: pointer;
+      }
+      #hidden{
+        display: none;
       }
     }
     .buttons{
