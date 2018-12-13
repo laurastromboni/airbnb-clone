@@ -7,5 +7,8 @@
     b{
       color: #FF5A5F;
     }
+    @media (max-width: 500px){
+      margin-top: 10px;
+    }
   }
 }

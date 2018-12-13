@@ -26,7 +26,10 @@
         margin-top: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 12px;
+        font-size: 12px;        
+        @media (max-width:500px){
+          width:230px;
+        }
       }
     }
   }
@@ -134,5 +137,11 @@
     font-size: 12px;
     margin-top: 20px;
     cursor: pointer;
+    @media (max-width:500px){
+      width:230px;
+    }
+  }
+  @media (max-width:500px){
+    padding: 120px 20px 0 20px;
   }
 }
