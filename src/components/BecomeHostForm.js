@@ -294,6 +294,7 @@ class BecomeHostForm extends Component {
           </label>
           
           <p>Availables dates</p>
+          <div className="dates">
           <DateRangePicker
                       startDateId="blahStart"
                       endDateId="blahEnd"
@@ -303,9 +304,10 @@ class BecomeHostForm extends Component {
                       focusedInput={this.state.focusedInput}
                       onFocusChange={focused=>this.functionFocusChange(focused)}
                       isDayBlocked = {isDayBlocked}
-                      startDatePlaceholderText = "Start"
-                      endDatePlaceholderText = "End"
+                      startDatePlaceholderText = "MM/DD/YYYY"
+                      endDatePlaceholderText = "MM/DD/YYYY"
                     />
+          </div>
 
           <button className="add-button h6">Add your place</button>
 
