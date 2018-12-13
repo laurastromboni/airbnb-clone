@@ -10,6 +10,7 @@ import moment from "moment";
 
 let blockedDates = [];
 
+
 class BecomeHostForm extends Component {
   constructor(props) {
     super(props);
@@ -177,46 +178,6 @@ class BecomeHostForm extends Component {
     if (this.state.isSubmitSuccessful) {
       return <Redirect to="/userhouses" />
     }
-
-    // var el = document.getElementsByClassName("avatar");
-    // var myFile = document.getElementsByClassName("hidden");
-
-    // if(myFile){
-    //   // myFile.addEventListener("change", () => {
-    //   //   el.innerHTML = "File uploaded";
-    //   // });    
-    //   for(var i = 0;i < myFile.length-1;i++){
-    //     myFile[i].addEventListener("change", () => {
-    //       el.innerHTML = "File uploaded";
-    //     });
-    //   };  
-    // }
-
-    var el1 = document.getElementById('avatar1');
-    var myFile1 = document.getElementById("hidden1");
-    var el2 = document.getElementById('avatar2');
-    var myFile2 = document.getElementById("hidden2");
-    var el3 = document.getElementById('avatar3');
-    var myFile3 = document.getElementById("hidden3");
-
-    if(myFile1){
-      myFile1.addEventListener("change", () => {
-        el1.innerHTML = "File uploaded";
-      });   
-    }
-
-    if(myFile2){
-      myFile2.addEventListener("change", () => {
-        el2.innerHTML = "File uploaded";
-      });   
-    }
-
-    if(myFile3){
-      myFile3.addEventListener("change", () => {
-        el3.innerHTML = "File uploaded";
-      });   
-    }
-
     return(
       <section className="BecomeHostForm">
 
@@ -298,23 +259,18 @@ class BecomeHostForm extends Component {
           <label>
             <p>Images</p> 
 
-            <div className="avatar" id="avatar1">Click to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl hidden" id="hidden1"/>
-            <div className="avatar" id="avatar2">Click to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl hidden" id="hidden2"/>
-            <div className="avatar" id="avatar3">Click to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl hidden" id="hidden3"/>
+            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl" />
+            <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl" />
 
             {/* <img src={this.state.xl_picture_url} alt="" /> */}
 
             {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
             <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" /> */}
-
           </label>
           
           <p>Availables dates</p>
-          <div className="dates">
           <DateRangePicker
                       startDateId="blahStart"
                       endDateId="blahEnd"
@@ -324,10 +280,9 @@ class BecomeHostForm extends Component {
                       focusedInput={this.state.focusedInput}
                       onFocusChange={focused=>this.functionFocusChange(focused)}
                       isDayBlocked = {isDayBlocked}
-                      startDatePlaceholderText = "MM/DD/YYYY"
-                      endDatePlaceholderText = "MM/DD/YYYY"
+                      startDatePlaceholderText = "Start"
+                      endDatePlaceholderText = "End"
                     />
-          </div>
 
           <button className="add-button h6">Add your place</button>
 
