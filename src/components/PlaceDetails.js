@@ -142,7 +142,6 @@ class PlaceDetails extends Component {
     })
     }
 
-
     render(){
 
       const { isFavorite } = this.state
@@ -165,6 +164,7 @@ class PlaceDetails extends Component {
       console.log("CURRENT USER ID -----------------------------", this.props.currentUser)
       console.log("HOST PICTURE -----------------------------", this.state.host_picture_url)
 
+      const { currentUser } = this.props  
         return(
           
           <section className = "PlaceDetails">
@@ -216,7 +216,7 @@ class PlaceDetails extends Component {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
 
-                  <img src={this.state.host_picture_url} alt="" />
+                  <img src={currentUser.avatar} alt="" />
 
                 </div>
               </div>
@@ -285,6 +285,7 @@ class PlaceDetails extends Component {
               </div>
             </div>
           </div>
+
           <div className="col-lg-12 more">
             <Link to="/houses"><button className="booking-button h6">Back to all places</button></Link>
           </div>

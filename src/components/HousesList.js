@@ -48,6 +48,7 @@ class PlacesList extends Component{
                 <li key = {oneHouse._id} className="col-lg-4 col-md-6 col-sm-12">
                     
                     {this.props.currentUser ? (
+
                         <Link to={houseUrl(oneHouse._id)}>
                             <div className="place-img">
                                 <img src = {oneHouse.xl_picture_url} alt='housepic' />
@@ -64,6 +65,7 @@ class PlacesList extends Component{
                                 <h6>{oneHouse.number_of_reviews}</h6>
                             </div>
                         </Link>
+
                     ) : (
                         <Link to="/login">
                             <div className="place-img"><img src = {oneHouse.xl_picture_url} alt='housepic' /></div>

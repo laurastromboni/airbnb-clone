@@ -155,7 +155,7 @@ class EditPlace extends Component {
           <label>
             {/* <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
           
-            <select name="property_type" value={this.state.value} onChange={event => this.synchro(event)}>
+            <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)}>
               <option value="Appartment">Appartment</option>
               <option value="House" >House</option>
               <option value="Secondary Unit">Secondary Unit</option>
@@ -166,9 +166,16 @@ class EditPlace extends Component {
           </label>
 
           <label>
-            <p>Room type</p> <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" />
-          </label>
+            <p>Room type</p> 
+            {/* <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" /> */}
 
+            <select name="room_type" value={this.state.room_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
+              <option value="Entire place">Entire place</option>
+              <option value="Private room" >Private room</option>
+              <option value="Shared room">Shared room</option>
+            </select>
+          </label>
+  
           <label>
             <p>Description</p> <input value={this.state.description} onChange={event => this.synchro(event)} type="text" name="description" placeholder="Describe your place (100 letters min)" />
           </label>
