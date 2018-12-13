@@ -26,4 +26,8 @@
   .logo{
     height: 40px;
   }
+  @media (max-width:360px){
+    margin: 0 auto;
+    padding-left: 20px;
+  }
 }

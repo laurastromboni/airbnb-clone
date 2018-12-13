@@ -110,10 +110,12 @@
         }
       }
     }
-      
       @media (max-width:767px){
         padding: 0 50px;
         flex-wrap: wrap-reverse;
+      }
+      @media (max-width: 500px){
+        padding: 0 10px 0 10px;
       }
     }
     .chat{
@@ -123,9 +125,6 @@
         padding: 0;
         li { 
           padding: 5px 10px; 
-          :nth-child(odd) { 
-            // background: #eee;
-          }
           h5{
             display : inline;
             span{
@@ -180,6 +179,9 @@
               font-size: 14px;
               font-family: 'Cereal-Medium', -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
               cursor: pointer;
+              @media (max-width: 500px){
+                padding: 10px;
+              }
             }
           }
         }
@@ -190,4 +192,7 @@
         }
       }    
     }
+    @media (max-width:500px){
+      padding-bottom: 0;
+      }
   }

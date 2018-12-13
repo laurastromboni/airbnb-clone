@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
+import { Alert } from "react-alert";
 
 import axios from "axios";
 
@@ -14,6 +15,7 @@ class LoginPage extends Component{
       email: "",
       originalPassword: "",
       // currentUser: null, = delete to synchronize
+      message: "",
     }
   }
 
@@ -34,10 +36,10 @@ class LoginPage extends Component{
         this.props.onUserChange(userDoc)
       })
       .catch(err => {
-        console.log("Login Page ERROR", err);
-        alert("Sorry! Something went wrong.");
+        console.log("Login page error", err.response.data.message);
+        // alert("Sorry! Something went wrong.");
+        this.setState({message: err.response.data.message});
       })
-
   }
 
   genericSync(event){
@@ -55,9 +57,12 @@ class LoginPage extends Component{
     return(
       <section className="LoginPage">
 
+
         <div className="cover"><Link to="/houses"><button className="h6">Discover our places</button></Link></div>
 
         <h2>Welcome back to AirBnb !</h2>
+
+        {(this.state.message) && <h5>{this.state.message}</h5>}
 
         <form onSubmit={event => this.handleSubmit(event)}>
 

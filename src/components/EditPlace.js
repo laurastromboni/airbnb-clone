@@ -158,6 +158,31 @@ class EditPlace extends Component {
       return <Redirect to="/userhouses" />
     }
 
+    var el1 = document.getElementById('avatar1');
+    var myFile1 = document.getElementById("hidden1");
+    var el2 = document.getElementById('avatar2');
+    var myFile2 = document.getElementById("hidden2");
+    var el3 = document.getElementById('avatar3');
+    var myFile3 = document.getElementById("hidden3");
+
+    if(myFile1){
+      myFile1.addEventListener("change", () => {
+        el1.innerHTML = "File uploaded";
+      });   
+    }
+
+    if(myFile2){
+      myFile2.addEventListener("change", () => {
+        el2.innerHTML = "File uploaded";
+      });   
+    }
+
+    if(myFile3){
+      myFile3.addEventListener("change", () => {
+        el3.innerHTML = "File uploaded";
+      });   
+    }
+
     return(
       <section className="EditPlace">
 
@@ -171,9 +196,8 @@ class EditPlace extends Component {
           </label>
 
           <label>
-            {/* <p>Type</p> <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
-          
-            <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)}>
+              <p>Type</p> 
+              <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)}>
               <option value="Appartment">Appartment</option>
               <option value="House" >House</option>
               <option value="Secondary Unit">Secondary Unit</option>
@@ -185,12 +209,10 @@ class EditPlace extends Component {
 
           <label>
             <p>Room type</p> 
-            {/* <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" /> */}
-
             <select name="room_type" value={this.state.room_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
-              <option value="Entire place">Entire place</option>
-              <option value="Private room" >Private room</option>
-              <option value="Shared room">Shared room</option>
+            <option value="Entire place">Entire place</option>
+            <option value="Private room" >Private room</option>
+            <option value="Shared room">Shared room</option>
             </select>
           </label>
   
@@ -235,16 +257,23 @@ class EditPlace extends Component {
           </label>
 
           <label>
-            <p>Image</p> 
-            <input type="file" onChange={event => this.uploadImage(event)} />
-            <input type="file" onChange={event => this.uploadImage2(event)} />
-            <input type="file" onChange={event => this.uploadImage3(event)} />
-            {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" /> */}
+            <p>Images</p> 
+            <div className="avatar" id="avatar1">Click to upload it</div>
+            <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl hidden" id="hidden1"/>
+          </label>
+
+          <label>
+          <div className="avatar" id="avatar2">Click to upload it</div>
+          <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl hidden" id="hidden2"/>
+          </label>
+
+          <label>
+          <div className="avatar" id="avatar3">Click to upload it</div>
+          <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl hidden" id="hidden3"/>
           </label>
 
           <p>Availables dates</p>
+          <div className="dates">
             <DateRangePicker
                         startDateId="blahStart"
                         endDateId="blahEnd"
@@ -257,6 +286,7 @@ class EditPlace extends Component {
                         startDatePlaceholderText = "MM/DD/YYYY"
                         endDatePlaceholderText = "MM/DD/YYYY"
                     />
+          </div>
 
           <button className="add-button h6">Edit your place</button>
           </form>

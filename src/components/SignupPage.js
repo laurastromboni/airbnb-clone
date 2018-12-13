@@ -36,7 +36,6 @@ class SignupPage extends Component{
         console.log("Signup Page ERROR", err);
         alert("Sorry! Something went wrong.");
       })
-
   }
 
   uploadImage(event) {
@@ -84,7 +83,7 @@ class SignupPage extends Component{
         
         <div className="cover"><Link to="/houses"><button className="h6">Discover our places</button></Link></div>
 
-        <h2>Welcome to AirBnb !</h2>
+        <h2>Welcome to Airbnb!</h2>
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
@@ -107,7 +106,7 @@ class SignupPage extends Component{
 
           <label>
             <p>Images</p> 
-            <div id="avatar">Click here to upload your pic</div>
+            <div id="avatar">Click to upload it</div>
             <input type="file" onChange={event => this.uploadImage(event)} name="avatar" id="hidden" />
           </label>
 

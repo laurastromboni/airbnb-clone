@@ -14,6 +14,7 @@
     "mongoose": "^5.3.14",
     "node-sass": "^4.10.0",
     "react": "^16.6.3",
+    "react-alert": "^4.0.4",
     "react-bootstrap": "^0.32.4",
     "react-dates": "^18.2.2",
     "react-dom": "^16.6.3",

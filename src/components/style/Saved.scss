@@ -59,6 +59,9 @@
       font-size: 12px;
       margin-top: 10px;
       cursor: pointer;
+      @media (max-width:500px){
+        width:230px;
+        }
     }
 }
 
