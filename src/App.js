@@ -104,7 +104,7 @@ class App extends Component {
 
     if (userDoc) {
       connect(userDoc._id, (message) => {
-        NotificationManager.info("Message from " + message.sender.fullName);
+          NotificationManager.info("Message from " + message.sender.fullName);
       });
     }
   }
