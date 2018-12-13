@@ -112,7 +112,7 @@ class SettingUser extends Component {
           </label>
 
           <label className="avatars">
-            <div id="avatar">Change your avatar url</div>
+            <div id="avatar">Change your avatar</div>
             <input type="file" onChange={event => this.uploadImage(event)} name="avatar" id="hidden" />
           </label>
 
