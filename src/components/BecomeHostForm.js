@@ -177,21 +177,7 @@ class BecomeHostForm extends Component {
     if (this.state.isSubmitSuccessful) {
       return <Redirect to="/userhouses" />
     }
-
-    // var el = document.getElementsByClassName("avatar");
-    // var myFile = document.getElementsByClassName("hidden");
-
-    // if(myFile){
-    //   // myFile.addEventListener("change", () => {
-    //   //   el.innerHTML = "File uploaded";
-    //   // });    
-    //   for(var i = 0;i < myFile.length-1;i++){
-    //     myFile[i].addEventListener("change", () => {
-    //       el.innerHTML = "File uploaded";
-    //     });
-    //   };  
-    // }
-
+    
     var el1 = document.getElementById('avatar1');
     var myFile1 = document.getElementById("hidden1");
     var el2 = document.getElementById('avatar2');
@@ -231,10 +217,7 @@ class BecomeHostForm extends Component {
 
           <label>
             <p>Type</p> 
-            
-            {/* <input value={this.state.property_type} onChange={event => this.synchro(event)} type="text" name="property_type" placeholder="House, appartment..." className="two-col" /> */}
-          
-            <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
+             <select name="property_type" value={this.state.property_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
               <option value="Appartment">Appartment</option>
               <option value="House" >House</option>
               <option value="Secondary Unit">Secondary Unit</option>
@@ -246,8 +229,6 @@ class BecomeHostForm extends Component {
 
           <label>
             <p>Room type</p> 
-            {/* <input value={this.state.room_type} onChange={event => this.synchro(event)} type="text" name="room_type" placeholder="Entire place, private room..." className="two-col" /> */}
-
             <select name="room_type" value={this.state.room_type} onChange={event => this.synchro(event)} placeholder="House, appartment..." className="two-col">
               <option value="Entire place">Entire place</option>
               <option value="Private room" >Private room</option>
@@ -297,20 +278,18 @@ class BecomeHostForm extends Component {
 
           <label>
             <p>Images</p> 
-
-            <div className="avatar" id="avatar1">Click here to upload your pic</div>
+            <div className="avatar" id="avatar1">Click to upload it</div>
             <input type="file" onChange={event => this.uploadImage(event)} name="xl_picture_url" className="pictureUrl hidden" id="hidden1"/>
-            <div className="avatar" id="avatar2">Click here to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl hidden" id="hidden2"/>
-            <div className="avatar" id="avatar3">Click here to upload your pic</div>
-            <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl hidden" id="hidden3"/>
+          </label>
 
-            {/* <img src={this.state.xl_picture_url} alt="" /> */}
+          <label>
+          <div className="avatar" id="avatar2">Click to upload it</div>
+          <input type="file" onChange={event => this.uploadImage2(event)} name="xl_picture_url_2" className="pictureUrl hidden" id="hidden2"/>
+          </label>
 
-            {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
-            <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" /> */}
-
+          <label>
+          <div className="avatar" id="avatar3">Click to upload it</div>
+          <input type="file" onChange={event => this.uploadImage3(event)} name="xl_picture_url_3" className="pictureUrl hidden" id="hidden3"/>
           </label>
           
           <p>Availables dates</p>

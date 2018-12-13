@@ -41,8 +41,8 @@ class App extends Component {
         currentUser: null,
         userHousesArray: [],
         userMessagesArray: [],
-        address : 'Paris, France',
-        where :"Paris",
+        address : '',
+        where :"",
         searchResults : [],
         allResults : [],
         guest : 1,
@@ -150,29 +150,52 @@ class App extends Component {
           arrayOfDates.push( moment(currentDate).format('YYYY-MM-DD') )
           currentDate = moment(currentDate).add(1, 'days');
       }
-  
-      axios.post(process.env.REACT_APP_SERVER_URL + `/api/search`, {arrayOfDates, where, guest})
-      .then(response => {
-          console.log("search", response.data)
-          
-          gps.lng = response.data[response.data.length-1].geopoint[1]                       
-          gps.lat = response.data[response.data.length-1].geopoint[0]
-          // console.log("gps", gps)
-          
-  
+      
+      if(this.state.where!==""){
+        axios.post(process.env.REACT_APP_SERVER_URL + `/api/search`, {arrayOfDates, where, guest})
+        .then(response => {
+            console.log("search", response.data)
+            
+            gps.lng = response.data[response.data.length-1].geopoint[1]                       
+            gps.lat = response.data[response.data.length-1].geopoint[0]
+            // console.log("gps", gps)
+            
+    
+            this.setState({
+                dateArray : arrayOfDates,
+                gps,
+                searchResults: response.data,
+                isSubmitSuccessful : true, 
+                redirect : true,
+            })
+        })
+        .catch(err =>{
+            console.log("search", err);
+            alert("We can't find houses for this city")
+        })
+      }
+      else{
+        console.log("find all places because nothing in search bar")
+        axios.get(process.env.REACT_APP_SERVER_URL + "/api/houses", { withCredentials: true })
+      .then(response =>{
+        console.log("search", response.data)
+        const index = response.data.length - 1;
+        gps.lng = response.data[index].geopoint[1]                       
+        gps.lat = response.data[index].geopoint[0]
           this.setState({
-              dateArray : arrayOfDates,
-              gps,
-              searchResults: response.data,
-              isSubmitSuccessful : true, 
-              redirect : true,
+            dateArray : arrayOfDates,
+            gps,
+            searchResults: response.data,
+            isSubmitSuccessful : true,
+            redirect : true, 
           })
       })
-      .catch(err =>{
-          console.log("search", err);
-          alert("We can't find houses for this city")
+      .catch(err=>{
+          console.log("Listing Info Error", err);
+          alert("Sorry something went wrong")
       })
-      }
+    }
+    }
 
     funcDatesChange = ({ startDate, endDate }) => { 
         this.setState({ startDate, endDate })
@@ -199,6 +222,7 @@ class App extends Component {
           currentDate = moment(currentDate).add(1, 'days');
       }
   
+      if(this.state.where!==""){
       axios.post(process.env.REACT_APP_SERVER_URL + `/api/search`, {arrayOfDates, where, guest})
       .then(response => {
           console.log("search", response.data)
@@ -221,7 +245,28 @@ class App extends Component {
           alert("We can't find houses for this city")
       })
       }
-
+      else{
+        console.log("find all places because nothing in search bar")
+        axios.get(process.env.REACT_APP_SERVER_URL + "/api/houses", { withCredentials: true })
+      .then(response =>{
+        console.log("search", response.data)
+        const index = response.data.length - 1;
+        gps.lng = response.data[index].geopoint[1]                       
+        gps.lat = response.data[index].geopoint[0]
+          this.setState({
+            dateArray : arrayOfDates,
+            gps,
+            searchResults: response.data,
+            isSubmitSuccessful : true,
+            redirect : true, 
+          })
+      })
+      .catch(err=>{
+          console.log("Listing Info Error", err);
+          alert("Sorry something went wrong")
+      })
+    }
+    }
   render() {
 
     return (
@@ -332,7 +377,8 @@ class App extends Component {
           <Route component = {NotFound} />
         </Switch> 
 
-        <Footer />
+        <Footer 
+          handleSubmit={event => this.submitHandlerSearchBar(event)}/>
         <NotificationContainer/>
       </div>
     );

@@ -26,7 +26,10 @@
         margin-top: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
-        font-size: 12px;
+        font-size: 12px; 
+        @media (max-width:500px){
+          width:230px;
+        }
       }
     }
   }
@@ -39,7 +42,7 @@
       p{
         margin-bottom: 10px;
       }
-      input{
+      #avatar1, #avatar2, #avatar3, .avatar, select,input{
         background-color: #ffffff !important;
         -webkit-transition: box-shadow 200ms ease-in !important;
         -moz-transition: box-shadow 200ms ease-in !important;
@@ -60,8 +63,58 @@
           width: 80%;
         }
       }
+      select{
+        text-indent: 4px;
+      }
       .pictureUrl{
         margin-bottom: 5px;
+      }
+      #avatar1, #avatar2, #avatar3{
+        margin: 0 auto;
+        margin-bottom: 10px;
+        cursor: pointer;
+      }
+      #hidden1, #hidden2, #hidden3{
+        display: none;
+        margin-bottom: 10px;
+      }
+    }
+    .dates{	       
+      width: 50%;     
+      margin: 0 auto;
+      p{
+        margin-bottom: 10px;
+      }
+      .DateRangePicker{
+        width: 100%;
+        .DateRangePickerInput{
+          width: 100%;
+          background-color: #ffffff !important;
+          -webkit-transition: box-shadow 200ms ease-in !important;
+          -moz-transition: box-shadow 200ms ease-in !important;
+          transition: box-shadow 200ms ease-in !important;
+          border: 1px solid #EBEBEB !important;
+          border-radius: 4px !important;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+          outline: none;
+          background-origin: content-box;
+          letter-spacing: 1px;
+          font-size: 12px;
+          text-transform: uppercase;
+          }
+          .DateRangePicker_picker{
+            @media(max-width: 619px){
+              display: none;
+            }
+          }
+          .DateInput_fang{
+            @media(max-width: 619px){
+              display: none;
+            }
+          }
+      }
+      @media (max-width:720px){
+        width: 80%;
       }
     }
     .add-button{
@@ -77,6 +130,12 @@
       font-size: 12px;
       margin-top: 20px;
       cursor: pointer;
+      @media (max-width:500px){
+        width:230px;
+      }
     }
+  }
+  @media (max-width:500px){
+    padding: 120px 20px 0 20px;
   }
 }

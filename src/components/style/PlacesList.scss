@@ -58,6 +58,9 @@
         }
       }
     }
+    @media (max-width:360px){
+      padding: 0;
+    }
   }
   #GoogleMap{
     position: relative;
