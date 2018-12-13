@@ -24,6 +24,7 @@ class Filters extends Component{
           value={this.props.address}
           shouldFetchSuggestions={this.props.address.length > 2}
         >
+        
           {({ getInputProps, suggestions, getSuggestionItemProps }) => {
             return (
               <div className="Demo__search-bar-container">
