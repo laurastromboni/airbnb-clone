@@ -3,6 +3,10 @@ import axios from "axios";
 import "./style/EditPlace.scss";
 import { Redirect, Link } from "react-router-dom";
 
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+
+let blockedDates = [];
 
 class EditPlace extends Component {
   constructor(props) {
@@ -25,7 +29,12 @@ class EditPlace extends Component {
       xl_picture_url: "",
       xl_picture_url_2: "",
       xl_picture_url_3: "",
-      isSubmitSuccessful: false
+      isSubmitSuccessful: false,
+
+      startDate: null,
+      endDate: null,
+      focusedInput: null,
+      availableDates: [],
     }
   }
 
@@ -121,6 +130,13 @@ class EditPlace extends Component {
     });
   }
   
+  functionDatesChange = ({ startDate, endDate }) => { 
+    this.setState({ startDate, endDate })
+}
+
+  functionFocusChange = (focusedInput) => { 
+      this.setState({focusedInput})
+  }
 
   handleSubmit(event) {
     event.preventDefault();
@@ -135,6 +151,8 @@ class EditPlace extends Component {
   }
 
   render() {
+    const isDayBlocked = day => blockedDates.filter(d => d.isSame(day, 'day')).length > 0;
+
     const { isSubmitSuccessful } = this.state;
     if (isSubmitSuccessful) {
       return <Redirect to="/userhouses" />
@@ -225,6 +243,20 @@ class EditPlace extends Component {
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL" className="pictureUrl" />
             <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL" className="pictureUrl" /> */}
           </label>
+
+          <p>Availables dates</p>
+            <DateRangePicker
+                        startDateId="blahStart"
+                        endDateId="blahEnd"
+                        startDate={this.state.startDate}
+                        endDate={this.state.endDate}
+                        onDatesChange = {dates=>this.functionDatesChange(dates)}
+                        focusedInput={this.state.focusedInput}
+                        onFocusChange={focused=>this.functionFocusChange(focused)}
+                        isDayBlocked = {isDayBlocked}
+                        startDatePlaceholderText = "Start"
+                        endDatePlaceholderText = "End"
+                    />
 
           <button className="add-button h6">Edit your place</button>
           </form>
