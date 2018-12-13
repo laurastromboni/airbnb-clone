@@ -310,9 +310,11 @@ class BecomeHostForm extends Component {
             {/* <input value={this.state.xl_picture_url} onChange={event => this.synchro(event)} type="url" name="xl_picture_url" placeholder="Image URL 1" className="pictureUrl" />
             <input value={this.state.xl_picture_url_2} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_2" placeholder="Image URL 2" className="pictureUrl" />
             <input value={this.state.xl_picture_url_3} onChange={event => this.synchro(event)} type="url" name="xl_picture_url_3" placeholder="Image URL 3" className="pictureUrl" /> */}
+
           </label>
           
           <p>Availables dates</p>
+          <div className="dates">
           <DateRangePicker
                       startDateId="blahStart"
                       endDateId="blahEnd"
@@ -322,9 +324,10 @@ class BecomeHostForm extends Component {
                       focusedInput={this.state.focusedInput}
                       onFocusChange={focused=>this.functionFocusChange(focused)}
                       isDayBlocked = {isDayBlocked}
-                      startDatePlaceholderText = "Start"
-                      endDatePlaceholderText = "End"
+                      startDatePlaceholderText = "MM/DD/YYYY"
+                      endDatePlaceholderText = "MM/DD/YYYY"
                     />
+          </div>
 
           <button className="add-button h6">Add your place</button>
 
