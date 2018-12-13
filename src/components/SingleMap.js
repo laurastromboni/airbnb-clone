@@ -13,18 +13,19 @@ function houseUrl(oneHouse){
   }
 const AnyReactComponent = ({ oneloc }) => <div className="PopupMap">
                             {<Popup trigger={<img className = "map-icon" src={mapicon} alt="map" />}>
-                                <p>{oneloc.name}</p>
-                                <img className="littlePic" src={oneloc.xl_picture_url} alt="" />
-                                <h5>{oneloc.price}$ per night</h5>
-                                <div className="details">
-                                  <StarRatingComponent 
-                                  name="rate1" 
-                                  editing={false}
-                                  starCount={5}
-                                  value={Math.round(oneloc.review_scores_rating/20)}
-                                  />
-                                  <Link to={houseUrl(oneloc)}><u>See details</u></Link>
+                                <Link to={houseUrl(oneloc)}>
+                                  <p>{oneloc.name}</p>
+                                  <img className="littlePic" src={oneloc.xl_picture_url} alt="" />
+                                  <h5>{oneloc.price}$ per night</h5>
+                                  <div className="details">
+                                    <StarRatingComponent 
+                                    name="rate1" 
+                                    editing={false}
+                                    starCount={5}
+                                    value={Math.round(oneloc.review_scores_rating/20)}
+                                    />
                                 </div>
+                                </Link>
                             </Popup>}
                             </div>;
  

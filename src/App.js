@@ -19,7 +19,6 @@ import GoogleSearch from "./components/GoogleSearch.js";
 import SettingUser from "./components/SettingUser";
 import EditPlace from "./components/EditPlace";
 import UserHouses from "./components/UserHouses";
-import Notification from "./components/Notification";
 import OrderRecap from "./components/OrderRecap";
 import "./components/style/Menu.scss";
 import {NotificationContainer, NotificationManager} from 'react-notifications';
@@ -56,8 +55,6 @@ class App extends Component {
           lng : 2.3488
         }, 
         redirect: false,
-
-
     }
   }
 
@@ -109,7 +106,6 @@ class App extends Component {
     }
   }
 
-  
   logoutClick(){
     axios.delete(process.env.REACT_APP_SERVER_URL + "/api/logout", { withCredentials: true })
         .then( () => {
