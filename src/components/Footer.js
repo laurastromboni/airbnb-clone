@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from 'react-router-dom'
 
 import './style/Footer.scss';
 import './style/FontColors.scss';
@@ -55,7 +56,8 @@ class Footer extends Component{
         </ul>
       </div>
       <hr />
-      <img src={logoGrey} className="logo" alt="logo" onClick={event => this.scrollTo(event)}/>
+      <NavLink exact to="/"><img src={logoGrey} className="logo" alt="logo" onClick={event => this.scrollTo(event)}/></NavLink>
+
       </section>
     )
   }
