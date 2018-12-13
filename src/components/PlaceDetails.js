@@ -62,22 +62,23 @@ class PlaceDetails extends Component {
                           blockedDates.push(moment(oneDate))
                       }
                   })
-
-                    return axios.get(process.env.REACT_APP_SERVER_URL + `/api/settinguser/${currentUser._id}`, { withCredentials: true })
-                
-            .then(response => {
-              console.log("response.data.favorites", response.data.favorites)
-              console.log("params.houseId", params.houseId)
-              const { favorites } = response.data
-              const filterArray = favorites.some( el => {
-                return el.houses === params.houseId
-              })
-                this.setState({isFavorite: filterArray})
-            })
-            .catch(err => {
-                console.log("House Details Error", err);
-                alert('sorry, something went wrong')
-            })
+                    if(this.props.currentUser){
+                      axios.get(process.env.REACT_APP_SERVER_URL + `/api/settinguser/${currentUser._id}`, { withCredentials: true })
+                      
+                      .then(response => {
+                        console.log("response.data.favorites", response.data.favorites)
+                        console.log("params.houseId", params.houseId)
+                        const { favorites } = response.data
+                        const filterArray = favorites.some( el => {
+                          return el.houses === params.houseId
+                        })
+                        this.setState({isFavorite: filterArray})
+                      })
+                      .catch(err => {
+                        console.log("House Details Error", err);
+                        alert('sorry, something went wrong')
+                      })
+                    }
             })
     }
 
@@ -216,7 +217,7 @@ class PlaceDetails extends Component {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
 
-                  <img src={currentUser.avatar} alt="" />
+                  <img src={this.state.currentUser && this.state.currentUser.avatar} alt="" />
 
                 </div>
               </div>
