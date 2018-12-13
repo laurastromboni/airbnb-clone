@@ -254,8 +254,8 @@ class EditPlace extends Component {
                         focusedInput={this.state.focusedInput}
                         onFocusChange={focused=>this.functionFocusChange(focused)}
                         isDayBlocked = {isDayBlocked}
-                        startDatePlaceholderText = "Start"
-                        endDatePlaceholderText = "End"
+                        startDatePlaceholderText = "MM/DD/YYYY"
+                        endDatePlaceholderText = "MM/DD/YYYY"
                     />
 
           <button className="add-button h6">Edit your place</button>
