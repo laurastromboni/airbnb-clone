@@ -86,8 +86,8 @@ class BecomeHostForm extends Component {
 
       this.setState({
         owner: "",
-        property_type: "",
-        room_type: "",
+        property_type: "Appartment",
+        room_type: "Entire place",
         accommodates: "",
         beds: "",
         bedrooms: "",

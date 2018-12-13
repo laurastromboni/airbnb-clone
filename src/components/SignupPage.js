@@ -36,7 +36,6 @@ class SignupPage extends Component{
         console.log("Signup Page ERROR", err);
         alert("Sorry! Something went wrong.");
       })
-
   }
 
   uploadImage(event) {
