@@ -116,9 +116,9 @@
             text-transform: uppercase;
           }
         }
-        .place-type{
+        .place-type{    
           display: flex;
-          flex-direction: row;
+          flex-wrap: wrap;
           text-align: center;
           p {
             margin: 0 10px;

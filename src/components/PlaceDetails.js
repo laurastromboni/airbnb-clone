@@ -165,7 +165,7 @@ class PlaceDetails extends Component {
       console.log("CURRENT USER ID -----------------------------", this.props.currentUser)
       console.log("HOST PICTURE -----------------------------", this.state.host_picture_url)
 
-      const { currentUser } = this.props  
+      // const { currentUser } = this.props  
         return(
           
           <section className = "PlaceDetails">
