@@ -217,7 +217,7 @@ class PlaceDetails extends Component {
                 </div>
                 <div className="col-lg-2 col-md-2 col-sm-2 top-content-left">
 
-                  <img src={this.state.currentUser && this.state.currentUser.avatar} alt="" />
+                  <img src={this.state.host_picture_url} alt="" />
 
                 </div>
               </div>

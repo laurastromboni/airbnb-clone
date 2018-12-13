@@ -13,6 +13,7 @@ class SignupPage extends Component{
       originalPassword: "",
       // currentUser: null, = delete to synchronize
       avatar: "",
+      message: "",
     }
   }
 
@@ -33,8 +34,8 @@ class SignupPage extends Component{
         this.props.onUserChange(userDoc)
       })
       .catch(err => {
-        console.log("Signup Page ERROR", err);
-        alert("Sorry! Something went wrong.");
+        console.log("Signup page error", err.response.data.message);
+        this.setState({message: err.response.data.message});
       })
   }
 
@@ -84,6 +85,8 @@ class SignupPage extends Component{
         <div className="cover"><Link to="/houses"><button className="h6">Discover our places</button></Link></div>
 
         <h2>Welcome to Airbnb!</h2>
+
+        {(this.state.message) && <h5>{this.state.message}</h5>}
 
         <form onSubmit={event => this.handleSubmit(event)}>
           <label>
