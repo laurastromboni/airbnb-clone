@@ -57,7 +57,7 @@ class Trips extends Component {
                       <h4>{oneBooking.houseId.name}</h4>
                       <p>{oneBooking.guests} guests</p>
                       <h5>{oneBooking.price}$ per night</h5>
-                      <h5><b>From {oneBooking.arrayOfDates[0]} to {oneBooking.arrayOfDates[1]}</b></h5>
+                      <h5><b>From {oneBooking.arrayOfDates[0]} to {oneBooking.arrayOfDates[oneBooking.arrayOfDates.length -1]}</b></h5>
                       </Link>
                     </li>
                 )
@@ -88,7 +88,7 @@ class Trips extends Component {
                       <h4>{oneBooking.houseId.name}</h4>
                       <p>{oneBooking.guests} guests</p>
                       <h5>{oneBooking.price}$ per night</h5>
-                      <h5><b>From {oneBooking.arrayOfDates[0]} to {oneBooking.arrayOfDates[1]}</b></h5>
+                      <h5><b>From {oneBooking.arrayOfDates[0]} to {oneBooking.arrayOfDates[oneBooking.arrayOfDates.length -1]}</b></h5>
                       </Link>
                     </li>
                 )
