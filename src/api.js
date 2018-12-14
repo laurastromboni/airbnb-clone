@@ -16,6 +16,7 @@ function connect(userId, cb) {
 
 // when one user sends a message, it will send info to the socket server (socket.emit)
 function sendMessage(msg) {
+  console.log("bibibibibibib", msg)
   socket.emit('chat message', msg);
 }
 
