@@ -59,6 +59,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    window.scrollTo(0,0)
     let gps = {...this.state.gps};
   axios.get(process.env.REACT_APP_SERVER_URL + "/api/houses", { withCredentials: true })
       .then(response =>{

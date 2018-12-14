@@ -17,7 +17,16 @@ function houseUrl(id){
 }
 
 class PlacesList extends Component{
+ constructor(props){
+     super(props);
+     this.state={
 
+     }
+        
+ }
+ componentDidMount(){
+    window.scrollTo(0,0)
+ }
   render(){
       const {searchResults, allResults} = this.props
       let results = searchResults.length > 0 ? searchResults : allResults

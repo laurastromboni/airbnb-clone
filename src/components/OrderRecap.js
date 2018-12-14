@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
-
+import { connect, sendMessage }  from '../api';
 import "./style/OrderRecap.scss"
 
 class OrderRecap extends Component {
@@ -18,6 +18,7 @@ class OrderRecap extends Component {
   componentDidMount(){
     window.scrollTo(0,0)
     this.setState({recipient : this.props.recipient})
+    
   }
 
   handleSubmit(event){
@@ -32,6 +33,7 @@ class OrderRecap extends Component {
         this.setState({
             isSubmitSuccessful : true, 
         })
+        sendMessage(response.data.message[0]);
     })
     .catch(err =>{
         console.log("search", err);
