@@ -347,7 +347,6 @@ class App extends Component {
             }} />
 
           <Route path="/trips" component={Trips}/>
-          <Route path="/notification" component={Notification}/>
           <Route exact path ="/menu" render ={() => {
             return <Menu currentUser={this.state.currentUser} logClick={()=>this.logoutClick()} />
           }} />
