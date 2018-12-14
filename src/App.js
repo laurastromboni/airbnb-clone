@@ -59,7 +59,6 @@ class App extends Component {
   }
 
   componentDidMount(){
-
     let gps = {...this.state.gps};
   axios.get(process.env.REACT_APP_SERVER_URL + "/api/houses", { withCredentials: true })
       .then(response =>{
@@ -345,7 +344,6 @@ class App extends Component {
             }} />
 
           <Route path="/trips" component={Trips}/>
-          <Route path="/notification" component={Notification}/>
           <Route exact path ="/menu" render ={() => {
             return <Menu currentUser={this.state.currentUser} logClick={()=>this.logoutClick()} />
           }} />
