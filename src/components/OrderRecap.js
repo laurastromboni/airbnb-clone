@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { Redirect } from "react-router-dom";
-import { connect, sendMessage }  from '../api';
+import { sendMessage }  from '../api';
 import "./style/OrderRecap.scss"
 
 class OrderRecap extends Component {

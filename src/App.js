@@ -100,7 +100,9 @@ class App extends Component {
     this.setState({ currentUser : userDoc });
 
     if (userDoc) {
+      console.log('test userDoc')
       connect(userDoc._id, (message) => {
+        console.log("conneect test")
           NotificationManager.info("Message from " + message.sender.fullName);
       });
     }
